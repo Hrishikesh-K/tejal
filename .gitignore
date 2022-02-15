@@ -1,9 +1,10 @@
-.idea
-public
-.netlify
 .DS_Store
-windi.css
-resources
-node_modules
+.env
 .hugo_build.lock
+.idea
+.netlify
+node_modules
 package-lock.json
+public
+resources
+windi.css

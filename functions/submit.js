@@ -12,7 +12,7 @@ export async function handler({headers, body}) {
     }
   }
   return new AkismetClient({
-    blog: 'https://sleepy-mclean-332607.netlify.app/',
+    blog: 'https://www.tejalshinde.com/',
     key: AKISMET
   }).checkSpam({
     content: message,
