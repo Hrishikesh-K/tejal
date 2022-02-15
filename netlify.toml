@@ -1,0 +1,17 @@
+[build]
+  base = "/"
+  command = "npm run build"
+  publish = "public"
+  [build.environment]
+    HUGO_VERSION = "0.92.2"
+    NODE_VERSION = "node"
+[dev]
+  framework = "hugo"
+[functions]
+  directory = "functions"
+  node_bundler = "esbuild"
+[[redirects]]
+  force = true
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/:splat"

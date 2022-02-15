@@ -1,0 +1,162 @@
+{{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+  <section
+    x-init = "$store.currentPage = 'portfolio'"
+    w:bg = "black/75"
+    w:m = "x-auto"
+    w:max-w = "7xl"
+    w:min-h = "full"
+    w:p = "5"
+    w:w = "full">
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        {{- .Title -}}
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+    <p
+      w:font = "bold"
+      w:m = "t-2.5"
+      w:text = "3xl uppercase">
+      My work
+    </p>
+    {{- range .Site.Sections -}}
+      <div
+        w:align = "items-center"
+        w:flex = "~"
+        w:m = "t-5">
+        <p
+          w:text = "xl">
+          {{- .Section | humanize -}}
+        </p>
+        <a
+          href = "{{- .RelPermalink -}}"
+          w:display = "block"
+          w:m = "l-5"
+          w:w = "fit">
+          <button
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out">
+            <span>
+              View all ({{ len (where .Site.RegularPages "Section" .Section) }})
+            </span>
+            <span
+              w:m = "l-1.5">
+              <svg
+                viewBox = "0 0 24 24"
+                xmlns = "http://www.w3.org/2000/svg"
+                w:h = "5"
+                w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+                w:w = "5">
+                <path
+                  d = "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </span>
+          </button>
+        </a>
+      </div>
+      <div
+        w:grid = "~ cols-1 gap-5 sm:cols-2 lg:cols-3"
+        w:m = "t-5">
+        {{- range first 3 (where .Site.RegularPages "Section" .Section) -}}
+          {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
+          {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
+          <div
+            w:bg = "white/[0.05]"
+            w:opacity = "0"
+            w:position = "relative"
+            w:transform = "~ translate-y-10"
+            w:transition = "duration-250 ease-in-out slide"
+            class = "group">
+            <div
+              w:aspect = "square"
+              w:overflow = "hidden"
+              w:w= "full">
+              <img
+                alt = "cover for {{ .Title -}}"
+                height = "{{- $originalCover.Height -}}"
+                src = "{{- $lowCover.RelPermalink -}}"
+                width = "{{- $originalCover.Width -}}"
+                data-lazy = "{{- $originalCover.RelPermalink -}}"
+                w:filter = "~ blur-md"
+                w:h = "full"
+                w:object = "cover"
+                w:transform = "~ scale-110 can-hover:group-hover:scale-110"
+                w:transition = "duration-250 ease-in-out transform"
+                w:w = "full"/>
+            </div>
+            <div
+              w:bg = "can-hover:black/75"
+              w:flex = "can-hover:~ can-hover:col"
+              w:h = "can-hover:full"
+              w:justify = "can-hover:center"
+              w:opacity = "can-hover:0 can-hover:group-hover:100"
+              w:p = "5"
+              w:position = "can-hover:absolute can-hover:left-0 can-hover:top-0"
+              w:transform = "can-hover:~ can-hover:scale-110 can-hover:group-hover:scale-100"
+              w:transition = "can-hover:duration-250 can-hover:ease-in-out can-hover:slide"
+              w:w = "full">
+              <div
+                w:align = "items-center"
+                w:flex = "~"
+                w:space = "x-2.5">
+                <hr
+                  w:border = "~ green-500"
+                  w:flex = "grow"/>
+                <p
+                  w:text = "2xl">
+                  {{- .Title -}}
+                </p>
+                <hr
+                  w:border = "~ green-500"
+                  w:flex = "grow"/>
+              </div>
+              <p
+                w:m = "t-5">
+                {{- .Description -}}
+              </p>
+              <a
+                href = "{{- .RelPermalink -}}"
+                w:display = "block"
+                w:m = "l-auto t-5"
+                w:w = "fit">
+                <button
+                  w:align = "items-center"
+                  w:bg = "green-500 hover:green-700"
+                  w:flex = "~"
+                  w:p = "1.5"
+                  w:transition = "background duration-250 ease-in-out">
+                  <span>
+                    Read more
+                  </span>
+                  <span
+                    w:m = "l-1.5">
+                    <svg
+                      viewBox = "0 0 24 24"
+                      xmlns = "http://www.w3.org/2000/svg"
+                      w:h = "5"
+                      w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+                      w:w = "5">
+                      <path
+                        d = "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </span>
+                </button>
+              </a>
+            </div>
+          </div>
+        {{- end -}}
+      </div>
+    {{- end -}}
+  </section>
+{{- end -}}

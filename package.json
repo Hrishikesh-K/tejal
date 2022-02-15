@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@swup/progress-plugin": "^1.0.1",
+    "@windicss/plugin-interaction-variants": "^1.0.0",
+    "@windicss/plugin-scrollbar": "^1.2.3",
+    "akismet-api": "^5.2.1",
+    "alpinejs": "^3.9.0",
+    "axios": "^0.26.0",
+    "emailjs": "^3.7.0",
+    "faunadb": "^5.0.0-preview.1",
+    "masonry-layout": "^4.2.2",
+    "netlify-cli": "^9.5.0",
+    "npm-run-all": "^4.1.5",
+    "pdfjs-dist": "^2.12.313",
+    "swiper": "^8.0.6",
+    "swup": "^2.0.14",
+    "tailwind-scrollbar": "^1.3.1",
+    "windicss": "^3.4.3",
+    "windicss-analysis": "^0.3.5"
+  },
+  "scripts": {
+    "build": "run-s windicss:build hugo:build",
+    "dev": "run-p windicss:dev hugo:dev",
+    "hugo:build": "hugo",
+    "hugo:dev": "hugo server",
+    "windicss:analyse": "windicss-analysis",
+    "windicss:build": "windicss --attributify --config ./windi.config.js --minify --output ./assets/css/windi.css --preflight",
+    "windicss:dev": "windicss --attributify --config ./windi.config.js --dev --minify --output ./assets/css/windi.css --preflight"
+  }
+}

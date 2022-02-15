@@ -1,0 +1,35 @@
+{{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+  <section
+    x-init = "$store.currentPage = 'portfolio'"
+    w:bg = "black/75"
+    w:m = "x-auto"
+    w:max-w = "7xl"
+    w:min-h = "full"
+    w:p = "5"
+    w:w = "full">
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        {{- .Section -}}
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+    <p
+      w:font = "bold"
+      w:m = "t-2.5"
+      w:text = "3xl uppercase">
+      {{- .Title -}}
+    </p>
+    <div
+      w:m = "t-5">
+      {{- .Content -}}
+    </div>
+  </section>
+{{- end -}}

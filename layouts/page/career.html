@@ -1,0 +1,121 @@
+{{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+  <section
+    x-init = "$store.currentPage = 'career'"
+    w:bg = "black/75"
+    w:m = "x-auto"
+    w:max-w = "7xl"
+    w:min-h = "full"
+    w:p = "5"
+    w:w = "full">
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        {{- .Title -}}
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+    <p
+      w:font = "bold"
+      w:m = "t-2.5"
+      w:text = "3xl uppercase">
+      Check my career
+    </p>
+    <div
+      w:m = "t-5">
+      <div
+        w:flex = "~ wrap"
+        w:w = "full">
+        <div
+          w:flex = "sm:1"
+          w:w = "full">
+          <p
+            w:font = "bold"
+            w:m = "b-2.5"
+            w:text = "2xl">
+            Education
+          </p>
+            {{- range $index, $element := .Params.education -}}
+              <!--<safe
+                w:p = "t-5"
+                w:before = "top-0.5 top-[calc(1.25rem_+_0.125rem)]"/>-->
+              <div
+                w:before = "absolute bg-green-500 content-[''] h-4 -ml-6 rounded-full w-4 {{ if eq $index 0 }}top-0.5{{- else -}}top-[calc(1.25rem_+_0.125rem)]{{- end -}}"
+                w:border = "l-2 white/25"
+                w:p = "l-[0.95rem] {{ if gt $index 0 }}t-5{{- end -}}"
+                w:position = "relative">
+                <p
+                  w:font = "bold leading-5"
+                  w:text = "green-500 xl">
+                  {{- .degree -}}
+                </p>
+                <p
+                  w:font = "italic"
+                  w:m = "t-2.5">
+                  {{- .college -}}
+                </p>
+                <ul
+                  w:list = "disc"
+                  w:m = "t-2.5"
+                  w:p = "l-2.5">
+                  {{- range .features -}}
+                    <li>
+                      {{- . -}}
+                    </li>
+                  {{- end -}}
+                </ul>
+              </div>
+          {{- end -}}
+        </div>
+        <div
+          w:flex = "sm:1"
+          w:m = "t-5 sm:l-5 sm:t-0"
+          w:w = "full">
+          <p
+            w:font = "bold"
+            w:m = "b-2.5"
+            w:text = "2xl">
+            Work
+          </p>
+          {{- range $index, $element := .Params.works -}}
+            <!--<safe
+              w:p = "t-5"
+              w:before = "top-0.5 top-[calc(1.25rem_+_0.125rem)]"/>-->
+            <div
+              w:before = "absolute bg-green-500 content-[''] h-4 -ml-6 rounded-full w-4 {{ if eq $index 0 }}top-0.5{{- else -}}top-[calc(1.25rem_+_0.125rem)]{{- end -}}"
+              w:border = "l-2 white/25"
+              w:p = "l-[0.95rem] {{ if gt $index 0 }}t-5{{- end -}}"
+              w:position = "relative">
+              <p
+                w:font = "bold leading-5"
+                w:text = "green-500 xl">
+                {{- .position -}}
+              </p>
+              <p
+                w:font = "italic"
+                w:m = "t-2.5">
+                {{- .company -}}
+              </p>
+              <ul
+                w:list = "disc"
+                w:m = "t-2.5"
+                w:p = "l-2.5">
+                {{- range .features -}}
+                  <li>
+                    {{- . -}}
+                  </li>
+                {{- end -}}
+              </ul>
+            </div>
+          {{- end -}}
+        </div>
+      </div>
+    </div>
+  </section>
+{{- end -}}

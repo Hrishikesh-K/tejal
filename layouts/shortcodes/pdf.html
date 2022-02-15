@@ -1,0 +1,435 @@
+<!--suppress HtmlUnknownAttribute, HtmlFormInputWithoutLabel, XmlUnboundNsPrefix -->
+{{- $pdf := .Page.Resources.GetMatch (.Get "src") -}}
+{{- $lowCover := index (.Page.Resources.Match (printf "%s-cover-low*" (substr $pdf 0 -4))) 0 -}}
+{{- $originalCover := .Page.Resources.GetMatch (replace $lowCover "-low" "") -}}
+<div
+  x-data = "pdf($el)"
+  data-pdf = "{{- .Get "src" -}}"
+  data-pdf-size = "{{- len $pdf.Content -}}">
+  <div
+    style = "aspect-ratio:{{- $originalCover.Width -}}/{{- $originalCover.Height -}};width:{{- $originalCover.Width -}}px;"
+    w:m = "x-auto"
+    w:max-w = "full"
+    w:overflow = "hidden"
+    w:position = "relative">
+    <template
+      x-if = "!loaded || loaded === 'loading'">
+      <div
+        w:align = "items-center"
+        w:bg = "black/75"
+        w:flex = "~"
+        w:h = :full
+        w:justify = "center"
+        w:position = "absolute left-0 top-0"
+        w:w = "full"
+        w:z = "10">
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "loaded === 'loading' ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "load"
+            x-bind:disabled = "loaded === 'loading'"
+            x-bind:w:pointer = "loaded === 'loading' ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out">
+            <span
+              x-text = "loaded === 'loading' ? 'Loading...' : 'Load PDF'">
+            </span>
+            <template
+              x-if = "loaded !== 'loading'">
+              <span
+                w:m = "l-1.5">
+                <svg
+                  viewBox = "0 0 24 24"
+                  xmlns = "http://www.w3.org/2000/svg"
+                  w:h = "5"
+                  w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+                  w:w = "5">
+                  <path
+                    d = "M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path
+                    d = "M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </span>
+            </template>
+          </button>
+        </div>
+      </div>
+    </template>
+    <template
+      x-if = "loaded && loaded !== 'loading' && loaded !== 'done'">
+      <div
+        w:align = "items-center"
+        w:bg = "black/75"
+        w:flex = "~"
+        w:h = :full
+        w:justify = "center"
+        w:position = "absolute left-0 top-0"
+        w:w = "full"
+        w:z = "10">
+        <div
+          w:align = "items-center"
+          w:flex = "~ col"
+          w:w = "40 sm:80">
+          <div
+            w:bg = "black"
+            w:h = "1"
+            w:position = "relative"
+            w:w = "full">
+            <div
+              x-bind:style = "`width:${loaded}%`"
+              w:bg = "green-500"
+              w:h = "1"
+              w:position = "absolute left-0 top-0">
+            </div>
+          </div>
+          <p
+            x-text = "`${loaded}%`"
+            w:m = "t-1.5">
+          </p>
+        </div>
+      </div>
+    </template>
+    <template
+      x-if = "error">
+      <div
+        w:align = "items-center"
+        w:bg = "black/75"
+        w:flex = "~"
+        w:h = :full
+        w:justify = "center"
+        w:position = "absolute left-0 top-0"
+        w:w = "full"
+        w:z = "10">
+        <p>
+          The PDF failed to load. Check developer console for full error details.
+        </p>
+        <!--<safe
+          w:filter = "~ brightness-50 brightness-100"
+          w:pointer = "auto none"/>-->
+        <button
+          x-on:click = "error = null; load()"
+          x-bind:disabled = "loaded === 'loading'"
+          x-bind:w:filter = "`${loaded === 'loading ? 'brightness-50' : 'brightness-100'} ~`"
+          x-bind:w:pointer = "loaded === 'loading' ? 'none' : 'auto'"
+          w:align = "items-center"
+          w:bg = "green-500 hover:green-700"
+          w:flex = "~"
+          w:p = "1.5"
+          w:transition = "background duration-250 ease-in-out">
+          <span>
+            Retry
+          </span>
+          <span
+            w:m = "l-1.5">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </template>
+    <!--<safe
+      w:overflow = "auto hidden"/>-->
+    <div
+      x-bind:w:overflow = "loaded !== 'done' ? 'hidden' : 'auto'"
+      data-pdf-container
+      w:h = "full"
+      w:m = "x-auto"
+      w:scroll = "smooth"
+      w:scrollbar = "~ thin thumb-green-500 track-green-100"
+      w:w = "full">
+      <template
+        x-if = "loaded !== 'done'">
+        <img
+          alt = "pdf cover"
+          height = "{{- $originalCover.Height -}}"
+          src = "{{- $lowCover.RelPermalink -}}"
+          width = "{{- $originalCover.Width -}}"
+          data-lazy = "{{- $originalCover.RelPermalink -}}"
+          w:filter = "~ blur-md"
+          w:h = "full"
+          w:object = "cover"
+          w:transform = "~ scale-110"
+          w:transition = "duration-250 ease-in-out transform"
+          w:w = "full"/>
+      </template>
+      <canvas
+        height = "{{- $originalCover.Height -}}"
+        width = "{{- $originalCover.Width -}}"
+        w:m = "x-auto">
+      </canvas>
+    </div>
+  </div>
+  <template
+    x-if = "loaded === 'done' && !error">
+    <div
+      style = "max-width:{{- $originalCover.Width -}}px;"
+      w:flex = "~ wrap"
+      w:m = "x-auto"
+      w:w = "full">
+      <div
+        w:divide = "x"
+        w:flex = "~"
+        w:justify = "center"
+        w:w = "full sm:auto">
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "page === 1 ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "page = 1; displayPdf()"
+            x-bind:disabled = "page === 1"
+            x-bind:w:filter = "`${page === 1 ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "page === 1 ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M11 19l-7-7 7-7m8 14l-7-7 7-7"/>
+            </svg>
+          </button>
+        </div>
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "page === 1 ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "page--; displayPdf()"
+            x-bind:disabled = "page === 1"
+            x-bind:w:filter = "`${page === 1 ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "page === 1 ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M18 12H6"/>
+            </svg>
+          </button>
+        </div>
+        <input
+          x-model = "page"
+          x-on:change = "$el.value > 0 && $el.value <= maxPage && canvas && displayPdf"
+          x-bind:max = "maxPage"
+          type = "number"
+          w:bg = "white/10"
+          w:h = "10"
+          w-outline = "none"
+          w:text = "center"
+          w:w = "10"/>
+        <p
+          x-text = "maxPage && `/${maxPage}`"
+          w:align = "items-center"
+          w:bg = "white/10"
+          w:flex = "~"
+          w:h = "10"
+          w:justify = "center"
+          w:w = "10">
+        </p>
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "page === maxPage ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "page++; displayPdf()"
+            x-bind:disabled = "page === maxPage"
+            x-bind:w:filter = "`${page === maxPage ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "page === 'maxPage' ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+          </button>
+        </div>
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "page === maxPage ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "page = maxPage; displayPdf()"
+            x-bind:disabled = "page === maxPage"
+            x-bind:w:filter = "`${page === maxPage ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "page === maxPage ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M13 5l7 7-7 7M5 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        w:divide = "x"
+        w:flex = "~"
+        w:justify = "center"
+        w:m = "l-auto"
+        w:w = "full sm:auto">
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "scale === 0.25 ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "scale = scale - 0.25; displayPdf()"
+            x-bind:disabled = "scale === 0.25"
+            x-bind:w:filter = "`${scale === 0.25 ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "scale === 0.25 ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+            </svg>
+          </button>
+        </div>
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "scale === 1 ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "scale = 1; displayPdf()"
+            x-bind:disabled = "scale === 1"
+            x-bind:w:filter = "`${scale === 1 ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "scale === 1 ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+        </div>
+        <!--<safe
+          w:cursor = "auto not-allowed"/>-->
+        <div
+          x-bind:w:cursor = "scale === 1 ? 'not-allowed' : 'auto'">
+          <!--<safe
+            w:filter = "~ brightness-50 brightness-100"
+            w:pointer = "auto none"/>-->
+          <button
+            x-on:click = "scale = scale + 0.25; displayPdf()"
+            x-bind:disabled = "scale === 1"
+            x-bind:w:filter = "`${scale === 1 ? 'brightness-50' : 'brightness-100'} ~`"
+            x-bind:w:pointer = "scale === 1 ? 'none' : 'auto'"
+            w:align = "items-center"
+            w:bg = "green-500 hover:green-700"
+            w:flex = "~"
+            w:h = "10"
+            w:justify = "center"
+            w:p = "1.5"
+            w:transition = "background duration-250 ease-in-out"
+            w:w = "10">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w:h = "5"
+              w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+              w:w = "5">
+              <path
+                d = "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>

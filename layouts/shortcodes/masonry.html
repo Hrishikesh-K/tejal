@@ -1,0 +1,37 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+{{- $scratch := newScratch -}}
+{{- with .Get "seq" -}}
+  {{- $scratch.Set "array" (findRE `\d+` .) -}}
+{{- end -}}
+{{- with .Get "start" -}}
+  {{- $scratch.Set "array" (seq . ($.Get "end")) -}}
+{{- end -}}
+<div
+  x-data = "masonry($el)"
+  masonry
+  w:m = "t-5"
+  w:w = "full">
+  {{- range ($scratch.Get "array") -}}
+    {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+    {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+    <div
+      w:m = "b-5"
+      w:overflow = "hidden"
+      w:w = "full sm:[calc((100%_/_2)_-_(1.25rem_/_2))] lg:[calc(100%_-_((2_*_1.25rem)_/_3))]">
+      <img
+        x-on:click = "$store.img = '{{- $originalImage.RelPermalink -}}'"
+        alt = "{{- $originalImage.Title -}}"
+        height = "{{- $originalImage.Height -}}"
+        src = "{{- $lowImage.RelPermalink -}}"
+        width = "{{- $originalImage.Width -}}"
+        data-lazy = "{{- $originalImage.RelPermalink -}}"
+        w:cursor = "zoom-in"
+        w:filter = "~ blur-md"
+        w:h = "full"
+        w:object = "cover"
+        w:transform = "~ scale-110"
+        w:transition = "duration-250 ease-in-out transform"
+        w:w = "full"/>
+    </div>
+  {{- end -}}
+</div>

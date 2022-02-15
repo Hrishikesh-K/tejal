@@ -1,0 +1,25 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+<div
+  w:align = "items-center"
+  w:flex = "~ wrap sm:1"
+  w:justify = "center"
+  w:m = "t-5"
+  w:w = "full">
+  <p
+    w:w = "20">
+    {{- .Get 0 -}}
+  </p>
+  {{- range after 1 .Params -}}
+    <div
+      style = "background-color:#{{- . -}};"
+      w:align = "items-center"
+      w:flex = "~"
+      w:h = "20"
+      w:justify = "center"
+      w:w = "20">
+      <p>
+        #{{- . -}}
+      </p>
+    </div>
+  {{- end -}}
+</div>

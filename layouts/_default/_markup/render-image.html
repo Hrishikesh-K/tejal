@@ -1,0 +1,23 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+{{- $image := .Page.Resources.GetMatch .Destination -}}
+<div
+  w:m = "t-5 x-auto"
+  w:overflow = "hidden"
+  w:w = "full"
+  style = "aspect-ratio:{{- $image.Width -}}/{{- $image.Height -}};max-width:{{- $image.Width -}}px;">
+  <img
+    x-on:click = "$store.img = '{{- $image.RelPermalink -}}'"
+    alt = "{{- .PlainText -}}"
+    height = "{{- $image.Height -}}"
+    src = "{{- (.Page.Resources.GetMatch (printf "assets/img%v-low.%s" (index (findRE `\d+` .Destination 1) 0) (substr .Destination -3))).RelPermalink -}}"
+    style = "max-width:{{- $image.Width -}}px;"
+    width = "{{- $image.Width -}}"
+    data-lazy = "{{- $image.RelPermalink -}}"
+    w:cursor = "zoom-in"
+    w:filter = "~ blur-md"
+    w:h = "full"
+    w:object = "cover"
+    w:transform = "~ scale-110"
+    w:transition = "duration-250 ease-in-out transform"
+    w:w = "full"/>
+</div>

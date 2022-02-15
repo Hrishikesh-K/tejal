@@ -1,0 +1,130 @@
+{{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+  <section
+    x-init = "$store.currentPage = 'about'"
+    w:bg = "black/75"
+    w:m = "x-auto"
+    w:max-w = "7xl"
+    w:min-h = "full"
+    w:p = "5"
+    w:w = "full">
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        {{- .Title -}}
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+    <p
+      w:font = "bold"
+      w:m = "t-2.5"
+      w:text = "3xl uppercase">
+      Learn more about me
+    </p>
+    <div
+      w:flex = "~ wrap"
+      w:m = "t-5"
+      w:w = "full">
+      {{- $profile := resources.Get "images/profile.jpg" -}}
+      <div
+        style = "aspect-ratio:{{- $profile.Width -}}/{{- $profile.Height -}}"
+        w:overflow = "hidden"
+        w:w = "full sm:60">
+        <img
+          alt = "profile photo"
+          height = "{{- $profile.Height -}}"
+          src = "{{- (resources.Get `images/profile-low.jpg`).RelPermalink -}}"
+          width = "{{- $profile.Width -}}"
+          data-lazy = "{{- $profile.RelPermalink -}}"
+          w:filter = "~ blur-md"
+          w:h = "full"
+          w:object = "cover"
+          w:transform = "~ scale-110"
+          w:transition = "duration-250 ease-in-out transform"
+          w:w = "full"/>
+      </div>
+      <div
+        w:flex = "1"
+        w:m = "t-2.5 sm:l-5 sm:t-0">
+        <p
+          w:font = "bold leading-5"
+          w:text = "text-2xl text-green-500">
+          {{- .Params.designation -}}
+        </p>
+        <p
+          w:font = "italic"
+          w:m = "t-2.5">
+          {{- .Params.tagline -}}
+        </p>
+        <div
+          w:flex = "~ wrap"
+          w:m = "t-2.5">
+          {{- range .Params.info -}}
+            <div
+              w:align = "items-center"
+              w:flex = "~ none sm:1"
+              w:w = "full">
+              <div
+                w:text = "green-500">
+                <svg
+                  viewBox = "0 0 24 24"
+                  xmlns = "http://www.w3.org/2000/svg"
+                  w:h = "5"
+                  w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+                  w:w = "5">
+                  <path
+                    d = "M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+              <p>
+                {{- .title -}}:
+              </p>
+              <p
+                w:m = "l-2.5">
+                {{- .value -}}
+              </p>
+            </div>
+          {{- end -}}
+        </div>
+        <div
+          w:m = "t-2.5">
+          {{- .Content -}}
+        </div>
+      </div>
+    </div>
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:m = "t-7"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        Skills
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+    <div
+      w:align = "items-center"
+      w:flex = "~"
+      w:m = "t-7"
+      w:w = "full sm:1/4">
+      <p
+        w:text = "uppercase">
+        Interests
+      </p>
+      <hr
+        w:border = "~ green-500"
+        w:flex = "grow"
+        w:m = "l-2.5"/>
+    </div>
+  </section>
+{{- end -}}

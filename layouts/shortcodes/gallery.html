@@ -1,0 +1,112 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+{{- $scratch := newScratch -}}
+{{- with .Get "seq" -}}
+  {{- $scratch.Set "array" (findRE `\d+` .) -}}
+{{- end -}}
+{{- with .Get "start" -}}
+  {{- $scratch.Set "array" (seq . ($.Get "end")) -}}
+{{- end -}}
+<div
+  x-data = "gallery($el)"
+  class = "swiper"
+  w:m = "t-5"
+  w:max-w = "4xl"
+  w:position = "relative"
+  w:w = "full"
+  {{- with .Get "effect" -}}
+    data-effect = "{{- . -}}"
+  {{- end -}}>
+  <div
+    class = "swiper-wrapper">
+    {{- range ($scratch.Get "array") -}}
+      {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+      {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+      <div
+        class = "swiper-slide">
+        <div
+          w:m = "x-auto"
+          w:overflow = "hidden"
+          w:w = "[calc(100%_-_(2_*_2rem)_-_0.25rem)] sm:[calc((100%_/_2)_-_(1.25rem_/_2))] lg:[calc((100%_/_3)_-_((2_*_1.25rem)_/_3))]">
+          <img
+            x-on:click = "$store.img = '{{- $originalImage.RelPermalink -}}'"
+            alt = "{{- $originalImage.Title -}}"
+            height = "{{- $originalImage.Height -}}"
+            src = "{{- $lowImage.RelPermalink -}}"
+            width = "{{- $originalImage.Width -}}"
+            data-lazy = "{{- $originalImage.RelPermalink -}}"
+            w:cursor = "zoom-in"
+            w:filter = "~ blur-md"
+            w:h = "full"
+            w:object = "cover"
+            w:transform = "~ scale-110"
+            w:transition = "duration-250 ease-in-out transform"
+            w:w = "full"/>
+        </div>
+      </div>
+    {{- end -}}
+  </div>
+  <button
+    class = "swiper-button-prev"
+    w:position = "absolute left-0 top-1/2 sm:left-[12.5%]"
+    w:transform = "~ -translate-y-1/2"
+    w:z = "10">
+    <svg
+      viewBox = "0 0 24 24"
+      xmlns = "http://www.w3.org/2000/svg"
+      w:h = "8"
+      w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+      w:w = "8">
+      <path
+        d = "M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"/>
+    </svg>
+  </button>
+  <button
+    class = "swiper-button-next"
+    w:position = "absolute right-0 top-1/2 sm:right-[12.5%]"
+    w:transform = "~ -translate-y-1/2"
+    w:z = "10">
+    <svg
+      viewBox = "0 0 24 24"
+      xmlns = "http://www.w3.org/2000/svg"
+      w:h = "8"
+      w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+      w:w = "8">
+      <path
+        d = "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+    </svg>
+  </button>
+</div>
+<div
+  class = "swiper thumb"
+  w:m = "t-5 x-auto"
+  w:max-w = "2xl">
+  <div
+    class = "swiper-wrapper">
+    {{- range ($scratch.Get "array") -}}
+      {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+      {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+      <div
+        class = "swiper-slide"
+        w:cursor = "pointer"
+        w:opacity = "50">
+        <div
+          w:overflow = "hidden"
+          w:w = "full">
+          <img
+            alt = "{{- printf "%s thumbnail" $originalImage.Title -}}"
+            height = "{{- $originalImage.Height -}}"
+            src = "{{- $lowImage.RelPermalink -}}"
+            width = "{{- $originalImage.Width -}}"
+            data-lazy = "{{- $originalImage.RelPermalink -}}"
+            w:cursor = "zoom-in"
+            w:filter = "~ blur-md"
+            w:h = "full"
+            w:object = "cover"
+            w:transform = "~ scale-110"
+            w:transition = "duration-250 ease-in-out transform"
+            w:w = "full"/>
+        </div>
+      </div>
+    {{- end -}}
+  </div>
+</div>

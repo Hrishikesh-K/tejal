@@ -1,0 +1,266 @@
+<!--suppress CssUnknownTarget, HtmlUnknownAttribute, HtmlUnknownTarget, RequiredAttributes, XmlUnboundNsPrefix -->
+{{- (resources.Get "js/pdf-worker.js" | js.Build (dict "minify" "true" "targetPath" "js/pdf-worker.min.js")).Publish -}}
+<!doctype
+  html>
+<html
+  lang = "en"
+  w:h = "full"
+  w:overflow = "hidden"
+  w:w = "full">
+  <head>
+    <link
+      href = "{{- (slice (resources.Get "css/windi.css") (resources.Get "css/styles.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules"))) | resources.Concat "css/bundle.css" | minify).RelPermalink -}}"
+      rel = "stylesheet"/>
+    <meta
+      charset = "utf-8"/>
+    <meta
+      content = "default-src 'self' 'unsafe-eval' 'unsafe-inline' data:"
+      http-equiv = "content-security-policy"/>
+    <meta
+      content = "noindex"
+      name = "robots"/>
+    <meta
+      content = "width=device-width,initial-scale=1"
+      name = "viewport"/>
+    <script
+      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true" "targetPath" "js/bundle.min.js")).RelPermalink -}}"
+      defer>
+    </script>
+    <title>
+      {{- .Title -}}
+    </title>
+  </head>
+  <body
+    x-data
+    w:h = "full"
+    w:overflow = "hidden"
+    w:position = "fixed"
+    w:text = "white"
+    w:w = "full">
+    <noscript
+      w:align = "items-center"
+      w:flex = "~"
+      w:h = "full"
+      w:justify = "center"
+      w:p = "x-5"
+      w:text = "black"
+      w:w = "full">
+      Please enable JavaScript in your browser settings to view this page.
+    </noscript>
+    <div
+      style = "display:none;"
+      w:h = "full"
+      w:overflow = "hidden">
+      <button
+        x-show = "$store.navToggle && $store.currentPage"
+        x-on:click = "$store.navOpen = !$store.navOpen"
+        w:h = "8"
+        w:position = "absolute"
+        w:right = "5"
+        w:top = "2.5"
+        w:w = "8"
+        w:z = "10">
+        <svg
+          viewBox = "0 0 24 24"
+          xmlns = "http://www.w3.org/2000/svg"
+          w:h = "full"
+          w:svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+          w:w = "full">
+          <path
+            x-bind:d = "$store.navOpen ? 'M6 18L18 6M6 6l12 12': 'M4 6h16M4 12h16M4 18h16'"/>
+        </svg>
+      </button>
+      <!--<safe
+        w:flex = "~ col row"
+        w:h = "full sm:14"
+        w:justify = "between center"
+        w:p = "x-5 x-10"
+        w:transition = "duration-250 ease-in-out height none
+        w:w = "full"/>-->
+      <header
+        x-bind:w:flex = "`${!$store.currentPage ? 'col' : 'row'} ~`"
+        x-bind:w:h = "`${$store.currentPage && 'sm:14'} full`"
+        x-bind:w:justify = "!$store.currentPage ? 'center' : 'between'"
+        x-bind:w:p = "!$store.currentPage ? 'x-10' : 'x-5'"
+        x-bind:w:transition = "`${!$store.currentPage ? 'height' : 'none'} duration-250 ease-in-out`"
+        x-bind:w:w = "$store.currentPage && 'full'"
+        w:align = "sm:items-center">
+        <!--<safe
+          w:flex = "~ col row"
+          w:h = "14"
+          w:m = "0 b-7"
+          w:w = "fit"/>-->
+        <a
+          href = "/"
+          x-bind:w:flex = "`${!$store.currentPage ? 'col' : 'row'} ~`"
+          x-bind:w:h = "$store.currentPage && '14'"
+          x-bind:w:m = "!$store.currentPage ? 'b-7' : '0'"
+          x-bind:w:w = "!$store.currentPage && 'fit'"
+          w:align = "items-center">
+          <!--<safe
+            w:h = "10 40"
+            w:w = "10 40"/>-->
+          <div
+            x-bind:w:h = "!$store.currentPage ? '40' : '10'"
+            w:overflow = "hidden"
+            x-bind:w:w = "!$store.currentPage ? '40' : '10'">
+            {{- $logo := resources.Get "images/logo.png" -}}
+            <img
+              alt = "logo"
+              height = "{{- $logo.Height -}}"
+              src = "{{- (resources.Get `images/logo-low.png`).RelPermalink -}}"
+              width = "{{- $logo.Width -}}"
+              data-lazy = "{{- $logo.RelPermalink -}}"
+              w:filter = "~ blur-md"
+              w:h = "full"
+              w:object = "cover"
+              w:transform = "~ scale-110"
+              w:transition = "duration-250 ease-in-out transform"
+              w:w = "full"/>
+          </div>
+          <!--<safe
+            w:m = "l-1.5 t-5"
+            w:text = "3xl 5xl"/>-->
+          <h1
+            x-bind:w:m = "!$store.currentPage ? 't-5' : 'l-1.5'"
+            x-bind:w:text = "!$store.currentPage ? '5xl' : '3xl'"
+            w:transition = "duration-250 ease-in-out font-size">
+            Tejal Shinde
+          </h1>
+        </a>
+        <!--<safe
+          w:align = "items-center"
+          w:bg = "black/90"
+          w:h = "[calc(100%_-_(2_*_3.5rem))]"
+          w:position = "absolute top-14 sm:static"
+          w:space = "y-2.5 y-10 sm:x-5 sm:y-0"
+          w:text = "3xl 5xl"
+          w:w = "[calc(100vw_-_(2_*_1.25rem))]"/>-->
+        <nav
+          x-show = "!$store.currentPage || $store.navOpen || !$store.navToggle"
+          x-bind:w:align = "$store.navToggle && $store.currentPage && 'items-center'"
+          x-bind:w:bg = "$store.navToggle && $store.currentPage && 'black/90'"
+          x-bind:w:h = "$store.navToggle && $store.currentPage && '[calc(100%_-_(2_*_3.5rem))]'"
+          x-bind:w:position = "`${$store.navToggle && $store.currentPage && 'absolute top-14'} sm:static`"
+          x-bind:w:space = "`${($store.navToggle && $store.currentPage) ? 'y-10' : 'y-2.5'} sm:x-5 sm:y-0`"
+          x-bind:w:w = "$store.navToggle && $store.currentPage && '[calc(100vw_-_(2_*_1.25rem))]'"
+          w:flex = "~ col sm:wrap sm:row"
+          w:justify = "center"
+          w:text = "lg">
+          <!--<safe
+            w:before = "absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width] w-0 w-1/2"/>-->
+          <a
+            href = "/"
+            x-bind:w:before = "`${!$store.currentPage ? 'w-1/2' : 'w-0'} absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width]`"
+            w:hover = "before:w-full"
+            w:position = "relative"
+            w:w = "fit">
+            Home
+          </a>
+          <a
+            href = "/about/"
+            x-bind:w:before = "`${$store.currentPage === 'about' ? 'w-1/2' : 'w-0'} absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width]`"
+            w:hover = "before:w-full"
+            w:position = "relative"
+            w:w = "fit">
+            About
+          </a>
+          <a
+            href = "/career/"
+            x-bind:w:before = "`${$store.currentPage === 'career' ? 'w-1/2' : 'w-0'} absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width]`"
+            w:hover = "before:w-full"
+            w:position = "relative"
+            w:w = "fit">
+            Career
+          </a>
+          <a
+            href = "/portfolio/"
+            x-bind:w:before = "`${$store.currentPage === 'portfolio' ? 'w-1/2' : 'w-0'} absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width]`"
+            w:hover = "before:w-full"
+            w:position = "relative"
+            w:w = "fit">
+            Portfolio
+          </a>
+          <a
+            href = "/contact/"
+            x-bind:w:before = "`${$store.currentPage === 'contact' ? 'w-1/2' : 'w-0'} absolute bg-green-500 -bottom-1 content-[''] duration-250 ease-in-out h-1 transition-[width]`"
+            w:hover = "before:w-full"
+            w:position = "relative"
+            w:w = "fit">
+            Contact
+          </a>
+        </nav>
+      </header>
+      <!--safe
+        w:z = "-5 auto"-->
+      <main
+        class = "swup-transition-slide"
+        id = "swup"
+        x-bind:w:z = "$store.navOpen || !$store.currentPage ? '-5' : 'auto'"
+        w:position = "absolute left-0 right-0 top-14"
+        w:h = "[calc(100%_-_(2_*_3.5rem))]"
+        w:opacity = "100"
+        w:overflow = "y-auto"
+        w:p = "x-5"
+        w:scroll = "smooth"
+        w:scrollbar = "~ thin thumb-green-500 track-green-100"
+        w:transform = "~ translate-y-0"
+        w:transition = "duration-250 ease-in-out slide"
+        w:w = "full">
+        {{- block "main" . -}}
+        {{- end -}}
+      </main>
+      <footer
+        w:align = "items-center"
+        w:flex = "~"
+        w:h = "14"
+        w:justify = "center"
+        w:position = "absolute bottom-0 left-0"
+        w:w = "full">
+        <p
+          x-text = "`&copy; ${new Date().getFullYear()} Tejal Shinde`">
+        </p>
+      </footer>
+      <div
+        w:h = "full"
+        w:overflow = "hidden"
+        w:position = "absolute left-0 top-0"
+        w:w = "full"
+        w:z = "-10">
+        {{- $background := resources.Get "images/bg.jpg" -}}
+        <img
+          alt = "background image"
+          height = "{{- $background.Height -}}"
+          src = "{{- (resources.Get `images/bg-low.jpg`).RelPermalink -}}"
+          width = "{{- $background.Width -}}"
+          data-lazy = "{{- $background.RelPermalink -}}"
+          w:filter = "~ blur-md"
+          w:h = "full"
+          w:object = "cover"
+          w:transform = "~ scale-110"
+          w:transition = "duration-250 ease-in-out transform"
+          w:w = "full"/>
+      </div>
+      <template
+        x-if = "$store.img">
+        <div
+          x-on:click = "$store.img = false"
+          w:bg = "black/75"
+          w:h = "[calc(100%_-_(2_*_3.5rem))]"
+          w:m = "x-auto"
+          w:position = "fixed left-0 right-0 top-14"
+          w:transition = "duration-250 ease-in-out transform"
+          w:w = "[calc(100vw_-_(2_*_1.25rem))]">
+          <img
+            x-bind:src = "$store.img"
+            alt = "zoom image"
+            w:cursor = "zoom-out"
+            w:h = "full"
+            w:m = "x-auto"
+            w:object = "contain"
+            w:w = "full"/>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>
