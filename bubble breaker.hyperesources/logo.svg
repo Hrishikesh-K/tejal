@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2570px" height="2570px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2569.31 2569.31"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil3 {fill:#4DB6AC}
+    .fil2 {fill:#A0CFE3}
+    .fil4 {fill:#FAFAFA}
+    .fil1 {fill:url(#id0)}
+    .fil0 {fill:url(#id1)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="412.8" y1="513.3" x2="2042.76" y2="2195.35">
+   <stop offset="0" style="stop-opacity:1; stop-color:#0097A7"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#607D8B"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="332.96" y1="425.79" x2="2116.43" y2="2200.02">
+   <stop offset="0" style="stop-opacity:1; stop-color:#0097A7"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#78909C"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="Group">
+   <circle id="Base" class="fil0" cx="1284.65" cy="1284.65" r="1284.65"/>
+   <path id="Reflection" class="fil1" d="M1284.65 2503.15c-672.95,0 -1218.5,-545.54 -1218.5,-1218.5 0,-672.95 431.8,-1102.51 1104.76,-1102.51 185.72,58.35 329.23,204.22 297.87,409.54 32.76,-101.08 39.91,-174.33 -8.66,-269.83 -14.24,-27.99 -61.78,-106.86 -52.4,-135.58 9.8,-30.02 45.63,-34.03 72.21,-31.94 29.75,2.34 68.95,8.81 98.79,13.99 183.06,31.75 330.6,95.2 417.51,266.91 2.49,4.91 4.88,9.84 7.25,14.8 32.39,68.32 146.02,337.26 -26.82,177.55 -119.91,-110.79 -123.19,-103.43 -242.56,-50.25 -202.77,90.33 -571.09,311.62 -662.75,527.17 -71.33,171.58 -118.12,351.22 -184.4,524.59 -83.65,218.11 -214.83,409.78 -425.34,174.65 -118.01,-131.8 -186.73,-318.15 -196.99,-132.7 -12.85,232.32 247.11,371.86 439.04,425.18 262.84,70.71 363,-229.82 532.22,-227.27 294.37,4.45 507.76,-41.26 672.94,-149.9 456,-301.31 424.23,-861 223.34,-1305.38 241.73,245.8 370.24,519.22 370.99,870.98 0,672.96 -545.54,1218.5 -1218.5,1218.5z"/>
+   <ellipse id="Spot_x0020_2" class="fil2" transform="matrix(10.9958 1.91428 -1.46902 8.43822 924 2232.75)" rx="5.16" ry="3.28"/>
+   <ellipse id="Spot_x0020_1" class="fil3" transform="matrix(10.4601 -5.06066 5.06066 10.4601 2105.11 772.088)" rx="3.28" ry="5"/>
+   <path id="Mid-tone" class="fil2" d="M1284.65 2503.15c-384.09,0 -726.69,-177.72 -950.01,-455.4 0,0 304.71,270.7 569.77,356.33 129.61,41.88 226.6,26.38 178.55,-38.59 -19.85,-26.83 -50.84,-78.43 -33.49,-124.76 26.78,-71.55 226.44,-80.53 254.63,-83.93 61.69,-7.35 126.22,-11.54 188.27,-16.64 106.64,-8.73 215.94,-15.87 321.57,-32.47 55.73,-9.09 98.77,-31.54 146.09,-60.96 230.93,-144.12 347.67,-420.01 396.24,-677.73l0.5 -2.71c7.71,-41.34 12.7,-79.33 17.08,-120.88 0.01,-0.04 0.05,-0.52 0.06,-0.31 12.05,477.02 -350.3,1046.23 -699.73,1146.13 -34.26,9.79 -61.43,10.1 -94.41,16.59 -68.97,13.54 34.58,57.78 -65.8,74.08 -74.98,12.17 -153.22,20.61 -229.32,21.25z"/>
+   <path id="Highlight" class="fil4" d="M68.25 1356.7c0,0 89.63,-914.09 923.77,-1083.6 282.87,-53.02 160.71,-188.66 44.59,-169.5 0,0 -1001.4,89.22 -968.36,1253.1z"/>
+  </g>
+ </g>
+</svg>

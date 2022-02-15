@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="3543px" height="3543px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3542.31 3542.31"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:#212121}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="Group">
+   <polygon id="Background" class="fil0" points="0,0 3542.31,0 3542.31,3542.31 0,3542.31 "/>
+   <path id="Star" class="fil1" d="M2951.94 2259.71l488.51 -488.56 -488.51 -488.56 0 -692.22 -692.23 0 -488.56 -488.51 -488.56 488.51 -692.22 0 0 692.22 -488.51 488.56 488.51 488.56 0 692.23 692.22 0 488.56 488.51 488.56 -488.51 692.23 0 0 -692.23zm-1180.79 397.02l0 -1771.15c488.56,0 885.58,397.01 885.58,885.57 0,488.56 -397.02,885.58 -885.58,885.58z"/>
+  </g>
+ </g>
+</svg>
