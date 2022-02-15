@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000px" height="1000px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1000 1000"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:black}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="Contact">
+   <polygon id="Background" class="fil0" points="0,0 1000,0 1000,1000 0,1000 "/>
+   <path id="Icon" class="fil1" d="M900 100l-800 0c-54.99,0 -100,45 -100,100.01l0 599.98c0,54.99 44.99,100.01 100,100.01l800 0c54.99,0 100,-45 100,-100.01l-0.02 -599.98c0,-54.99 -44.99,-100.01 -100,-100.01l0.02 0zm-20.02 212.5l-326.99 204.49c-32.5,20.5 -73.49,20.5 -106,0l-326.97 -204.49c-12.49,-7.99 -20,-21.5 -20,-36 0,-33.5 36.49,-53.5 65.01,-36l334.97 209.5 334.99 -209.5c28.5,-17.5 65.01,2.5 65.01,36 0,14.5 -7.51,28.01 -20,36l-0.02 0z"/>
+  </g>
+ </g>
+</svg>

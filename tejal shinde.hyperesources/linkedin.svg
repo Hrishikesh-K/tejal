@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000px" height="1000px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1000 1000"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil2 {fill:#FAFAFA}
+    .fil1 {fill:#212121;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect id="Background" class="fil0" width="1000" height="1000"/>
+  <g id="LinkedIn">
+   <path id="Curve" class="fil1" d="M3.15 71.63c0,-39.55 32.88,-71.63 73.43,-71.63l846.84 0c40.56,0 73.43,32.08 73.43,71.63l0 856.74c0,39.57 -32.88,71.63 -73.43,71.63l-846.84 0c-40.55,0 -73.43,-32.07 -73.43,-71.63l0 -856.74z"/>
+   <path id="Curve_0" class="fil2" d="M304.37 837.11l0 -451.56 -150.09 0 0 451.56 150.09 0zm-75.04 -513.22c52.34,0 84.91,-34.67 84.91,-78 -0.97,-44.31 -32.57,-78.02 -83.92,-78.02 -51.34,0 -84.91,33.71 -84.91,78.02 0,43.33 32.57,78 82.94,78l0.98 0z"/>
+   <path id="Curve_1" class="fil2" d="M387.42 837.11l150.09 0 0 -252.17c0,-13.5 0.98,-26.98 4.94,-36.63 10.85,-26.96 35.55,-54.89 77.01,-54.89 54.31,0 76.03,41.41 76.03,102.11l0 241.58 150.08 0 0 -258.92c0,-138.7 -74.05,-203.24 -172.79,-203.24 -80.97,0 -116.52,45.26 -136.27,76.08l1 0 0 -65.48 -150.09 0c1.97,42.37 0,451.56 0,451.56z"/>
+  </g>
+ </g>
+</svg>
