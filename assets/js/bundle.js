@@ -171,14 +171,14 @@ function onLoad() {
   }))
   Alpine.data('masonry', element => ({
     destroy() {
-      console.log(Masonry.data(element))
+      element.masonry.destroy()
     },
     init() {
-      Promise.all(Array.from(element.querySelectorAll('img')).filter(image1 => {
-        return !image1.complete
-      }).map(image2 => {
+      Promise.all(Array.from(element.querySelectorAll('img')).filter(checkImage => {
+        return !checkImage.complete
+      }).map(actualImage => {
         return new Promise(resolve => {
-          image2.onerror = image2.onload = resolve
+          actualImage.onerror = actualImage.onload = resolve
         })
       })).then(() => {
         element.masonry =  new Masonry(element, {
