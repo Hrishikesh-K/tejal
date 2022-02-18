@@ -126,7 +126,7 @@ function onLoad() {
   }
   Alpine.data('gallery', element => ({
     destroy() {
-      if (element) {
+      if (element && element.swiper) {
         element.swiper.destroy(true, true)
         element.nextElementSibling.swiper.destroy(true, true)
       }
