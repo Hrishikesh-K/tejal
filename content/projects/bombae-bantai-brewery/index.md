@@ -38,6 +38,7 @@
 {w:snap = "mt-5" w:text = "2xl"}
 
 Bombae Bantai is my second project of the second quarter. This time, the task was a little different than before. We were asked to create a beer brand and develop its identity. For example, it was supposed to have its own name, logo, tone, styling, theme and a lot more. We had multiple objectives for this. From creating a brand story, to designing the beer can labels, boxes, posters, merchandise and so on. I had been seeing beer cans, bottles and brands around me for quite a long time now (in forms of advertisements, in stores, etc.), but had never analysed one so closely. This was the initial challenge - to design an identity for something without a lot of knowledge about it. But, I dived right in.
+{class = "mt-2.5"}
 
 ## The Journey
 {w:snap = "mt-5" w:text = "2xl"}

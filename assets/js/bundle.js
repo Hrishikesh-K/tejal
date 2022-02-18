@@ -45,15 +45,7 @@ function onLoad() {
               } else {
                 target.style.backgroundImage = `url(${this.src})`
               }
-              ['data-lazy', 'w:filter'].forEach(attribute => {
-                target.removeAttribute(attribute)
-              })
-              const transform = target.getAttribute('w:transform')
-              if (transform.includes('group')) {
-                target.setAttribute('w:transform', transform.replace(' scale-110', ''))
-              } else {
-                target.removeAttribute('w:transform')
-              }
+              target.removeAttribute('data-lazy')
               observer.unobserve(target)
               target.observer = false
             }

@@ -7,14 +7,3 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 input[type = "number"] {
   appearance: textfield;
 }
-.is-animating .swup-transition-slide {
-  opacity: 0;
-  --tw-translate-y: 5rem;
-}
-.swiper-slide-thumb-active {
-  opacity: 1;
-}
-.swup-progress-bar {
-  --tw-bg-opacity: 1;
-  background-color: rgba(34,197,94,var(--tw-bg-opacity));
-}

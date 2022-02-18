@@ -9,7 +9,7 @@
   w:w = "full">
   <head>
     <link
-      href = "{{- (slice (resources.Get "css/windi.css") (resources.Get "css/styles.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules"))) | resources.Concat "css/bundle.css" | minify).RelPermalink -}}"
+      href = "{{- (slice (resources.Get "css/windi.css") (resources.Get "css/styles.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed")) | resources.Concat "css/bundle.min.css").RelPermalink -}}"
       rel = "stylesheet"/>
     <meta
       charset = "utf-8"/>
@@ -111,10 +111,8 @@
               src = "{{- (resources.Get `images/logo-low.png`).RelPermalink -}}"
               width = "{{- $logo.Width -}}"
               data-lazy = "{{- $logo.RelPermalink -}}"
-              w:filter = "~ blur-md"
               w:h = "full"
               w:object = "cover"
-              w:transform = "~ scale-110"
               w:transition = "duration-250 ease-in-out transform"
               w:w = "full"/>
           </div>
@@ -234,10 +232,8 @@
           src = "{{- (resources.Get `images/bg-low.jpg`).RelPermalink -}}"
           width = "{{- $background.Width -}}"
           data-lazy = "{{- $background.RelPermalink -}}"
-          w:filter = "~ blur-md"
           w:h = "full"
           w:object = "cover"
-          w:transform = "~ scale-110"
           w:transition = "duration-250 ease-in-out transform"
           w:w = "full"/>
       </div>
@@ -263,4 +259,18 @@
       </template>
     </div>
   </body>
+  <!--<style lang="windi">
+    [data-lazy] {
+      @apply filter blur-md transform scale-110;
+    }
+    .is-animating .swup-transition-slide {
+      @apply opacity-0 translate-y-20;
+    }
+    .swiper-slide-thumb-active {
+      @apply opacity-100;
+    }
+    .swup-progress-bar {
+      @apply bg-green-500 opacity-100;
+    }
+  </style>-->
 </html>

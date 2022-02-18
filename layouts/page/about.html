@@ -42,10 +42,8 @@
           src = "{{- (resources.Get `images/profile-low.jpg`).RelPermalink -}}"
           width = "{{- $profile.Width -}}"
           data-lazy = "{{- $profile.RelPermalink -}}"
-          w:filter = "~ blur-md"
           w:h = "full"
           w:object = "cover"
-          w:transform = "~ scale-110"
           w:transition = "duration-250 ease-in-out transform"
           w:w = "full"/>
       </div>
