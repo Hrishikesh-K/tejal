@@ -10,6 +10,7 @@
   framework = "hugo"
 [functions]
   directory = "functions"
+  external_node_modules = ["formidable"]
   node_bundler = "esbuild"
 [[redirects]]
   force = true
