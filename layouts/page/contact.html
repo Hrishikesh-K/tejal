@@ -30,6 +30,7 @@
     <!--<safe
       w:cursor = "auto not-allowed"/>-->
     <div
+      x-data = "form($el)"
       x-bind:w:cursor = "progress ? 'not-allowed' : 'auto'"
       w:bg = "white/[0.05]"
       w:m = "t-5"
@@ -39,7 +40,6 @@
         w:filter = "~ brightness-50 brightness-100"
         w:pointer = "auto none"/>-->
       <form
-        x-data = "form($el)"
         x-bind:w:filter = "`${progress ? 'brightness-50' : 'brightness-100'} ~`"
         x-bind:w:pointer = "progress ? 'none' : 'auto'"
         x-on:submit.prevent = "onSubmit($event)">
