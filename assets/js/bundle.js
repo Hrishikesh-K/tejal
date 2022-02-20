@@ -9,7 +9,7 @@ import Swup from 'swup'
 import SwupProgressPlugin from '@swup/progress-plugin'
 function onLoad() {
   Pdf.GlobalWorkerOptions.workerSrc = '/js/pdf-worker.min.js'
-  let contactForm, lazyImagesObserver, pdfs, portfolioCardsObserver
+  let lazyImagesObserver, pdfs, portfolioCardsObserver
   const intersectionOptions = {
     rootMargin: `${parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.5}px 0px`,
     threshold: 0
@@ -22,18 +22,9 @@ function onLoad() {
       transition: 250
     })]
   })
-  function onInput(event) {
-    event.currentTarget.style.height = '125px'
-    event.currentTarget.style.height = `${event.currentTarget.scrollHeight}px`
-  }
   function onPageLoad() {
-    contactForm = document.querySelector('form')
     const lazyImages = document.querySelectorAll('[data-lazy]')
     const portfolioCards = document.querySelectorAll('.group')
-    if (contactForm) {
-      contactForm.addEventListener('submit', onSubmit)
-      contactForm.querySelector('textarea').addEventListener('input', onInput)
-    }
     if (lazyImages.length > 0) {
       lazyImagesObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(({isIntersecting, target}) => {
@@ -86,10 +77,6 @@ function onLoad() {
     document.querySelectorAll('[x-data]:not(body)').forEach(element => {
       element._x_dataStack[0].destroy()
     })
-    if (contactForm) {
-      contactForm.removeEventListener('submit', onSubmit)
-      contactForm.querySelector('textarea').removeEventListener('input', onInput)
-    }
     if (lazyImagesObserver) {
       lazyImagesObserver.disconnect()
     }
@@ -97,7 +84,7 @@ function onLoad() {
       portfolioCardsObserver.disconnect()
     }
     Alpine.store('navOpen', false)
-    contactForm  = lazyImagesObserver = portfolioCardsObserver = pdfs  = null
+    lazyImagesObserver = portfolioCardsObserver = pdfs  = null
   }
   function onResize() {
     Alpine.store('navToggle', window.innerWidth < 640)
@@ -107,23 +94,35 @@ function onLoad() {
       })
     }
   }
-  function onSubmit(event) {
-    event.preventDefault()
-    Alpine.store('formError', false)
-    Alpine.store('formProgress', true)
-    Axios({
-      data: Object.fromEntries(new FormData(event.target).entries()),
-      method: 'post',
-      url: '/api/submit/'
-    }).then(() => {
-      event.target.reset()
-      Alpine.store('formProgress', false)
-    }).catch(({response}) => {
-      Alpine.store('formError', true)
-      Alpine.store('formProgress', false)
-      console.log(response)
-    })
-  }
+  Alpine.data('form', element => ({
+    destroy() {
+      element.querySelector('textarea').removeEventListener('input', this.onInput)
+    },
+    error: null,
+    init() {
+      element.querySelector('textarea').addEventListener('input', this.onInput)
+    },
+    onInput(event) {
+      event.currentTarget.style.height = '125px'
+      event.currentTarget.style.height = `${event.currentTarget.scrollHeight}px`
+    },
+    onSubmit(event) {
+      this.progress = true
+      Axios({
+        data: Object.fromEntries(new FormData(event.target).entries()),
+        method: 'post',
+        url: '/api/submit/'
+      }).then(() => {
+        event.target.reset()
+        this.progress = null
+      }).catch(({response}) => {
+        this.error = true
+        this.progress = null
+        console.log(response)
+      })
+    },
+    progress: null
+  }))
   Alpine.data('gallery', element => ({
     destroy() {
       if (element && element.swiper) {
@@ -260,8 +259,6 @@ function onLoad() {
     scale: 1
   }))
   Alpine.store('currentPage', false)
-  Alpine.store('formError', false)
-  Alpine.store('formProgress', false)
   Alpine.store('img', false)
   Alpine.store('navOpen', false)
   Alpine.store('navToggle', window.innerWidth < 640)

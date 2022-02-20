@@ -1,7 +1,7 @@
 {{- define "main" -}}
   <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
   <section
-    x-init = "$store.currentPage = 'portfolio'"
+    x-init = "$store.currentPage = 'privacy'"
     w:bg = "black/75"
     w:m = "x-auto"
     w:max-w = "7xl"
@@ -14,7 +14,7 @@
       w:w = "full sm:1/4">
       <p
         w:text = "uppercase">
-        {{- .Section -}}
+        {{- .Title -}}
       </p>
       <hr
         w:border = "~ green-500"
@@ -25,11 +25,7 @@
       w:font = "bold"
       w:m = "t-2.5"
       w:text = "3xl uppercase">
-      {{- .Title -}}
+      Privacy Policy
     </p>
-    <article
-      w:m = "t-5">
-      {{- .Content -}}
-    </article>
   </section>
 {{- end -}}
