@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@swup/progress-plugin": "^1.0.1",
+    "@windicss/plugin-interaction-variants": "^1.0.0",
+    "@windicss/plugin-scrollbar": "^1.2.3",
+    "alpinejs": "^3.9.0",
+    "npm-run-all": "^4.1.5",
+    "pdfjs-dist": "^2.13.216",
+    "swiper": "^8.0.6",
+    "swup": "^2.0.14",
+    "windicss": "^3.5.0"
+  },
+  "scripts": {
+    "build": "run-s windicss:build hugo:build",
+    "dev": "run-p windicss:dev hugo:dev",
+    "hugo:build": "hugo",
+    "hugo:dev": "hugo server",
+    "windicss:build": "windicss --attributify --config ./windi.config.js --minify --output ./assets/css/windi.css --preflight --style",
+    "windicss:dev": "windicss --attributify --config ./windi.config.js --dev --minify --output ./assets/css/windi.css --preflight --style"
+  }
+}

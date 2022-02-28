@@ -1,0 +1,32 @@
+baseURL = "https://www.tejalshinde.com/"
+disableHugoGeneratorInject = true
+disableKinds = ["page", "rss", "sitemap", "taxonomy", "term"]
+enableRobotsTXT = true
+title = "Tejal Shinde"
+[build]
+  useResourceCacheWhen = "never"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+    [markup.goldmark.renderer]
+      unsafe = true
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = false
+    [minify.tdewolff.html]
+      keepConditionalComments = false
+      keepDefaultAttrVals = false
+      keepWhitespace = false
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^npx$']
+  [security.funcs]
+    getenv = []
+  [security.http]
+    methods = []
+    urls = []
