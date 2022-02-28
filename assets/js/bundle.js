@@ -8,6 +8,9 @@ function onLoad() {
     expand: false
   }))
   Alpine.start()
+  document.querySelectorAll('body>*:not(noscript)').forEach(element => {
+    element.style.display = 'block'
+  })
   window.removeEventListener('load', onLoad)
   window.addEventListener('resize', onResize)
 }
