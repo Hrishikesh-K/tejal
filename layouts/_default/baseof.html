@@ -16,6 +16,9 @@
       content = "default-src 'self' 'unsafe-eval' 'unsafe-inline'"
       http-equiv = "content-security-policy"/>
     <meta
+      content = "Online portfolio of Tejal Shinde"
+      name = "description"/>
+    <meta
       content = "noindex"
       name = "robots"/>
     <meta
@@ -140,6 +143,7 @@
           w-pos = "relative"
           w-w = "full">
           <a
+            aria-label = "Go to homepage"
             href = "/"
             w-display = "block">
             <svg
@@ -187,6 +191,7 @@
             w-justify = "center"
             w-w = "full">
             <a
+              aria-label = "Check out the LinkedIn profile of Tejal Shinde"
               href = "https://www.linkedin.com/in/tejal-shinde/"
               rel = "nofollow noopener noreferrer"
               target = "_blank"
@@ -204,6 +209,7 @@
               </svg>
             </a>
             <a
+              aria-label = "Check out the Instagram profile of Tejal Shinde"
               href = "https://www.instagram.com/thebubblebreaker_/"
               rel = "nofollow noopener noreferrer"
               target = "_blank"
@@ -231,5 +237,55 @@
       {{- block "main" . -}}
       {{- end -}}
     </main>
+    <div
+      style = "display:none;"
+      w-h = "100-5"
+      w-pointer = "none"
+      w-pos = "fixed left-0 top-20"
+      w-w = "full"
+      w-z = "-1">
+      <div
+        w-h = "3/4"
+        w-pos = "relative"
+        w-w = "full">
+        <svg
+          viewBox = "0 0 1000 1000"
+          w-h = "full"
+          w-svg = "fill-none"
+          w-w = "full">
+          <path
+            d = "M820.14 215.8H179.86v128.05m160.07 120.21V784.2H500V464.06h160.07l.27 318.55"
+            w-svg = "stroke-15 stroke-pink-100"/>
+        </svg>
+        <svg
+          viewBox = "0 0 24 24"
+          w-h = "8"
+          w-pos = "absolute bottom-0 left-1/2"
+          w-svg = "fill-none"
+          w-transform = "~ -translate-x-1/2"
+          w-w = "8">
+          <path
+            d = "M19 9l-7 7-7-7"
+            w-svg = "stroke-2 stroke-black stroke-cap-round stroke-join-round"/>
+        </svg>
+      </div>
+      <div
+        w-align = "items-center"
+        w-flex = "~ col"
+        w-h = "3/4"
+        w-justify = "center"
+        w-pos = "absolute left-0 top-0"
+        w-w = "full">
+        <h1
+          w-text = "5xl">
+          Hi, I'm Tejal Shinde!
+        </h1>
+        <p
+          w-m = "t-2.5"
+          w-text = "2xl coolGray-400">
+          See the world with design.
+        </p>
+      </div>
+    </div>
   </body>
 </html>

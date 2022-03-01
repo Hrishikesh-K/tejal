@@ -1,30 +1,53 @@
 {{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute -->
   <div
-    w-h = "3/4"
-    w-pos = "relative"
-    w-w = "full">
-    <svg
-      viewBox = "0 0 1000 1000"
-      w-h = "full"
-      w-svg = "fill-none"
+    w-bg = "white"
+    w-p = "t-20"
+    w-pos = "relative top-3/4">
+    <div
+      w-grid = "~ cols-1 gap-1 sm:cols-2 lg:cols-3"
+      w-m = "x-auto"
+      w-max-w = "300">
+      {{- range sort (where .Site.RegularPages "Section" "projects") ".Params.index" "desc" -}}
+        {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
+        {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
+        <a
+          class = "group"
+          href = "{{- .RelPermalink -}}"
+          w-display = "block"
+          w-h = "full"
+          w-pos = "relative"
+          w-w = "full">
+          <img
+            alt = "cover for {{ .Title -}}"
+            src = "{{- $originalCover.RelPermalink -}}"
+            style = "aspect-ratio:{{- $originalCover.Width -}}/{{- $originalCover.Height -}};"
+            w-h = "full"
+            w-w = "full"/>
+          <div
+            w-align = "items-center"
+            w-bg = "black/75"
+            w-flex = "~"
+            w-h = "full"
+            w-justify = "center"
+            w-position = "absolute left-0 top-0"
+            w-opacity = "0 group-hover:100"
+            w-transition = "duration-250 ease-in-out opacity"
+            w-w = "full">
+            <h3
+              w-font = "bold"
+              w-text = "white xl">
+              {{- .Title -}}
+            </h3>
+          </div>
+        </a>
+      {{- end -}}
+    </div>
+    <p
+      w-text = "center"
+      w-p = "y-5"
       w-w = "full">
-      <path
-        d = "M820.14 215.8H179.86v128.05m160.07 120.21V784.2H500V464.06h160.07l.27 318.55"
-        w-svg = "stroke-15 stroke-pink-200"/>
-    </svg>
-    <svg
-      viewBox = "0 0 24 24"
-      w-h = "8"
-      w-pos = "absolute bottom-0 left-1/2"
-      w-svg = "fill-none"
-      w-transform = "~ -translate-x-1/2"
-      w-w = "8">
-      <path
-        d = "M19 9l-7 7-7-7"
-        w-svg = "stroke-2 stroke-black stroke-cap-round stroke-join-round"/>
-    </svg>
-  </div>
-  <div
-    w-h = "2000">
+      &copy; Tejal Shinde
+    </p>
   </div>
 {{- end -}}

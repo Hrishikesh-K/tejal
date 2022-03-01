@@ -1,4 +1,4 @@
-const {black, pink, white} = require('windicss/colors')
+const {black, coolGray, pink, white} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
 module.exports = defineConfig({
   attributify: {
@@ -19,6 +19,7 @@ module.exports = defineConfig({
   theme: {
     colors: {
       black,
+      coolGray,
       pink,
       white
     },
@@ -33,7 +34,8 @@ module.exports = defineConfig({
         250: '250ms'
       },
       transitionProperty: {
-        height: 'height'
+        height: 'height',
+        opacity: 'opacity'
       }
     },
   }
