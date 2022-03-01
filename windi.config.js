@@ -23,6 +23,9 @@ module.exports = defineConfig({
       white
     },
     extend: {
+      fontFamily: {
+        sans: ['ftnk', 'ui-sans-serif', 'system-ui']
+      },
       height: {
         '100-5': 'calc(100% - 5rem)'
       },
@@ -32,6 +35,6 @@ module.exports = defineConfig({
       transitionProperty: {
         height: 'height'
       }
-    }
+    },
   }
 })

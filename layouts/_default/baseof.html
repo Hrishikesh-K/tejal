@@ -34,7 +34,7 @@
     w-h = "full"
     w-overflow = "hidden"
     w-position = "fixed"
-    w-text = "black"
+    w-text = "black xl"
     w-w = "full">
     <noscript
       w-align = "items-center"
@@ -48,7 +48,7 @@
     <header
       style = "display:none;"
       w-h = "20"
-      w-p = "1"
+      w-p = "x-2.5 y-1"
       w-shadow = "~"
       w-w = "full"
       w-z = "5"
@@ -65,9 +65,12 @@
             w-align = "items-center"
             w-flex = "~">
             {{- range where .Site.RegularPages "Section" "=" "" -}}
-              <p>
-                {{- .Title -}}
-              </p>
+              <a
+                href = "{{- .RelPermalink -}}">
+                <p>
+                  {{- .Title -}}
+                </p>
+              </a>
             {{- end -}}
           </nav>
           <div
