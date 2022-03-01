@@ -28,6 +28,15 @@
       src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true" "targetPath" "js/bundle.min.js")).RelPermalink -}}"
       defer>
     </script>
+    <!--<style
+      lang = "windi">
+      .is-animating main {
+        @apply opacity-0;
+      }
+      .swup-progress-bar {
+        @apply bg-pink-500 opacity-100;
+      }
+    </style>-->
     <title>
       {{- .Title -}}
     </title>
@@ -36,7 +45,7 @@
     w-bg = "white"
     w-h = "full"
     w-overflow = "hidden"
-    w-position = "fixed"
+    w-pos = "fixed"
     w-text = "black xl"
     w-w = "full">
     <noscript
@@ -50,9 +59,9 @@
     </noscript>
     <header
       style = "display:none;"
+      w-border = "b-2 pink-500"
       w-h = "20"
-      w-p = "x-2.5 y-1"
-      w-shadow = "~"
+      w-p = "2.5"
       w-w = "full"
       w-z = "5"
       x-data = "header">
@@ -173,19 +182,20 @@
         x-if = "expand">
         <div
           w-bg = "white"
-          w-h = "100-5"
+          w-h = "container"
           w-pos = "fixed left-0 top-20"
           w-w = "full"
           w-z = "1">
           <div
+            w-border = "b-2 pink-500"
             w-flex = "~ col"
             w-h = "100-5"
-            w-shadow = "~"
             w-w = "full">
 
           </div>
           <div
             w-align = "items-center"
+            w-border = "b-2 pink-500"
             w-flex = "~"
             w-h = "20"
             w-justify = "center"
@@ -228,64 +238,82 @@
         </div>
       </template>
     </header>
-    <main
+    <section
       style = "display:none;"
-      w-h = "100-5"
-      w-overflow = "y-auto"
-      w-scroll = "smooth"
-      w-scrollbar = "thin thumb-pink-500 track-pink-100">
-      {{- block "main" . -}}
-      {{- end -}}
-    </main>
-    <div
-      style = "display:none;"
-      w-h = "100-5"
-      w-pointer = "none"
-      w-pos = "fixed left-0 top-20"
-      w-w = "full"
-      w-z = "-1">
-      <div
-        w-h = "3/4"
+      w-h = "container"
+      w-w = "full">
+      <main
+        class = "swup-transition-slide"
+        id = "swup"
+        w-h = "full"
         w-pos = "relative"
-        w-w = "full">
-        <svg
-          viewBox = "0 0 1000 1000"
-          w-h = "full"
-          w-svg = "fill-none"
-          w-w = "full">
-          <path
-            d = "M820.14 215.8H179.86v128.05m160.07 120.21V784.2H500V464.06h160.07l.27 318.55"
-            w-svg = "stroke-15 stroke-pink-100"/>
-        </svg>
-        <svg
-          viewBox = "0 0 24 24"
-          w-h = "8"
-          w-pos = "absolute bottom-0 left-1/2"
-          w-svg = "fill-none"
-          w-transform = "~ -translate-x-1/2"
-          w-w = "8">
-          <path
-            d = "M19 9l-7 7-7-7"
-            w-svg = "stroke-2 stroke-black stroke-cap-round stroke-join-round"/>
-        </svg>
-      </div>
-      <div
-        w-align = "items-center"
-        w-flex = "~ col"
-        w-h = "3/4"
-        w-justify = "center"
-        w-pos = "absolute left-0 top-0"
-        w-w = "full">
-        <h1
-          w-text = "5xl">
-          Hi, I'm Tejal Shinde!
-        </h1>
-        <p
-          w-m = "t-2.5"
-          w-text = "2xl coolGray-400">
-          See the world with design.
-        </p>
-      </div>
-    </div>
+        w-opacity = "100"
+        w-overflow = "y-auto"
+        w-scroll = "smooth"
+        w-scrollbar = "thin thumb-pink-500 track-pink-100"
+        w-transition = "duration-250 ease-in-out opacity">
+          {{- block "main" . -}}
+          {{- end -}}
+          {{- if .IsHome -}}
+            <div
+              w-h = "container"
+              w-pos = "fixed left-0 top-20"
+              w-w = "full"
+              w-z = "-1">
+              <div
+                w-h = "3/4"
+                w-pos = "relative"
+                w-w = "full">
+                <svg
+                  viewBox = "0 0 1000 1000"
+                  w-h = "full"
+                  w-svg = "fill-none"
+                  w-w = "full">
+                  <path
+                    d = "M820.14 215.8H179.86v128.05m160.07 120.21V784.2H500V464.06h160.07l.27 318.55"
+                    w-svg = "stroke-15 stroke-pink-100"/>
+                </svg>
+                <svg
+                  viewBox = "0 0 24 24"
+                  w-h = "8"
+                  w-pos = "absolute bottom-0 left-1/2"
+                  w-svg = "fill-none"
+                  w-transform = "~ -translate-x-1/2"
+                  w-w = "8">
+                  <path
+                    d = "M19 9l-7 7-7-7"
+                    w-svg = "stroke-2 stroke-black stroke-cap-round stroke-join-round"/>
+                </svg>
+              </div>
+              <div
+                w-align = "items-center"
+                w-flex = "~ col"
+                w-h = "3/4"
+                w-justify = "center"
+                w-pos = "absolute left-0 top-0"
+                w-w = "full">
+                <h1
+                  w-text = "5xl center">
+                  Hi, I'm Tejal Shinde!
+                </h1>
+                <p
+                  w-m = "t-2.5"
+                  w-text = "2xl coolGray-400">
+                  See the world with design.
+                </p>
+              </div>
+            </div>
+          {{- end -}}
+      </main>
+    </section>
+    <footer
+      w-border = "pink-500 t-2"
+      w-bg = "white"
+      w-text = "center"
+      w-p = "2.5"
+      w-pos = "fixed bottom-0 left-0"
+      w-w = "full">
+      &copy; Tejal Shinde
+    </footer>
   </body>
 </html>

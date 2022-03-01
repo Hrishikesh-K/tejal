@@ -28,7 +28,8 @@ module.exports = defineConfig({
         sans: ['ftnk', 'ui-sans-serif', 'system-ui']
       },
       height: {
-        '100-5': 'calc(100% - 5rem)'
+        '100-5': 'calc(100% - 5rem)',
+        container: 'calc(100% - 8rem)'
       },
       transitionDuration: {
         250: '250ms'
