@@ -11,10 +11,10 @@ module.exports = defineConfig({
     ]
   },
   plugins: [
-    require('@windicss/plugin-interaction-variants'),
+    //require('@windicss/plugin-interaction-variants'),
     require('@windicss/plugin-scrollbar'),
-    require('windicss/plugin/aspect-ratio'),
-    require('windicss/plugin/scroll-snap')
+    //require('windicss/plugin/aspect-ratio'),
+    //require('windicss/plugin/scroll-snap')
   ],
   theme: {
     colors: {
@@ -25,6 +25,12 @@ module.exports = defineConfig({
     extend: {
       height: {
         '100-5': 'calc(100% - 5rem)'
+      },
+      transitionDuration: {
+        250: '250ms'
+      },
+      transitionProperty: {
+        height: 'height'
       }
     }
   }

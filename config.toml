@@ -1,6 +1,6 @@
 baseURL = "https://www.tejalshinde.com/"
 disableHugoGeneratorInject = true
-disableKinds = ["page", "rss", "sitemap", "taxonomy", "term"]
+disableKinds = ["rss", "sitemap", "taxonomy", "term"]
 enableRobotsTXT = true
 title = "Tejal Shinde"
 [build]
