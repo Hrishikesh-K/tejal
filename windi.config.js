@@ -11,10 +11,7 @@ module.exports = defineConfig({
     ]
   },
   plugins: [
-    //require('@windicss/plugin-interaction-variants'),
     require('@windicss/plugin-scrollbar'),
-    //require('windicss/plugin/aspect-ratio'),
-    //require('windicss/plugin/scroll-snap')
   ],
   theme: {
     colors: {
