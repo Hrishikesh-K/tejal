@@ -1,0 +1,135 @@
+<!doctype html>
+<!--suppress HtmlUnknownTarget, JSUnresolvedVariable, RequiredAttributes, XmlUnboundNsPrefix -->
+<html
+  lang = "en"
+  w-h = "full"
+  w-w = "full"
+  w-overflow = "hidden"
+  x-data = "alpine"
+  x-bind:class = "theme">
+  <head>
+    <link
+      href = "{{- (resources.Get "css/bundle.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed")).RelPermalink -}}"
+      rel = "stylesheet"/>
+    <meta
+      charset = "utf-8"/>
+    <meta
+      content = "width=device-width,initial-scale=1.0"
+      name = "viewport"/>
+    <script
+      defer
+      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true")).RelPermalink -}}">
+    </script>
+    <!--<style
+      lang = "windi">
+      [data-lazy] {
+        @apply blur-md filter;
+      }
+      [disabled] {
+        @apply opacity-50 pointer-events-none;
+      }
+      [w-w~="md:gap2"] .swiper {
+        @apply max-w-sm;
+      }
+      .swiper-3d .swiper-slide-shadow {
+        background: none;
+      }
+      .swiper-slide-thumb-active {
+        @apply opacity-100;
+      }
+    </style>-->
+    <title>
+      Tejal Shinde
+    </title>
+  </head>
+  <body
+    w-bg = "light-700 dark:dark-700"
+    w-h = "full"
+    w-overflow = "hidden"
+    {{- if .IsHome -}}
+      w-text = "light-700"
+    {{- else -}}
+      w-text = "dark-700 dark:light-700"
+    {{- end -}}
+    w-w = "full">
+    <noscript
+      w-align = "items-center"
+      w-flex = "~"
+      w-h = "full"
+      w-justify = "center"
+      w-w = "full">
+      Please enable JavaScript to view this page.
+    </noscript>
+    <header
+      w-align = "items-center"
+      {{- if not .IsHome -}}
+        w-bg = "light-700 dark:dark-700"
+      {{- end -}}
+      w-flex = "~"
+      w-h = "20"
+      w-justify = "between"
+      w-p = "5"
+      w-position = "absolute left-0 top-0"
+      w-w = "full"
+      w-z = "10">
+      <div
+        w-aspect = "square"
+        w-h = "full">
+        <a
+          href = "/"
+          w-display = "block"
+          w-h = "full">
+          <svg
+            viewBox = "0 0 1000 1000"
+            w-h = "full"
+            w-svg = "fill-none">
+            <path
+              d = "M820.14 215.8H179.86v128.05m160.07 120.21V784.2H500V464.06h160.07l.27 318.55"
+              w-svg = "stroke-50 stroke-current"/>
+          </svg>
+        </a>
+      </div>
+      <div
+        w-align = "items-center"
+        w-flex = "~"
+        w-h = "full"
+        w-space = "x-5">
+        <a
+          href = "/about/"
+          w-text = "2xl ">
+          About
+        </a>
+        <a
+          href = "/work/"
+          w-text = "2xl">
+          Work
+        </a>
+        <a
+          href = "/contact/"
+          w-text = "2xl">
+          Contact
+        </a>
+        <button
+          w-aspect = "square"
+          w-bg = "dark-500 dark:light-500"
+          w-border = "rounded-md"
+          w-h = "full"
+          w-text = "light-700 dark:dark-700"
+          w-w = "full"
+          x-on:click = "theme = theme === 'dark' ? 'light' : 'dark'">
+          <svg
+            viewBox = "0 0 24 24"
+            w-h = "5"
+            w-m = "x-auto"
+            w-svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+            w-w = "5">
+            <path
+              x-bind:d = "theme === 'dark' ? 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z' : 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z'"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+    {{- block "main" . -}}
+    {{- end -}}
+  </body>
+</html>

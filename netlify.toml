@@ -1,0 +1,11 @@
+[build]
+  base = "/"
+  command = "npm run build"
+  publish = "public"
+  [build.environment]
+    HUGO_VERSION = "0.96.0"
+    NODE_VERSION = "node"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    content-security-policy = "default-src 'self' 'unsafe-eval' 'unsafe-inline'"

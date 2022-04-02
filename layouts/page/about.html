@@ -1,0 +1,32 @@
+{{- define "main" -}}
+  {{- $profile := resources.Get "img/profile.jpg" -}}
+  <div
+    w-aspect = "square"
+    w-bg = "cover no-repeat profile top"
+    w-position = "absolute left-0 top-20"
+    w-overflow = "hidden"
+    w-w = "screen">
+  </div>
+  <div
+    w-align = "items-center"
+    w-flex = "~ wrap-reverse"
+    w-gap = "5 sm:10"
+    w-h = "sm:[calc(100%_-_5rem)]"
+    w-m = "t-20 x-auto"
+    w-max-w = "280"
+    w-p = "5"
+    w-w = "full">
+    <div
+      w-flex = "1">
+      <p
+        w-text = "4xl sm:8xl center">
+        Tejal Shinde
+      </p>
+      <p
+        w-m = "t-2.5 sm:t-10"
+        w-text = "xl sm:4xl justify">
+        A graduate student in advertising at SCAD, Atlanta. I bring extensive knowledge and blend the best of ideation and creation of designs, and ad campaigns. Ideation and creativity is what I live for. Every ad or content I come across, I analyse what, why and how of the design. I am a huge fashionista. Leading an active lifestyle is a personal goal as I’m trying to make a habit. A student who wants to learn, grow and establish herself for the better good and prove that any woman can be successful if she worked hard.
+      </p>
+    </div>
+  </div>
+{{- end -}}

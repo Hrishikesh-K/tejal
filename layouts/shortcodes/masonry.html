@@ -1,0 +1,21 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+{{- $array := (seq (.Get "start") ($.Get "end")) -}}
+<div
+  data-masonry
+  w-m = "t-5"
+  w-w = "full">
+  {{- range $array -}}
+    {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+    {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+    <img
+      alt = "{{- $originalImage.Title -}}"
+      data-lazy = "{{- $originalImage.RelPermalink -}}"
+      height = "{{- $originalImage.Height -}}"
+      src = "{{- $lowImage.RelPermalink -}}"
+      width = "{{- $originalImage.Width -}}"
+      w-m = "b-5"
+      w-object = "cover"
+      w-transition = "duration-250 ease-in-out filter"
+      w-w = "full lg:masonryLg sm:masonrySm"/>
+  {{- end -}}
+</div>

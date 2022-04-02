@@ -1,0 +1,109 @@
+<!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
+{{- $array := (seq (.Get "start") ($.Get "end")) -}}
+<div
+  class = "swiper"
+  data-gallery = "{{- .Get "options" -}}"
+  w-max-w = "2xl"
+  w-position = "relative"
+  w-w = "3/4"
+  x-data = "gallery">
+  <div
+    w-h = "8"
+    w-position = "absolute -left-1/8 top-1/2 lg:-left-1/4"
+    w-transform = "~ -translate-y-1/2"
+    w-w = "8"
+    w-z = "10"
+    x-bind:w-cursor = "current === 0 ? 'not-allowed' : 'pointer'">
+    <button
+      class = "swiper-button-prev"
+      w-h = "full"
+      w-w = "full">
+      <svg
+        viewBox = "0 0 24 24"
+        w-h = "full"
+        w-svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+        w-w = "full">
+        <path
+          d = "M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"/>
+      </svg>
+    </button>
+  </div>
+  <div
+    w-h = "8"
+    w-position = "absolute -right-1/8 top-1/2 lg:-right-1/4"
+    w-transform = "~ -translate-y-1/2"
+    w-w = "8"
+    w-z = "10"
+    x-bind:w-cursor = "current + 1 === last ? 'not-allowed' : 'pointer'">
+    <button
+      class = "swiper-button-next"
+      w-h = "full"
+      w-w = "full">
+      <svg
+        viewBox = "0 0 24 24"
+        xmlns = "http://www.w3.org/2000/svg"
+        w-h = "full"
+        w-svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+        w-w = "full">
+        <path
+          d = "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    </button>
+  </div>
+  <div
+    class = "swiper-wrapper"
+    w-w = "full">
+    {{- range $array -}}
+      {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+      {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+      <div
+        class = "swiper-slide"
+        w-w = "full">
+        <img
+          alt = ""
+          height = "{{- $originalImage.Height -}}"
+          src = "{{- $lowImage.RelPermalink -}}"
+          width = "{{- $originalImage.Width -}}"
+          data-lazy = "{{- $originalImage.RelPermalink -}}"
+          w-h = "full"
+          w-object = "cover"
+          w-transition = "duration-250 ease-in-out filter"
+          w-w = "full"/>
+      </div>
+    {{- end -}}
+  </div>
+</div>
+<div
+  class = "swiper thumb"
+  w-m = "t-5"
+  w-max-w = "2xl">
+  <div
+    class = "swiper-wrapper">
+    {{- range $array -}}
+      {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+      {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+      <div
+        class = "swiper-slide"
+        w-cursor = "pointer"
+        w-opacity = "50">
+        <div
+          w-overflow = "hidden"
+          w-w = "full">
+          <img
+            alt = ""
+            height = "{{- $originalImage.Height -}}"
+            src = "{{- $lowImage.RelPermalink -}}"
+            width = "{{- $originalImage.Width -}}"
+            data-lazy = "{{- $originalImage.RelPermalink -}}"
+            w-cursor = "zoom-in"
+            w-h = "full"
+            w-object = "cover"
+            w-transition = "duration-250 ease-in-out transform"
+            w-w = "full"/>
+        </div>
+      </div>
+    {{- end -}}
+  </div>
+</div>
+<!--<safe
+  w-cursor = "not-allowed pointer"/>-->

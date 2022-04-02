@@ -1,0 +1,27 @@
+{
+  "baseURL": "https://www.tejalshinde.com/",
+  "disableKinds": [
+    "RSS",
+    "sitemap",
+    "taxonomy",
+    "term"
+  ],
+  "markup": {
+    "goldmark": {
+      "renderer": {
+        "unsafe": true
+      }
+    }
+  },
+  "minify": {
+    "minifyOutput": true,
+    "tdewolff": {
+      "html": {
+        "keepConditionalComments": false,
+        "keepDefaultAttrVals": false,
+        "keepEndTags": false,
+        "keepWhitespace": false
+      }
+    }
+  }
+}

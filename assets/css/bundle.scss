@@ -1,0 +1,38 @@
+@import 'swiper/swiper';
+@import 'swiper/modules/autoplay/autoplay';
+@import 'swiper/modules/effect-cards/effect-cards';
+@import 'swiper/modules/effect-fade/effect-fade';
+@import 'swiper/modules/thumbs/thumbs';
+@import './styles';
+//noinspection CssUnknownTarget
+@font-face {
+  font-display: swap;
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/caveat-400-regular.woff2') format('woff2');
+}
+//noinspection CssUnknownTarget
+@font-face {
+  font-display: swap;
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/caveat-500-regular.woff2') format('woff2');
+}
+//noinspection CssUnknownTarget
+@font-face {
+  font-display: swap;
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/caveat-600-regular.woff2') format('woff2');
+}
+//noinspection CssUnknownTarget
+@font-face {
+  font-display: swap;
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/caveat-700.regular') format('woff2');
+}
