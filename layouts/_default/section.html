@@ -9,14 +9,14 @@
       Website is under construction. More content is being added. Please check back soon.
     </p>
     <div
-      w-flex = "~"
+      w-flex = "~ wrap"
       w-gap = "x-5 y-5">
-      {{- range first 2 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
+      {{- range first 4 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
         <a
           href = "{{- .RelPermalink -}}"
           w-aspect = "square"
           w-display = "block"
-          w-w = "full lg:masonryLg sm:masonrySm">
+          w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
             {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
             {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
           <img

@@ -38,7 +38,8 @@ module.exports = defineConfig({
       width: {
         gap2: 'calc(50% - 1.25rem)',
         masonryLg: 'calc((100%/3) - ((2*1.25rem)/3))',
-        masonrySm: 'calc((100%/2) - (1.25rem/2))'
+        masonrySm: 'calc((100%/2) - (1.25rem/2))',
+        masonryXl: 'calc((100%/4) - ((3*1.25rem)/4)'
       }
     },
     fontFamily: {
