@@ -1,2 +1,37 @@
 {{- define "main" -}}
+  <div
+    w-bg = "dark-500"
+    w-h = "full"
+    w-w = "full"
+    x-data = "animation"
+    x-show = "!loaded">
+    <template
+      x-if = "!loaded">
+      <div
+        w-align = "items-center"
+        w-flex = "~"
+        w-h = "full"
+        w-justify = "center"
+        w-w = "full">
+        <div>
+        <template
+          x-if = "(((progressAstronaut + progressEarth) / 2) * 100).toFixed(2) < 100">
+          <p
+            w-text = "3xl light-700">
+            Loading interactive animation...
+            <span
+              x-text = "`${(((progressAstronaut + progressEarth) / 2) * 100).toFixed(2)}%`"></span>
+          </p>
+        </template>
+        <template
+          x-if = "(((progressAstronaut + progressEarth) / 2) * 100).toFixed(2) >= 100">
+          <p
+            w-text = "3xl light-700">
+            Almost there...
+          </p>
+        </template>
+        </div>
+      </div>
+    </template>
+  </div>
 {{- end -}}

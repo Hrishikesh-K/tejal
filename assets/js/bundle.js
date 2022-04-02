@@ -1,4 +1,4 @@
-// noinspection JSCheckFunctionSignatures, JSUnusedGlobalSymbols
+// noinspection JSCheckFunctionSignatures, JSUnresolvedFunction, JSUnusedGlobalSymbols
 
 import Alpine from 'alpinejs'
 import {AmbientLight} from 'three'
@@ -26,12 +26,17 @@ import {Thumbs} from 'swiper'
 import {WebGLRenderer} from 'three'
 function onLoad() {
   window.removeEventListener('load', onLoad)
-  Alpine.data('alpine', () => ({
-    theme: 'light'
+  Alpine.data('animation', () => ({
+    loaded: false,
+    progressAstronaut: null,
+    progressEarth: null
   }))
   Alpine.data('gallery', () => ({
     current: 0,
     last: null
+  }))
+  Alpine.data('global', () => ({
+    theme: 'light'
   }))
   Alpine.start()
   if (location.pathname === '/') {
@@ -52,12 +57,10 @@ function onLoad() {
       scene.background = new Color(0x0e0042)
       document.body.appendChild(canvas.domElement)
       scene.add(particleMesh, new AmbientLight(0xffffff, 1))
+      document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true
     }
-    manager.onError = (url) => {
-      console.log('There was an error loading ' + url)
-    }
-    manager.onProgress = (url, itemsLoaded, itemsTotal) => {
-      console.log('Loading file: ' + url + '\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files')
+    manager.onError = url => {
+      console.log(`There was an error loading ${url}`)
     }
     const scene = new Scene()
     const canvas = new WebGLRenderer({
@@ -74,6 +77,8 @@ function onLoad() {
       rotateEarth()
       scene.add(fbx)
       fbx.translateZ(-3.75)
+    }, progress => {
+      document.querySelector('[x-data="animation"]')._x_dataStack[0].progressEarth = progress.loaded / progress.total
     })
     new FBXLoader(manager).load('/3d/astronaut.fbx', fbx => {
       function walkAstronaut() {
@@ -88,6 +93,8 @@ function onLoad() {
       walkAnimation.play()
       fbx.translateY(-1.5)
       fbx.scale.set(0.0125, 0.0125, 0.0125)
+    }, progress => {
+      document.querySelector('[x-data="animation"]')._x_dataStack[0].progressAstronaut = progress.loaded / (progress.total)
     })
     const particleCount = 1000
     const particleGeometry = new BufferGeometry()
