@@ -54,9 +54,9 @@
     w-h = "full"
     w-overflow = "hidden"
     {{- if .IsHome -}}
-      w-text = "light-700"
+      w-text = "2xl light-700"
     {{- else -}}
-      w-text = "dark-700 dark:light-700"
+      w-text = "2xl dark-700 dark:light-700"
     {{- end -}}
     w-w = "full">
     <noscript
@@ -107,23 +107,20 @@
             w-h = "full"
             w-space = "x-5">
             <a
-              href = "{{- (.Site.GetPage "/about").RelPermalink -}}"
-              w-text = "2xl ">
+              href = "{{- (.Site.GetPage "/about").RelPermalink -}}">
               About
             </a>
             <a
-              href = "{{- (.Site.GetPage "/work").RelPermalink -}}"
-              w-text = "2xl">
+              href = "{{- (.Site.GetPage "/work").RelPermalink -}}">
               Work
             </a>
             <a
-              href = "{{- (.Site.GetPage "/contact").RelPermalink -}}"
-              w-text = "2xl">
+              href = "{{- (.Site.GetPage "/contact").RelPermalink -}}">
               Contact
             </a>
             <button
               w-aspect = "square"
-              w-bg = "dark-500 dark:light-500"
+              w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
               w-border = "rounded-md"
               w-h = "full"
               w-text = "light-700 dark:dark-700"

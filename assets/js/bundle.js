@@ -33,10 +33,17 @@ function onLoad() {
   }))
   Alpine.data('contact', () => ({
     email: null,
+    error: null,
     message: null,
     name: null,
+    progress: false,
+    setHeight(event) {
+      event.currentTarget.style.height = '12rem'
+      event.currentTarget.style.height = `${event.currentTarget.scrollHeight}px`
+    },
     subject: null,
-    submit() {
+    submitData() {
+      this.progress = true
       Axios({
         data: {
           email: this.email,
@@ -46,6 +53,9 @@ function onLoad() {
         },
         method: 'post',
         url: '/.netlify/functions/submit/'
+      }).then(() => {
+        this.$el.reset()
+        this.progress = false
       })
     }
   }))

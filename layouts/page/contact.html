@@ -1,15 +1,15 @@
 {{- define "main" -}}
   <!--suppress JSUnresolvedVariable, XmlUnboundNsPrefix -->
   <form
+    w-max-w = "96"
     w-space = "y-5"
-    w-w = "100"
+    w-w = "full"
     x-data = "contact"
-    x-on:submit.prevent = "submit">
+    x-on:submit.prevent = "submitData">
     <label
       w-display = "block"
-      w-h = "10"
-      w-position = "relative"
-      w-text = "2xl">
+      w-h = "full"
+      w-position = "relative">
       <input
         placeholder = "&nbsp;"
         type = "text"
@@ -18,7 +18,6 @@
         w-h = "10"
         w-outline = "none"
         w-p = "x-1"
-        w-text = "2xl"
         w-w = "full"
         x-model = "name"/>
       <span
@@ -32,17 +31,15 @@
     <label
       w-display = "block"
       w-h = "10"
-      w-position = "relative"
-      w-text = "2xl">
+      w-position = "relative">
       <input
         placeholder = "&nbsp;"
-        type = "text"
+        type = "email"
         w-bg = "light-700 dark:dark-700"
         w-border = "1 rounded-md"
-        w-h = "10"
+        w-h = "full"
         w-outline = "none"
         w-p = "x-1"
-        w-text = "2xl"
         w-w = "full"
         x-model = "email"/>
       <span
@@ -56,17 +53,15 @@
     <label
       w-display = "block"
       w-h = "10"
-      w-position = "relative"
-      w-text = "2xl">
+      w-position = "relative">
       <input
         placeholder = "&nbsp;"
         type = "text"
         w-bg = "light-700 dark:dark-700"
         w-border = "1 rounded-md"
-        w-h = "10"
+        w-h = "full"
         w-outline = "none"
         w-p = "x-1"
-        w-text = "2xl"
         w-w = "full"
         x-model = "subject"/>
       <span
@@ -79,20 +74,20 @@
     </label>
     <label
       w-display = "block"
-      w-h = "10"
-      w-position = "relative"
-      w-text = "2xl">
+      w-h = "48"
+      w-position = "relative">
       <textarea
         placeholder = "&nbsp;"
         type = "text"
         w-bg = "light-700 dark:dark-700"
         w-border = "1 rounded-md"
-        w-h = "50"
+        w-h = "full"
         w-outline = "none"
         w-p = "x-1"
-        w-text = "2xl"
+        w-resize = "none"
         w-w = "full"
-        x-model = "name">
+        x-model = "message"
+        x-on:input = "setHeight">
       </textarea>
       <span
         w-bg = "light-700 dark:dark-700"
@@ -102,8 +97,66 @@
         Message
       </span>
     </label>
-    <button>
+    <button
+      w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
+      w-border = "rounded-md"
+      w-p = "2"
+      w-text = "light-700 dark:dark-700">
       Submit
     </button>
+    <div
+      w-h = "14"
+      w-m = "x-auto"
+      w-max-w = "80"
+      w-transform = "~"
+      w-transition = "duration-250 ease-in-out opacityTransform"
+      w-w = "full"
+      x-show = "progress"
+      x-transition:enter-start = "opacity-0 translate-y-20"
+      x-transition:enter-end = "opacity-100 translate-y-0"
+      x-transition:leave = "delay-2500"
+      x-transition:leave-start = "opacity-100 translate-y-0"
+      x-transition:leave-end = "opacity-0 translate-y-20">
+      <!--<safe
+        w-bg = "green-500 red-500 yellow-500"/>-->
+      <div
+        w-align = "items-center"
+        w-flex = "~"
+        w-h = "full"
+        w-justify = "center"
+        w-transition = "background duration-250 ease-in-out"
+        w-w = "full"
+        x-bind:w-bg = "progress ? 'yellow-500' : error ? 'red-500' : 'green-500'">
+        <div
+          w-align = "items-center"
+          w-flex = "~">
+          <template
+            x-if = "progress">
+            <svg
+              viewBox = "0 0 24 24"
+              xmlns = "http://www.w3.org/2000/svg"
+              w-animate = "spin"
+              w-h = "5"
+              w-m = "r-2.5"
+              w-svg = "stroke-4 stroke-cap-round stroke-join-round"
+              w-w = "5">
+              <circle
+                cx = "12"
+                cy = "12"
+                r = "10"
+                w-opacity = "25"
+                w-svg = "fill-none stroke-current"/>
+              <path
+                d = "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                w-opacity = "75"
+                w-svg = "fill-current"/>
+            </svg>
+          </template>
+          <p
+            x-text = "progress ? 'Submitting' : error ? 'There was an error' : 'Successfully submitted'">
+          </p>
+        </div>
+      </div>
+    </div>
   </form>
 {{- end -}}

@@ -1,6 +1,6 @@
 // noinspection JSCheckFunctionSignatures
 
-const {dark, light} = require('windicss/colors')
+const {dark, green, light, red, yellow} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
 module.exports = defineConfig({
   attributify: {
@@ -17,13 +17,17 @@ module.exports = defineConfig({
     require('@windicss/plugin-scrollbar'),
     require('windicss/plugin/aspect-ratio')
   ],
+  safelist: 'delay-2500 opacity-0 opacity-100 translate-y-0 translate-y-20',
   theme: {
     colors: {
       current: 'currentColor',
       dark,
+      green,
       inherit: 'inherit',
       light,
-      transparent: 'transparent'
+      red,
+      transparent: 'transparent',
+      yellow
     },
     extend: {
       backgroundImage: {
@@ -33,8 +37,10 @@ module.exports = defineConfig({
         content: 'calc(100% - 5rem)'
       },
       transitionProperty: {
+        background: 'background',
         filter: 'filter',
         filterTransform: 'filter,transform',
+        opacityTransform: 'opacity,transform',
         paddingTextTransform: 'font-size,line-height,padding,transform'
       },
       width: {
