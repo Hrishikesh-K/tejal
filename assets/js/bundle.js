@@ -28,8 +28,7 @@ function onLoad() {
   window.removeEventListener('load', onLoad)
   Alpine.data('animation', () => ({
     loaded: false,
-    progressAstronaut: null,
-    progressEarth: null
+    progress: null
   }))
   Alpine.data('gallery', () => ({
     current: 0,
@@ -40,6 +39,13 @@ function onLoad() {
   }))
   Alpine.start()
   if (location.pathname === '/') {
+    const progressManager = Alpine.reactive({
+      astronaut: null,
+      earth: null
+    })
+    Alpine.effect(() => {
+      document.querySelector('[x-data="animation"]')._x_dataStack[0].progress = (((progressManager.astronaut + progressManager.earth) / 2) * 100).toFixed(2)
+    })
     function orbitControls() {
       cameraControl.update()
       canvas.render(scene, camera)
@@ -78,7 +84,7 @@ function onLoad() {
       scene.add(fbx)
       fbx.translateZ(-3.75)
     }, progress => {
-      document.querySelector('[x-data="animation"]')._x_dataStack[0].progressEarth = progress.loaded / progress.total
+      progressManager.earth = progress.loaded / progress.total
     })
     new FBXLoader(manager).load('/3d/astronaut.fbx', fbx => {
       function walkAstronaut() {
@@ -94,7 +100,7 @@ function onLoad() {
       fbx.translateY(-1.5)
       fbx.scale.set(0.0125, 0.0125, 0.0125)
     }, progress => {
-      document.querySelector('[x-data="animation"]')._x_dataStack[0].progressAstronaut = progress.loaded / (progress.total)
+      progressManager.astronaut = progress.loaded / progress.total
     })
     const particleCount = 1000
     const particleGeometry = new BufferGeometry()

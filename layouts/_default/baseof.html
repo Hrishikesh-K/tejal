@@ -1,5 +1,5 @@
 <!doctype html>
-<!--suppress HtmlUnknownTarget, JSUnresolvedVariable, RequiredAttributes, XmlUnboundNsPrefix -->
+<!--suppress HtmlUnknownAttribute, JSUnresolvedVariable, RequiredAttributes, XmlUnboundNsPrefix -->
 <html
   lang = "en"
   w-h = "full"
@@ -95,17 +95,17 @@
         w-h = "full"
         w-space = "x-5">
         <a
-          href = "/about/"
+          href = "{{- (.Site.GetPage "/about").RelPermalink -}}"
           w-text = "2xl ">
           About
         </a>
         <a
-          href = "/work/"
+          href = "{{- (.Site.GetPage "/work").RelPermalink -}}"
           w-text = "2xl">
           Work
         </a>
         <a
-          href = "/contact/"
+          href = "{{- (.Site.GetPage "/contact").RelPermalink -}}"
           w-text = "2xl">
           Contact
         </a>
@@ -129,7 +129,20 @@
         </button>
       </div>
     </header>
-    {{- block "main" . -}}
+    {{- if .IsHome -}}
+      {{- block "main" . -}}
+      {{- end -}}
+    {{- else -}}
+      <div
+        w-h = "content"
+        w-overflow = "x-hidden y-auto"
+        w-p = "5"
+        w-position = "absolute left-0 top-20"
+        w-scrollbar = "thin thumb-dark-100 track-dark-900 dark:thumb-light-100 dark:track-light-900"
+        w-w = "full">
+        {{- block "main" . -}}
+        {{- end -}}
+      </div>
     {{- end -}}
   </body>
 </html>

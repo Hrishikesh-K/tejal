@@ -1,40 +1,32 @@
 {{- define "main" -}}
-  <div
-    w-h = "content"
-    w-overflow = "x-hidden y-auto"
-    w-p = "5"
-    w-position = "absolute left-0 top-20"
-    w-scrollbar = "thin thumb-dark-100 track-dark-900 dark:thumb-light-100 dark:track-light-900"
+  <p
+    w-m = "b-5"
+    w-text = "2xl center"
     w-w = "full">
-    <p
-      w-m = "b-5"
-      w-text = "2xl center"
-      w-w = "full">
-      Website is under construction. More content is being added. Please check back soon.
-    </p>
-    <div
-      w-flex = "~ wrap"
-      w-gap = "x-5 y-5">
-      {{- range first 4 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
-        <a
-          href = "{{- .RelPermalink -}}"
-          w-aspect = "square"
-          w-display = "block"
-          w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
-            {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
-            {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
-          <img
-            alt = ""
-            data-lazy = "{{- $originalCover.RelPermalink -}}"
-            height = "{{- $originalCover.Height -}}"
-            src = "{{- $lowCover.RelPermalink -}}"
-            width = "{{- $originalCover.Width -}}"
-            w-h = "full"
-            w-object = "cover"
-            w-transition = "duration-250 ease-in-out filter"
-            w-w = "full"/>
-        </a>
-      {{- end -}}
-    </div>
+    Website is under construction. More content is being added. Please check back soon.
+  </p>
+  <div
+    w-flex = "~ wrap"
+    w-gap = "x-5 y-5">
+    {{- range first 4 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
+      <a
+        href = "{{- .RelPermalink -}}"
+        w-aspect = "square"
+        w-display = "block"
+        w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
+        {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
+        {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
+        <img
+          alt = ""
+          data-lazy = "{{- $originalCover.RelPermalink -}}"
+          height = "{{- $originalCover.Height -}}"
+          src = "{{- $lowCover.RelPermalink -}}"
+          width = "{{- $originalCover.Width -}}"
+          w-h = "full"
+          w-object = "cover"
+          w-transition = "duration-250 ease-in-out filter"
+          w-w = "full"/>
+      </a>
+    {{- end -}}
   </div>
 {{- end -}}
