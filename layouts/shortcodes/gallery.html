@@ -7,6 +7,8 @@
   w-position = "relative"
   w-w = "3/4"
   x-data = "gallery">
+  <!--<safe
+    w-cursor = "not-allowed pointer"/>-->
   <div
     w-h = "8"
     w-position = "absolute -left-1/8 top-1/2 lg:-left-1/4"
@@ -95,7 +97,6 @@
             src = "{{- $lowImage.RelPermalink -}}"
             width = "{{- $originalImage.Width -}}"
             data-lazy = "{{- $originalImage.RelPermalink -}}"
-            w-cursor = "zoom-in"
             w-h = "full"
             w-object = "cover"
             w-transition = "duration-250 ease-in-out transform"
@@ -105,5 +106,3 @@
     {{- end -}}
   </div>
 </div>
-<!--<safe
-  w-cursor = "not-allowed pointer"/>-->

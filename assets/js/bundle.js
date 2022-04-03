@@ -33,7 +33,7 @@ function onLoad() {
   }))
   Alpine.data('contact', () => ({
     email: null,
-    error: null,
+    error: false,
     message: null,
     name: null,
     progress: false,
@@ -56,6 +56,10 @@ function onLoad() {
       }).then(() => {
         this.$el.reset()
         this.progress = false
+      }).catch(({response}) => {
+        this.error = true
+        this.progress = false
+        console.log(response)
       })
     }
   }))
