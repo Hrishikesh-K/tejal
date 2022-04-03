@@ -9,24 +9,35 @@
     w-flex = "~ wrap"
     w-gap = "x-5 y-5">
     {{- range first 4 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
-      <a
-        href = "{{- .RelPermalink -}}"
-        w-aspect = "square"
-        w-display = "block"
+      <div
+        class = "group"
         w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
-        {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
-        {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
-        <img
-          alt = ""
-          data-lazy = "{{- $originalCover.RelPermalink -}}"
-          height = "{{- $originalCover.Height -}}"
-          src = "{{- $lowCover.RelPermalink -}}"
-          width = "{{- $originalCover.Width -}}"
-          w-h = "full"
-          w-object = "cover"
-          w-transition = "duration-250 ease-in-out filter"
-          w-w = "full"/>
-      </a>
+        <a
+          href = "{{- .RelPermalink -}}"
+          w-aspect = "square"
+          w-display = "block"
+          w-overflow = "hidden"
+          w-w = "full">
+          {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
+          {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
+          <img
+            alt = ""
+            data-lazy = "{{- $originalCover.RelPermalink -}}"
+            height = "{{- $originalCover.Height -}}"
+            src = "{{- $lowCover.RelPermalink -}}"
+            width = "{{- $originalCover.Width -}}"
+            w-h = "full"
+            w-object = "cover"
+            w-transition = "duration-250 ease-in-out filterTransform"
+            w-transform = "~ group-hover:scale-110"
+            w-w = "full"/>
+        </a>
+        <p
+          w-m = "t-2.5"
+          w-text = "2xl">
+          {{- .Title -}}
+        </p>
+      </div>
     {{- end -}}
   </div>
 {{- end -}}

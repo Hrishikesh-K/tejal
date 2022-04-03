@@ -3,4 +3,4 @@
   "title": "Bombae Bantai"
 }
 
-{{< masonry end = "17" start = "1" >}}
+{{< masonry end = "16" start = "1" >}}

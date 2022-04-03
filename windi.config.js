@@ -33,7 +33,8 @@ module.exports = defineConfig({
         content: 'calc(100% - 5rem)'
       },
       transitionProperty: {
-        filter: 'filter'
+        filter: 'filter',
+        filterTransform: 'filter,transform'
       },
       width: {
         gap2: 'calc(50% - 1.25rem)',
