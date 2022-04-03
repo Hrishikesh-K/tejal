@@ -1,12 +1,4 @@
 {{- define "main" -}}
-  {{- $profile := resources.Get "img/profile.jpg" -}}
-  <div
-    w-aspect = "square"
-    w-bg = "cover no-repeat profile top"
-    w-position = "absolute left-0 top-20"
-    w-overflow = "hidden"
-    w-w = "screen">
-  </div>
   <div
     w-align = "items-center"
     w-flex = "~ wrap-reverse"
@@ -27,6 +19,96 @@
         w-text = "xl sm:4xl justify">
         A graduate student in advertising at SCAD, Atlanta. I bring extensive knowledge and blend the best of ideation and creation of designs, and ad campaigns. Ideation and creativity is what I live for. Every ad or content I come across, I analyse what, why and how of the design. I am a huge fashionista. Leading an active lifestyle is a personal goal as I’m trying to make a habit. A student who wants to learn, grow and establish herself for the better good and prove that any woman can be successful if she worked hard.
       </p>
+    </div>
+  </div>
+  <div
+    w-flex = "~ wrap"
+    w-w = "full">
+    <!--<safe
+      w-p = "l-3.8 t-5"
+      w-before = "absolute bg-dark-700 content-[''] h-4 -ml-6 rounded-full w-4 top-0.5 top-bullet dark:bg-light-700"/>-->
+    {{- $beforeBase := "absolute bg-dark-700 content-[''] h-4 -ml-6 rounded-full w-4 dark:bg-light-700" -}}
+    {{- $pBase := "l-3.8" -}}
+    <div
+      w-flex = "sm:1"
+      w-w = "full">
+      <p
+        w-m = "b-2.5">
+        Education
+      </p>
+      {{- range $index, $element := .Params.education -}}
+        <div
+          w-border = "l-2"
+          w-position = "relative"
+          {{- if eq $index 0 -}}
+            w-before = "{{- printf "%s top-0.5" $beforeBase -}}"
+            w-p = "{{- $pBase -}}"
+          {{- else -}}
+            w-before = "{{- printf "%s top-bullet" $beforeBase -}}"
+            w-p = "{{- printf "%s t-5" $pBase -}}"
+          {{- end -}}>
+          <p
+            w-font = "leading-5">
+            {{- .degree -}}
+          </p>
+          <p
+            w-font = "italic"
+            w-m = "t-2.5">
+            {{- .college -}}
+          </p>
+          <ul
+            w-list = "disc"
+            w-m = "t-2.5"
+            w-p = "l-2.5">
+            {{- range .features -}}
+              <li>
+                {{- . -}}
+              </li>
+            {{- end -}}
+          </ul>
+        </div>
+      {{- end -}}
+    </div>
+    <div
+      w-flex = "sm:1"
+      w-m = "t-5 sm:l-5 sm:t-0"
+      w-w = "full">
+      <p
+        w-m = "b-2.5">
+        Work
+      </p>
+      {{- range $index, $element := .Params.works -}}
+        <div
+          w-border = "l-2"
+          w-position = "relative"
+          {{- if eq $index 0 -}}
+            w-before = "{{- printf "%s top-0.5" $beforeBase -}}"
+            w-p = "{{- $pBase -}}"
+          {{- else -}}
+            w-before = "{{- printf "%s top-bullet" $beforeBase -}}"
+            w-p = "{{- printf "%s t-5" $pBase -}}"
+          {{- end -}}>
+          <p
+            w-font = "leading-5">
+            {{- .position -}}
+          </p>
+          <p
+            w-font = "italic"
+            w-m = "t-2.5">
+            {{- .company -}}
+          </p>
+          <ul
+            w-list = "disc"
+            w-m = "t-2.5"
+            w-p = "l-2.5">
+            {{- range .features -}}
+              <li>
+                {{- . -}}
+              </li>
+            {{- end -}}
+          </ul>
+        </div>
+      {{- end -}}
     </div>
   </div>
 {{- end -}}

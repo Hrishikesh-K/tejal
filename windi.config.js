@@ -36,6 +36,9 @@ module.exports = defineConfig({
       height: {
         content: 'calc(100% - 5rem)'
       },
+      objectPosition: {
+        bullet: 'calc(1.25rem + 0.125rem)'
+      },
       transitionProperty: {
         background: 'background',
         filter: 'filter',
