@@ -1,4 +1,18 @@
 {{- define "main" -}}
-  <input
-    type = "text"/>
+  <label
+    w-display = "block"
+    w-h = "10"
+    w-position = "relative"
+    w-text = "2xl">
+    <input
+      type = "text"
+      w-h = "10"
+      w-p = "x-1"/>
+    <span
+      w-position = "absolute left-1 top-1"
+      w-transform = "~"
+      w-transition = "duration-250 ease-in-out transform">
+      Name
+    </span>
+  </label>
 {{- end -}}

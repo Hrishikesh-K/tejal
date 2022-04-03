@@ -35,7 +35,31 @@ function onLoad() {
     last: null
   }))
   Alpine.data('global', () => ({
-    theme: 'light'
+    checkTheme() {
+      const selectedTheme = localStorage.getItem('theme')
+      if (selectedTheme) {
+        this.theme = selectedTheme
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          this.theme = 'dark'
+        } else {
+          this.theme = 'light'
+        }
+      }
+    },
+    init() {
+      this.checkTheme()
+    },
+    js: false,
+    theme: 'light',
+    toggleTheme() {
+      if (this.theme === 'dark') {
+        this.theme = 'light'
+      } else {
+        this.theme = 'dark'
+      }
+      localStorage.setItem('theme', this.theme)
+    }
   }))
   Alpine.start()
   if (location.pathname === '/') {
@@ -61,7 +85,7 @@ function onLoad() {
       canvas.setSize(width, height)
       canvas.outputEncoding = sRGBEncoding
       scene.background = new Color(0x0e0042)
-      document.body.appendChild(canvas.domElement)
+      document.body.querySelector('div').appendChild(canvas.domElement)
       scene.add(particleMesh, new AmbientLight(0xffffff, 1))
       document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true
     }
