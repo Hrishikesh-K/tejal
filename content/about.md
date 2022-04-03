@@ -1,4 +1,5 @@
 {
+  "description": "Learn more about Tejal Shinde",
   "education": [{
     "college": "Savannah College of Art and Design, Atlanta",
     "degree": "Master of Arts in Advertising Design",

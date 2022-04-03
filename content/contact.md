@@ -1,4 +1,5 @@
 {
-"layout": "contact",
-"title": "Contact"
+  "description": "Contact Tejal Shinde to collaborate wih her.",
+  "layout": "contact",
+  "title": "Contact"
 }

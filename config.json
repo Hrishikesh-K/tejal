@@ -1,5 +1,6 @@
 {
   "baseURL": "https://www.tejalshinde.com/",
+  "disableHugoGeneratorInject": true,
   "disableKinds": [
     "RSS",
     "sitemap",

@@ -14,6 +14,25 @@
       rel = "stylesheet"/>
     <meta
       charset = "utf-8"/>
+    {{- $description := "Online portfolio of Tejal Shinde - Assistant Art Director" -}}
+    {{- $title := "Tejal Shinde" -}}
+    {{- if not .IsHome -}}
+      {{- if eq (len .Section) 0 -}}
+        {{- $description = .Description -}}
+      {{- else -}}
+        {{- $description = printf "%s | Check out this and more such projects on the website." .Description -}}
+      {{- end -}}
+      {{- $title = printf "%s | %s" .Title $title -}}
+    {{- end -}}
+    <meta
+      content = "Tejal Shinde"
+      name = "author"/>
+    <meta
+      content = "{{- $description -}}"
+      name = "description"/>
+    <meta
+      content = "Hugo v{{- hugo.Version -}}"
+      name="generator"/>
     <meta
       content = "width=device-width,initial-scale=1.0"
       name = "viewport"/>
@@ -46,7 +65,7 @@
       }
     </style>-->
     <title>
-      Tejal Shinde
+      {{- $title -}}
     </title>
   </head>
   <body
