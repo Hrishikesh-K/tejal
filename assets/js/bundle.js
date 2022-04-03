@@ -4,6 +4,7 @@ import Alpine from 'alpinejs'
 import {AmbientLight} from 'three'
 import {AnimationMixer} from 'three'
 import {Autoplay} from 'swiper'
+import Axios from 'axios'
 import {BufferAttribute} from 'three'
 import {BufferGeometry} from'three'
 import {Clock} from 'three'
@@ -29,6 +30,24 @@ function onLoad() {
   Alpine.data('animation', () => ({
     loaded: false,
     progress: null
+  }))
+  Alpine.data('contact', () => ({
+    email: null,
+    message: null,
+    name: null,
+    subject: null,
+    submit() {
+      Axios({
+        data: {
+          email: this.email,
+          message: this.message,
+          name: this.name,
+          subject: this.subject
+        },
+        method: 'post',
+        url: '/.netlify/functions/submit/'
+      })
+    }
   }))
   Alpine.data('gallery', () => ({
     current: 0,

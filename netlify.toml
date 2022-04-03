@@ -5,6 +5,9 @@
   [build.environment]
     HUGO_VERSION = "0.96.0"
     NODE_VERSION = "node"
+[functions]
+  directory = "functions"
+  node_bundler = "esbuild"
 [[headers]]
   for = "/*"
   [headers.values]

@@ -34,7 +34,8 @@ module.exports = defineConfig({
       },
       transitionProperty: {
         filter: 'filter',
-        filterTransform: 'filter,transform'
+        filterTransform: 'filter,transform',
+        paddingTextTransform: 'font-size,line-height,padding,transform'
       },
       width: {
         gap2: 'calc(50% - 1.25rem)',

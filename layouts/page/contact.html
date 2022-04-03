@@ -1,18 +1,106 @@
 {{- define "main" -}}
-  <label
-    w-display = "block"
-    w-h = "10"
-    w-position = "relative"
-    w-text = "2xl">
-    <input
-      type = "text"
+  <!--suppress JSUnresolvedVariable, XmlUnboundNsPrefix -->
+  <form
+    w-space = "y-5"
+    w-w = "100"
+    x-data = "contact"
+    x-on:submit.prevent = "submit">
+    <label
+      w-display = "block"
       w-h = "10"
-      w-p = "x-1"/>
-    <span
-      w-position = "absolute left-1 top-1"
-      w-transform = "~"
-      w-transition = "duration-250 ease-in-out transform">
-      Name
-    </span>
-  </label>
+      w-position = "relative"
+      w-text = "2xl">
+      <input
+        placeholder = "&nbsp;"
+        type = "text"
+        w-bg = "light-700 dark:dark-700"
+        w-border = "1 rounded-md"
+        w-h = "10"
+        w-outline = "none"
+        w-p = "x-1"
+        w-text = "2xl"
+        w-w = "full"
+        x-model = "name"/>
+      <span
+        w-bg = "light-700 dark:dark-700"
+        w-position = "absolute left-1 top-1"
+        w-transform = "~"
+        w-transition = "duration-250 ease-in-out paddingTextTransform">
+        Name
+      </span>
+    </label>
+    <label
+      w-display = "block"
+      w-h = "10"
+      w-position = "relative"
+      w-text = "2xl">
+      <input
+        placeholder = "&nbsp;"
+        type = "text"
+        w-bg = "light-700 dark:dark-700"
+        w-border = "1 rounded-md"
+        w-h = "10"
+        w-outline = "none"
+        w-p = "x-1"
+        w-text = "2xl"
+        w-w = "full"
+        x-model = "email"/>
+      <span
+        w-bg = "light-700 dark:dark-700"
+        w-position = "absolute left-1 top-1"
+        w-transform = "~"
+        w-transition = "duration-250 ease-in-out paddingTextTransform">
+        E-mail
+      </span>
+    </label>
+    <label
+      w-display = "block"
+      w-h = "10"
+      w-position = "relative"
+      w-text = "2xl">
+      <input
+        placeholder = "&nbsp;"
+        type = "text"
+        w-bg = "light-700 dark:dark-700"
+        w-border = "1 rounded-md"
+        w-h = "10"
+        w-outline = "none"
+        w-p = "x-1"
+        w-text = "2xl"
+        w-w = "full"
+        x-model = "subject"/>
+      <span
+        w-bg = "light-700 dark:dark-700"
+        w-position = "absolute left-1 top-1"
+        w-transform = "~"
+        w-transition = "duration-250 ease-in-out paddingTextTransform">
+        Subject
+      </span>
+    </label>
+    <label
+      w-display = "block"
+      w-h = "10"
+      w-position = "relative"
+      w-text = "2xl">
+      <textarea
+        placeholder = "&nbsp;"
+        type = "text"
+        w-bg = "light-700 dark:dark-700"
+        w-border = "1 rounded-md"
+        w-h = "50"
+        w-outline = "none"
+        w-p = "x-1"
+        w-text = "2xl"
+        w-w = "full"
+        x-model = "name">
+      </textarea>
+      <span
+        w-bg = "light-700 dark:dark-700"
+        w-position = "absolute left-1 top-1"
+        w-transform = "~"
+        w-transition = "duration-250 ease-in-out paddingTextTransform">
+        Message
+      </span>
+    </label>
+  </form>
 {{- end -}}

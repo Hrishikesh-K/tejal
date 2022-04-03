@@ -23,6 +23,12 @@
     </script>
     <!--<style
       lang = "windi">
+      input:focus + span,
+      input:not(:placeholder-shown) + span,
+      textarea:focus + span,
+      textarea:not(:placeholder-shown) + span{
+        @apply px-1 text-xs -translate-y-4;
+      }
       [data-lazy] {
         @apply blur-md filter;
       }
