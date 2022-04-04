@@ -254,13 +254,6 @@ function onLoad() {
           })
         })
       })
-      window.addEventListener('resize', () => {
-        masonries.forEach(element => {
-          setTimeout(() => {
-            element.masonry.layout()
-          }, 250)
-        })
-      })
     }
   }
 }

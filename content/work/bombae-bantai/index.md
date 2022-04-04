@@ -1,6 +1,6 @@
 {
   "description": "An imaginary beer brand. Includes logos, can labels, boxes, posters, merchandise and yet another designing adventure.",
-  "index": 7,
+  "index": 8,
   "title": "Bombae Bantai"
 }
 
