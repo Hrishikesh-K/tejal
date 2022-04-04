@@ -9,26 +9,26 @@
   w-w = "full">
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "3" options = "{}" start = "1" >}}
+    {{< gallery end = "3" start = "1" >}}
   </div>
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "7" options = "{}" start = "4" >}}
+    {{< gallery end = "7" start = "4" >}}
   </div>
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "11" options = "{}" start = "8" >}}
+    {{< gallery end = "11" start = "8" >}}
   </div>
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "15" options = "{}" start = "12" >}}
+    {{< gallery end = "15" start = "12" >}}
   </div>
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "19" options = "{}" start = "16" >}}
+    {{< gallery end = "19" start = "16" >}}
   </div>
   <div
     w-w = "full md:gap2">
-    {{< gallery end = "20" options = "{}" start = "20" >}}
+    {{< gallery end = "20" start = "20" >}}
   </div>
 </div>

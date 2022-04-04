@@ -1,7 +1,11 @@
 <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
 {{- $array := (seq (.Get "start") ($.Get "end")) -}}
+{{- $options := "{}" -}}
+{{- with (.Get "options") -}}
+  {{- $options = . -}}
+{{- end -}}
 <div
-  data-gallery = "{{- .Get "options" -}}"
+  data-gallery = "{{- $options -}}"
   w-m = "x-auto"
   w-max-w = "2xl"
   w-position = "relative"

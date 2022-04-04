@@ -1,6 +1,6 @@
 {
   "description": "A card deck designed from scratch, with typography at its core. And why is it named Zoddlini? Read more to find out.",
-  "index": 7,
+  "index": 8,
   "title": "Zoddlini"
 }
 
@@ -30,7 +30,7 @@
   w-m = "t-5"
   w-position = "relative"
   w-w = "full">
-  {{< gallery effect = "fade" end = "55" options = "{\"autoplay\": true, \"effect\": \"fade\"}" start = "54" >}}
+  {{< gallery end = "55" options = "{\"autoplay\": true, \"effect\": \"fade\"}" start = "54" >}}
   <img
     alt = ""
     height = "1280"
