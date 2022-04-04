@@ -1,8 +1,8 @@
 <!--suppress HtmlUnknownAttribute, XmlUnboundNsPrefix -->
 {{- $array := (seq (.Get "start") ($.Get "end")) -}}
 <div
-  class = "swiper"
   data-gallery = "{{- .Get "options" -}}"
+  w-m = "x-auto"
   w-max-w = "2xl"
   w-position = "relative"
   w-w = "3/4"
@@ -53,26 +53,29 @@
     </button>
   </div>
   <div
-    class = "swiper-wrapper"
-    w-w = "full">
-    {{- range $array -}}
-      {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
-      {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
-      <div
-        class = "swiper-slide"
-        w-w = "full">
-        <img
-          alt = ""
-          height = "{{- $originalImage.Height -}}"
-          src = "{{- $lowImage.RelPermalink -}}"
-          width = "{{- $originalImage.Width -}}"
-          data-lazy = "{{- $originalImage.RelPermalink -}}"
-          w-h = "full"
-          w-object = "cover"
-          w-transition = "duration-250 ease-in-out filter"
-          w-w = "full"/>
-      </div>
-    {{- end -}}
+    class = "swiper">
+    <div
+      class = "swiper-wrapper"
+      w-w = "full">
+      {{- range $array -}}
+        {{- $lowImage := index ($.Page.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+        {{- $originalImage := $.Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+        <div
+          class = "swiper-slide"
+          w-w = "full">
+          <img
+            alt = ""
+            height = "{{- $originalImage.Height -}}"
+            src = "{{- $lowImage.RelPermalink -}}"
+            width = "{{- $originalImage.Width -}}"
+            data-lazy = "{{- $originalImage.RelPermalink -}}"
+            w-h = "full"
+            w-object = "cover"
+            w-transition = "duration-250 ease-in-out filter"
+            w-w = "full"/>
+        </div>
+      {{- end -}}
+    </div>
   </div>
 </div>
 <div

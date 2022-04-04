@@ -8,7 +8,7 @@
   <div
     w-flex = "~ wrap"
     w-gap = "x-5 y-5">
-    {{- range first 6 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
+    {{- range first 7 (sort (where .Site.RegularPages ".Section" "=" "work") ".Params.Index").Reverse -}}
       <div
         class = "group"
         w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
@@ -40,6 +40,7 @@
     {{- end -}}
   </div>
   <p
+    w-m = "t-5"
     w-text = "center"
     w-w = "full">
     All trademarks, service marks and company names are the property of their respective owners.

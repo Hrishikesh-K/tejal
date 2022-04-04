@@ -206,19 +206,20 @@ function onLoad() {
     const swipers = document.querySelectorAll('[data-gallery]')
     if (swipers.length > 0) {
       swipers.forEach(element => {
-        new Swiper(element, {
+        const swiperElement = element.querySelector('.swiper')
+        new Swiper(swiperElement, {
           grabCursor: true,
           modules: [Autoplay, EffectCards, EffectFade, Navigation, Thumbs],
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: element.querySelector('.swiper-button-next'),
+            prevEl: element.querySelector('.swiper-button-prev')
           },
           on: {
             activeIndexChange: () => {
-              element._x_dataStack[0].current = element.swiper.activeIndex
+              element._x_dataStack[0].current = swiperElement.swiper.activeIndex
             },
             afterInit: () => {
-              element._x_dataStack[0].last = element.swiper.slides.length
+              element._x_dataStack[0].last = swiperElement.swiper.slides.length
             }
           },
           preloadImages: false,
