@@ -34,7 +34,7 @@ module.exports = defineConfig({
         profile: `url('/img/profile.jpg')`
       },
       height: {
-        content: 'calc(100% - 5rem)'
+        content: 'calc(100% - 7.5rem)'
       },
       objectPosition: {
         bullet: 'calc(1.25rem + 0.125rem)'

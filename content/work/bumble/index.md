@@ -3,4 +3,4 @@
   "title": "Bumble"
 }
 
-{{< masonry end = "12" start = "1" >}}
+{{< masonry end = "11" start = "1" >}}
