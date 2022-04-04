@@ -11,4 +11,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    content-security-policy = "default-src 'self' 'unsafe-eval' 'unsafe-inline'"
+    content-security-policy = "default-src 'self' 'unsafe-eval' 'unsafe-inline' data:"
