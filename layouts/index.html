@@ -13,12 +13,14 @@
         w-flex = "~"
         w-h = "full"
         w-justify = "center"
+        w-p = "5"
         w-w = "full">
         <div>
         <template
           x-if = "progress < 100">
           <p
-            w-text = "3xl light-700">
+            w-text = "3xl center light-700"
+            w-w = "full">
             Loading interactive animation...
             <span
               x-text = "`${progress}%`"></span>

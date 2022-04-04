@@ -7,6 +7,7 @@
     NODE_VERSION = "node"
 [functions]
   directory = "functions"
+  external_node_modules = ["formidable"]
   node_bundler = "esbuild"
 [[headers]]
   for = "/*"

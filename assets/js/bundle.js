@@ -177,6 +177,7 @@ function onLoad() {
       camera.updateProjectionMatrix()
     }, false)
   } else {
+    const remToPixel = parseFloat(getComputedStyle(document.documentElement).fontSize)
     const lazyImages = document.querySelectorAll('[data-lazy]')
     if (lazyImages.length > 0) {
       const lazyImagesObserver = new IntersectionObserver((entries, observer) => {
@@ -196,7 +197,7 @@ function onLoad() {
           }
         })
       }, {
-        rootMargin: `${parseFloat(getComputedStyle(document.documentElement).fontSize) * 5}px 0px 0px`,
+        rootMargin: `${remToPixel * 5}px 0px ${remToPixel * 2.5}px`,
         threshold: 0
       })
       lazyImages.forEach(element => {
@@ -235,7 +236,7 @@ function onLoad() {
               grabCursor: true,
               preloadImages: false,
               slidesPerView: 3,
-              spaceBetween: parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.25,
+              spaceBetween: remToPixel * 1.25,
               speed: 250
             })
           },
@@ -248,7 +249,7 @@ function onLoad() {
       masonries.forEach(element => {
         new ImagesLoaded(element, () => {
           element.masonry = new Masonry(element, {
-            gutter: parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.25,
+            gutter: remToPixel * 1.25,
             percentPosition: true,
             stagger: 0,
             transitionDuration: 0
