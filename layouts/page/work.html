@@ -1,21 +1,16 @@
 {{- define "main" -}}
   <!--suppress HtmlUnknownAttribute, RequiredAttributes, XmlUnboundNsPrefix -->
-  <p
-    w-m = "b-5"
-    w-text = "center"
-    w-w = "full"
-    x-init = "hash.check()">
-    Website is under active development. More content is being added. Please check back soon.
-  </p>
   {{- range (.Site.Sections).Reverse -}}
     <button
       w-align = "items-center"
       w-flex = "~"
+      w-m = "b-5"
       w-space = "x-2.5"
       x-on:click = "hash['{{- lower .Title -}}'] = !hash['{{- lower .Title -}}']">
+      {{- $posts := where .Site.RegularPages ".Section" "=" .Section -}}
       <span
         id = "{{- anchorize .Title -}}">
-        {{- .Title -}}
+        {{- printf "%s (%v)" .Title (len $posts) -}}
       </span>
       <svg
         viewBox = "0 0 24 24"
@@ -33,7 +28,7 @@
       w-m = "t-5"
       w-gap = "x-5 y-5"
       x-show = "hash['{{- lower .Title -}}']">
-      {{- range (sort (where .Site.RegularPages ".Section" "=" .Section) ".Params.Index").Reverse -}}
+      {{- range (sort $posts ".Params.Index").Reverse -}}
         <div
           class = "group"
           w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">

@@ -98,6 +98,9 @@ function onLoad() {
     },
     init() {
       this.checkTheme()
+      if (location.pathname === '/work/') {
+        this.hash.check()
+      }
     },
     js: false,
     theme: 'light',
