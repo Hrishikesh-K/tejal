@@ -1,0 +1,74 @@
+{{- define "main" -}}
+  <!--suppress HtmlUnknownAttribute, RequiredAttributes, XmlUnboundNsPrefix -->
+  <p
+    w-m = "b-5"
+    w-text = "center"
+    w-w = "full"
+    x-init = "hash.check()">
+    Website is under active development. More content is being added. Please check back soon.
+  </p>
+  {{- range (.Site.Sections).Reverse -}}
+    <button
+      w-align = "items-center"
+      w-flex = "~"
+      w-space = "x-2.5"
+      x-on:click = "hash['{{- lower .Title -}}'] = !hash['{{- lower .Title -}}']">
+      <span
+        id = "{{- anchorize .Title -}}">
+        {{- .Title -}}
+      </span>
+      <svg
+        viewBox = "0 0 24 24"
+        w-h = "5"
+        w-m = "x-auto"
+        w-svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+        w-w = "5">
+        <path
+          x-bind:d = "hash['{{- lower .Title -}}'] ? 'M20 12H4' : 'M12 4v16m8-8H4'"/>
+      </svg>
+    </button>
+    <div
+      x-collapse
+      w-flex = "~ wrap"
+      w-m = "t-5"
+      w-gap = "x-5 y-5"
+      x-show = "hash['{{- lower .Title -}}']">
+      {{- range (sort (where .Site.RegularPages ".Section" "=" .Section) ".Params.Index").Reverse -}}
+        <div
+          class = "group"
+          w-w = "full lg:masonryLg sm:masonrySm xl:masonryXl">
+          <a
+            href = "{{- .RelPermalink -}}"
+            w-aspect = "square"
+            w-display = "block"
+            w-overflow = "hidden"
+            w-w = "full">
+            {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
+            {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
+            <img
+              alt = ""
+              data-lazy = "{{- $originalCover.RelPermalink -}}"
+              height = "{{- $originalCover.Height -}}"
+              src = "{{- $lowCover.RelPermalink -}}"
+              width = "{{- $originalCover.Width -}}"
+              w-h = "full"
+              w-object = "cover"
+              w-transition = "duration-250 ease-in-out filterTransform"
+              w-transform = "~ group-hover:scale-110"
+              w-w = "full"/>
+          </a>
+          <p
+            w-m = "t-2.5">
+            {{- .Title -}}
+          </p>
+        </div>
+      {{- end -}}
+    </div>
+  {{- end -}}
+  <p
+    w-m = "t-5"
+    w-text = "center"
+    w-w = "full">
+    All trademarks, service marks and company names are the property of their respective owners.
+  </p>
+{{- end -}}

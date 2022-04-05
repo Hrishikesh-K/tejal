@@ -15,7 +15,7 @@
     <meta
       charset = "utf-8"/>
     {{- $description := "Online portfolio of Tejal Shinde - Assistant Art Director" -}}
-    {{- $title := "Tejal Shinde" -}}
+    {{- $title := .Site.Title -}}
     {{- if not .IsHome -}}
       {{- if eq (len .Section) 0 -}}
         {{- $description = .Description -}}
@@ -45,17 +45,20 @@
       {{- $homeSchema := dict "@type" "WebSite" "name" "Tejal Shinde" "url" .Site.BaseURL -}}
       {{- $breadcrumbSchema := "" -}}
       {{- $listHomeSchema := dict "@type" "ListItem" "item" .Site.BaseURL "name" "Tejal Shinde" "position" 1 -}}
-      {{- $listSectionSchema := dict "@type" "ListItem" "item" .Permalink "name" $title "position" 2 -}}
+      {{- $listSectionSchema := "" -}}
       {{- $finalSchema := "" -}}
       {{- if .IsHome -}}
         {{- $finalSchema = slice $homeSchema -}}
       {{- else if or .IsSection (and .IsPage (eq .Section "")) -}}
+        {{- $listSectionSchema = dict "@type" "ListItem" "item" .Permalink "name" $title "position" 2 -}}
         {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema) -}}
         {{- $finalSchema = slice $homeSchema $breadcrumbSchema -}}
       {{- else -}}
+        {{- $workPage := .Site.GetPage "/work" -}}
+        {{- $listSectionSchema = dict "@type" "ListItem" "item" $workPage.Permalink "name" (printf "%s | %s" $workPage.Title .Site.Title) "position" 2 -}}
         {{- $listPostSchema := dict "@type" "ListItem" "item" .Permalink "name" $title "position" 3 -}}
         {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema $listPostSchema) -}}
-        {{- $postSchema := dict "@type" "BlogPosting" "author" (dict "@type" "Person" "name" "Tejal Shinde" "url" .Site.BaseURL) "datePublished" .Date "description" $description "headline" $title "image" (.Resources.GetMatch (replace (index (.Resources.Match "assets/cover-low*") 0) "-low" "")).Permalink "mainEntityOfPage" (dict "@id" .Permalink "@type" "WebPage") "url" .Site.BaseURL -}}
+        {{- $postSchema := dict "@type" "BlogPosting" "author" (dict "@type" "Person" "name" "Tejal Shinde" "url" .Site.BaseURL) "description" $description "headline" $title "image" (.Resources.GetMatch (replace (index (.Resources.Match "assets/cover-low*") 0) "-low" "")).Permalink "mainEntityOfPage" (dict "@id" .Permalink "@type" "WebPage") "url" .Site.BaseURL -}}
         {{- $finalSchema = slice $homeSchema $breadcrumbSchema $postSchema -}}
       {{- end -}}
       {{- dict "@context" "https://schema.org/" "@graph" $finalSchema -}}
@@ -182,7 +185,7 @@
           {{- block "main" . -}}
           {{- end -}}
         {{- else -}}
-          <div
+          <main
             w-h = "content"
             w-overflow = "x-hidden y-auto"
             w-p = "5"
@@ -191,7 +194,7 @@
             w-w = "full">
             {{- block "main" . -}}
             {{- end -}}
-          </div>
+          </main>
         {{- end -}}
         <footer
           w-align = "items-center"

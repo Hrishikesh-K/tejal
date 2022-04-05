@@ -22,8 +22,8 @@
       w-z = "1">
       <img
         alt = ""
-        src = "/work/skippy/assets/img12-low.png"
-        data-lazy = "/work/skippy/assets/img12.png"
+        src = "/projects/skippy/assets/img12-low.png"
+        data-lazy = "/projects/skippy/assets/img12.png"
         w-object = "cover"
         w-transition = "duration-250 ease-in-out filter"
         w-w = "full"/>

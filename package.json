@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@alpinejs/collapse": "^3.9.5",
     "@swup/progress-plugin": "^1.1.1",
     "@windicss/plugin-scrollbar": "^1.2.3",
     "akismet-api": "^5.3.0",

@@ -34,9 +34,9 @@
   <img
     alt = ""
     height = "1280"
-    src = "/work/zoddlini/assets/img53-low.png"
+    src = "/projects/zoddlini/assets/img53-low.png"
     width = "2048"
-    data-lazy = "/work/zoddlini/assets/img53.png"
+    data-lazy = "/projects/zoddlini/assets/img53.png"
     w-max-w = "2xl"
     w-object = "cover"
     w-position = "absolute left-1/2 top-0"

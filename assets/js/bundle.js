@@ -8,6 +8,7 @@ import Axios from 'axios'
 import {BufferAttribute} from 'three'
 import {BufferGeometry} from'three'
 import {Clock} from 'three'
+import Collapse from '@alpinejs/collapse'
 import {Color} from 'three'
 import {EffectCards} from 'swiper'
 import {EffectFade} from 'swiper'
@@ -80,6 +81,21 @@ function onLoad() {
         }
       }
     },
+    hash: {
+      art: true,
+      check() {
+        if (location.hash) {
+          if (location.hash === '#art') {
+            this.art = true
+            this.projects = false
+          } else if (location.hash === '#projects') {
+            this.projects = true
+            this.about = true
+          }
+        }
+      },
+      projects: true
+    },
     init() {
       this.checkTheme()
     },
@@ -94,6 +110,7 @@ function onLoad() {
       localStorage.setItem('theme', this.theme)
     }
   }))
+  Alpine.plugin(Collapse)
   Alpine.start()
   if (location.pathname === '/') {
     const progressManager = Alpine.reactive({
