@@ -3,7 +3,6 @@
   "disableHugoGeneratorInject": true,
   "disableKinds": [
     "RSS",
-    "sitemap",
     "taxonomy",
     "term"
   ],

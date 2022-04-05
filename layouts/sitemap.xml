@@ -1,0 +1,53 @@
+<urlset
+  xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>
+      {{- .Site.BaseURL -}}
+    </loc>
+    <changefreq>
+      monthly
+    </changefreq>
+    <priority>
+      1
+    </priority>
+  </url>
+  {{- range .Site.Sections -}}
+    <url>
+      <loc>
+        {{- .Permalink -}}
+      </loc>
+      <changefreq>
+        weekly
+      </changefreq>
+      <priority>
+        0.75
+      </priority>
+    </url>
+    {{- range where .Site.RegularPages ".Section" "=" .Section -}}
+      <url>
+        <loc>
+          {{- .Permalink -}}
+        </loc>
+        <changefreq>
+          monthly
+        </changefreq>
+        <priority>
+          0.5
+        </priority>
+      </url>
+    {{- end -}}
+  {{- end -}}
+  {{- range where .Site.RegularPages ".Section" "=" "" -}}
+    <url>
+      <loc>
+        {{- .Permalink -}}
+      </loc>
+      <changefreq>
+        monthly
+      </changefreq>
+      <priority>
+        0.25
+      </priority>
+    </url>
+  {{- end -}}
+</urlset>

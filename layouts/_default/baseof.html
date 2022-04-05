@@ -40,6 +40,26 @@
       defer
       src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true")).RelPermalink -}}">
     </script>
+    <script
+      type = "application/ld+json">
+      {{- $homeSchema := dict "@type" "WebSite" "name" "Tejal Shinde" "url" .Site.BaseURL -}}
+      {{- $breadcrumbSchema := "" -}}
+      {{- $listHomeSchema := dict "@type" "ListItem" "item" .Site.BaseURL "name" "Tejal Shinde" "position" 1 -}}
+      {{- $listSectionSchema := dict "@type" "ListItem" "item" .Permalink "name" $title "position" 2 -}}
+      {{- $finalSchema := "" -}}
+      {{- if .IsHome -}}
+        {{- $finalSchema = dict "@context" "https://schema.org/" "@graph" (slice $homeSchema) -}}
+      {{- else if or .IsSection (and .IsPage (eq .Section "")) -}}
+        {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema) -}}
+        {{- $finalSchema = dict "@context" "https://schema.org/" "@graph" (slice $homeSchema $breadcrumbSchema) -}}
+      {{- else -}}
+        {{- $listPostSchema := dict "@type" "ListItem" "item" .Permalink "name" $title "position" 3 -}}
+        {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema $listPostSchema) -}}
+        {{- $postSchema := dict "@type" "BlogPosting" "author" (dict "@type" "Person" "name" "Tejal Shinde" "url" .Site.BaseURL) "datePublished" .Date "description" $description "headline" $title "image" (.Resources.GetMatch (replace (index (.Resources.Match "assets/cover-low*") 0) "-low" "")).Permalink "mainEntityOfPage" (dict "@id" .Permalink "@type" "WebPage") "url" .Site.BaseURL -}}
+        {{- $finalSchema = dict "@context" "https://schema.org/" "@graph" (slice $homeSchema $breadcrumbSchema $postSchema) -}}
+      {{- end -}}
+      {{- $finalSchema -}}
+    </script>
     <!--<style
       lang = "windi">
       input:focus + span,

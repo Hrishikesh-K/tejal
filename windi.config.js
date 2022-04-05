@@ -36,9 +36,6 @@ module.exports = defineConfig({
       height: {
         content: 'calc(100% - 7.5rem)'
       },
-      objectPosition: {
-        bullet: 'calc(1.25rem + 0.125rem)'
-      },
       transitionProperty: {
         background: 'background',
         filter: 'filter',
@@ -48,9 +45,9 @@ module.exports = defineConfig({
       },
       width: {
         gap2: 'calc(50% - 1.25rem)',
-        masonryLg: 'calc((100%/3) - ((2*1.25rem)/3))',
+        masonryLg: 'calc((100%/3) - (2.5rem/3))',
         masonrySm: 'calc((100%/2) - (1.25rem/2))',
-        masonryXl: 'calc((100%/4) - ((3*1.25rem)/4)'
+        masonryXl: 'calc((100%/4) - (3.75rem/4)'
       }
     },
     fontFamily: {
