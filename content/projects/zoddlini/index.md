@@ -37,7 +37,7 @@
     src = "/projects/zoddlini/assets/img53-low.png"
     width = "2048"
     data-lazy = "/projects/zoddlini/assets/img53.png"
-    w-max-w = "2xl"
+    w-max-w = "md"
     w-object = "cover"
     w-position = "absolute left-1/2 top-0"
     w-transform = "~ -translate-x-1/2"
