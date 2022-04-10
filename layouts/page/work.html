@@ -9,7 +9,9 @@
       x-on:click = "hash['{{- lower .Title -}}'] = !hash['{{- lower .Title -}}']">
       {{- $posts := where .Site.RegularPages ".Section" "=" .Section -}}
       <span
-        id = "{{- anchorize .Title -}}">
+        id = "{{- anchorize .Title -}}"
+        w-font = "font-space semibold"
+        w-text = "2xl">
         {{- printf "%s (%v)" .Title (len $posts) -}}
       </span>
       <svg

@@ -53,7 +53,6 @@ module.exports = defineConfig({
     },
     fontFamily: {
       orbitron: ['Orbitron', 'sans-serif'],
-      caveat: ['Caveat', 'sans-serif'],
       space: ['Space Mono', 'monospace']
     }
   }
