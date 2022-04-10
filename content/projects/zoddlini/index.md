@@ -4,6 +4,8 @@
   "title": "Zoddlini"
 }
 
+Zoddlini is a card deck, which focuses on typography. It includes a re-visualization and a complete revamp of the traditional playing cards. New icon set, varied colors, expressive typography and conceptual illustrations, all come together to bring this project alive. The name Zoddlini comes from Zodiac (theme of the card deck) + Oddlini (typeface used). Each suit represents a category of the Zodiac Signs: Clubs ↔ Earth signs, Diamonds ↔ Fire signs, Hearts ↔ Water signs, Spades ↔ Air signs. From a pre-defined moodboard, a color palette was defined to represent each of the categories.
+
 <div
   w-flex = "~ wrap"
   w-gap = "5"
