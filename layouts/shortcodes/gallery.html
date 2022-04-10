@@ -7,7 +7,9 @@
 <div
   data-gallery = "{{- $options -}}"
   w-m = "x-auto"
-  w-max-w = "md"
+  {{- if ne (.Get ("max")) "false" -}}
+    w-max-w = "md"
+  {{- end -}}
   w-position = "relative"
   w-w = "3/4"
   x-data = "gallery">

@@ -1,6 +1,6 @@
 // noinspection JSCheckFunctionSignatures
 
-const {dark, green, light, red, yellow} = require('windicss/colors')
+const {dark, green, gray, light, red, yellow} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
 module.exports = defineConfig({
   attributify: {
@@ -22,6 +22,7 @@ module.exports = defineConfig({
     colors: {
       current: 'currentColor',
       dark,
+      gray,
       green,
       inherit: 'inherit',
       light,
@@ -32,6 +33,9 @@ module.exports = defineConfig({
     extend: {
       height: {
         content: 'calc(100% - 7.5rem)'
+      },
+      maxWidth: {
+        gap2: 'calc(50% - 1.25rem)'
       },
       transitionProperty: {
         background: 'background',

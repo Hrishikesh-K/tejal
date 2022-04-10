@@ -9,13 +9,23 @@
     w-w = "full">
     <div
       w-flex = "1">
-      <p
-        w-text = "4xl sm:8xl center">
-        Tejal Shinde
-      </p>
+      <div
+        w-align = "items-center"
+        w-flex = "~ wrap"
+        w-gap = "5"
+        w-justify = "center">
+        <p
+          w-text = "4xl sm:8xl">
+          Tejal
+        </p>
+        <p
+          w-text = "4xl dark-100 sm:8xl dark:gray-300">
+          Shinde
+        </p>
+      </div>
       <p
         w-m = "t-2.5 sm:t-10"
-        w-text = "lg sm:2xl justify">
+        w-text = "gray-500 lg justify dark:gray-400">
         I bring varied perspectives and concepts and try to take a new and suitable approach for each project and work. With enough thought, I try to blend the best of ideation, visualization and creativity in my direction style as that is what I live for. Leading an active lifestyle is a personal goal as I’m trying to make a habit.
       </p>
     </div>
@@ -35,12 +45,14 @@
       w-flex = "sm:1"
       w-w = "full">
       <p
-        w-m = "b-2.5">
+        w-font = "semibold"
+        w-m = "b-2.5"
+        w-text = "xl">
         Education
       </p>
       {{- range $index, $element := .Params.education -}}
         <div
-          w-border = "l-2"
+          w-border = "gray-500 l-2 dark:gray-400"
           w-position = "relative"
           {{- if eq $index 0 -}}
             w-before = "{{- printf "%s top-0.5" $beforeBase -}}"
@@ -61,7 +73,8 @@
           <ul
             w-list = "disc"
             w-m = "t-2.5"
-            w-p = "l-2.5">
+            w-p = "l-2.5"
+            w-text = "gray-500 dark:gray-400">
             {{- range .features -}}
               <li>
                 {{- . -}}
@@ -76,12 +89,14 @@
       w-m = "t-5 sm:l-5 sm:t-0"
       w-w = "full">
       <p
-        w-m = "b-2.5">
+        w-font = "semibold"
+        w-m = "b-2.5"
+        w-text = "xl">
         Work
       </p>
       {{- range $index, $element := .Params.works -}}
         <div
-          w-border = "l-2"
+          w-border = "gray-500 l-2 dark:gray-400"
           w-position = "relative"
           {{- if eq $index 0 -}}
             w-before = "{{- printf "%s top-0.5" $beforeBase -}}"
@@ -102,7 +117,8 @@
           <ul
             w-list = "disc"
             w-m = "t-2.5"
-            w-p = "l-2.5">
+            w-p = "l-2.5"
+            w-text = "gray-500 dark:gray-400">
             {{- range .features -}}
               <li>
                 {{- . -}}

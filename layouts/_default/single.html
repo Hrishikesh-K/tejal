@@ -1,12 +1,13 @@
 {{- define "main" -}}
   <h1
+    w-font = "font-space semibold"
     w-text = "4xl">
     {{- .Title -}}
   </h1>
   <div
     w-font = "font-space"
     w-m = "t-5"
-    w-text = "justify lg">
+    w-text = "gray-500 justify lg dark:gray-400">
     {{- .Content -}}
   </div>
 {{- end -}}

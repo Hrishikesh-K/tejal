@@ -28,7 +28,9 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
     {{< gallery end = "52" options = "{\"effect\": \"cards\"}" start = "40" >}}
   </div>
   <div
-    w-w = "full md:gap2">
+    w-m = "x-auto"
+    w-max-w = "gap2"
+    w-w = "full">
     {{< gallery end = "59" options = "{\"effect\": \"cards\"}" start = "58" >}}
   </div>
 </div>
@@ -37,21 +39,13 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
   w-m = "t-5"
   w-position = "relative"
   w-w = "full">
-  {{< gallery end = "57" start = "56" >}}
-</div>
-
-<div
-  w-m = "t-5"
-  w-position = "relative"
-  w-w = "full">
-  {{< gallery end = "55" options = "{\"autoplay\": true, \"effect\": \"fade\"}" start = "54" >}}
+  {{< gallery end = "57" max = "false" start = "54" >}}
   <img
     alt = ""
     height = "1280"
     src = "/projects/zoddlini/assets/img53-low.png"
     width = "2048"
     data-lazy = "/projects/zoddlini/assets/img53.png"
-    w-max-w = "md"
     w-object = "cover"
     w-position = "absolute left-1/2 top-0"
     w-transform = "~ -translate-x-1/2"
