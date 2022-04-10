@@ -3,9 +3,12 @@
   "title": "Skippy"
 }
 
+Skippy is an industry-leader in peanut butter, however it has not been performing well on the social media. The task was to revive the brand on the social media and develop a brand new marketing campaign. The final output includes various tweets, filters to engage the youth, games and basically anything that would be ideal for the brand's tone and voice.
+
 <div
   w-flex = "~ wrap"
   w-gap = "5"
+  w-m = "t-5"
   w-w = "full">
   <div
     w-w = "full md:gap2">

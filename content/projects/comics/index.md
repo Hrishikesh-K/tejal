@@ -3,9 +3,12 @@
   "title": "Comics"
 }
 
+This project is a small collection of short comics on the life of a typical middle-class Indian girl. Being a girl is not easy, and she has her own day-to-day problems to handle, especially when the girl has a sore throat, loves to sleep, tries to act cool, works-out (only in dreams) and is heavily troubled by mosquitoes. Who talks about these issues? Hardly, anyone. Here I try to voice a few of those issues, in a comical way.
+
 <div
   w-flex = "~ wrap"
   w-gap = "5"
+  w-m = "t-5"
   w-w = "full">
   <div
     w-w = "full md:gap2">

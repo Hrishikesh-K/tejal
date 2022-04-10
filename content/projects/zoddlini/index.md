@@ -1,6 +1,6 @@
 {
   "description": "A card deck designed from scratch, with typography at its core. And why is it named Zoddlini? Read more to find out.",
-  "index": 8,
+  "index": 9,
   "title": "Zoddlini"
 }
 
@@ -9,6 +9,7 @@ Zoddlini is a card deck, which focuses on typography. It includes a re-visualiza
 <div
   w-flex = "~ wrap"
   w-gap = "5"
+  w-m = "t-5"
   w-w = "full">
   <div
     w-w = "full md:gap2">
