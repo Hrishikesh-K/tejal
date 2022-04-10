@@ -26,12 +26,12 @@
   "works": [{
     "company": "Qyuki Digital Media",
     "features": [
-      "Worked as a creative head T-shirt design.",
+      "Managed and led a team of two interns.",
       "Created t-shirt designs for celebrities according to their personalities.",
-      "Learned about t-shirt printing.",
+      "Learned about client-relationship management.",
       "Skills used: Ideation, Design Strategy, Teamwork, Photoshop, Illustrator."
     ],
-    "position": "Creative Strategist"
+    "position": "Project Creative Head"
   }, {
     "company": "The Times of India",
     "features": [
@@ -45,13 +45,14 @@
   }, {
     "company": "Ayaan Productions & The Sky Alliance",
     "features": [
-      "Worked as a creative head.",
-      "Created posters, flyers, billboards, logos, layouts, ticket designs, standees for the event.",
-      "Created concept/artwork for the above mentioned.",
-      "Knowledge of print production and the ability to fix a file so that, it will be print ready.",
-      "Skills used: Ideation, Leadership, Photoshop, Illustrator, InDesign.",
+      "Built a creative team for the project.",
+      "Responsible for posters, flyers, billboards, logos, layouts, ticket designs, standees for the event.",
+      "Managed concept/artwork for the above mentioned.",
+      "Implemented project management tools, including print work.",
+      "Knowledge of print production and the ability to fix a file.",
+      "Skills used: Ideation, Visualization, Leadership, Photoshop, Illustrator, InDesign.",
       "Consulted with clients to develop and work according to the plan."
     ],
-    "position": "Freelance Graphic Designer"
+    "position": "Project Art Director"
   }]
 }

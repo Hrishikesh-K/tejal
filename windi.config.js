@@ -30,9 +30,6 @@ module.exports = defineConfig({
       yellow
     },
     extend: {
-      backgroundImage: {
-        profile: `url('/img/profile.jpg')`
-      },
       height: {
         content: 'calc(100% - 7.5rem)'
       },
