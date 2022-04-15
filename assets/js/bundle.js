@@ -115,7 +115,7 @@ function onLoad() {
   }))
   Alpine.plugin(Collapse)
   Alpine.start()
-  if (location.pathname === '/') {
+  if (location.pathname === '/' || location.pathname === '/contact/') {
     const progressManager = Alpine.reactive({
       astronaut: null,
       earth: null
@@ -163,17 +163,23 @@ function onLoad() {
     }, progress => {
       progressManager.earth = progress.loaded / progress.total
     })
-    new FBXLoader(manager).load('/3d/astronaut.fbx', fbx => {
-      function walkAstronaut() {
+    let astronaut = '/3d/astronaut'
+    if (location.pathname === '/') {
+      astronaut += 'Walk.fbx'
+    } else {
+      astronaut += 'Type.fbx'
+    }
+    new FBXLoader(manager).load(astronaut, fbx => {
+      function playAstronaut() {
         mixer.update(time.getDelta())
-        requestAnimationFrame(walkAstronaut)
+        requestAnimationFrame(playAstronaut)
       }
       let time = new Clock()
       let mixer = new AnimationMixer(fbx)
-      let walkAnimation = mixer.clipAction(fbx.animations[0])
+      let playAnimation = mixer.clipAction(fbx.animations[0])
       scene.add(fbx)
-      walkAstronaut()
-      walkAnimation.play()
+      playAstronaut()
+      playAnimation.play()
       fbx.translateY(-1.5)
       fbx.scale.set(0.0125, 0.0125, 0.0125)
     }, progress => {
