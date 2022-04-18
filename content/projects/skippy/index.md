@@ -43,6 +43,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
     preload = "none"
     src = "/projects/skippy/assets/vid1.mp4"
     style = "aspect-ratio:9/16"
+    w-max-h = "75vh sm:200"
     w-w = "full md:gap2">
   </video>
   <video
@@ -51,6 +52,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
     preload = "none"
     src = "/projects/skippy/assets/vid2.mp4"
     style = "aspect-ratio:9/16"
+    w-max-h = "75vh sm:200"
     w-w = "full md:gap2">
   </video>
 </div>
