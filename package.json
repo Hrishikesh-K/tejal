@@ -6,7 +6,7 @@
     "akismet-api": "^5.3.0",
     "alpinejs": "^3.9.6",
     "axios": "^0.26.1",
-    "emailjs": "^3.8.0",
+    "emailjs": "^3.8.1",
     "faunadb": "^5.0.0-preview.1",
     "imagesloaded": "^5.0.0",
     "masonry-layout": "^4.2.2",
