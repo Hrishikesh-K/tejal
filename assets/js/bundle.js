@@ -252,7 +252,7 @@ function onLoad() {
           preloadImages: false,
           speed: 250,
           thumbs: {
-            swiper: new Swiper(element.nextElementSibling, {
+            swiper: new Swiper(swiperElement.nextElementSibling, {
               breakpoints: {
                 640: {
                   slidesPerView: 7
@@ -261,7 +261,7 @@ function onLoad() {
               centerInsufficientSlides: true,
               grabCursor: true,
               preloadImages: false,
-              slidesPerView: 3,
+              slidesPerView: 5,
               spaceBetween: remToPixel * 1.25,
               speed: 250
             })
@@ -273,13 +273,32 @@ function onLoad() {
     const masonries = document.querySelectorAll('[data-masonry]')
     if (masonries.length > 0) {
       masonries.forEach(element => {
-        new ImagesLoaded(element, () => {
+        function loadMasonry() {
           element.masonry = new Masonry(element, {
             gutter: remToPixel * 1.25,
             percentPosition: true,
             stagger: 0,
             transitionDuration: 0
           })
+        }
+        new ImagesLoaded(element, () => {
+          const videos = element.querySelectorAll('video')
+          if (videos.length > 0) {
+            const promises = []
+            videos.forEach(video => {
+              promises.push(new Promise(resolve => {
+                video.onloadedmetadata = () => {
+                  resolve()
+                  video.onloadedmetadata = null
+                }
+              }))
+            })
+            Promise.all(promises).then(() => {
+              loadMasonry()
+            })
+          } else {
+            loadMasonry()
+          }
         })
       })
     }

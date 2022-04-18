@@ -1,0 +1,16 @@
+{{- $lowImage := index (.Page.Resources.Match (printf "assets/img%v-low*" (.Get 0))) 0 -}}
+{{- $originalImage := .Page.Resources.GetMatch (replace $lowImage "-low" "") -}}
+<div
+  class = "swiper-slide"
+  w-w = "full">
+  <img
+    alt = "{{- $originalImage.Title -}}"
+    data-lazy = "{{- $originalImage.RelPermalink -}}"
+    height = "{{- $originalImage.Height -}}"
+    src = "{{- $lowImage.RelPermalink -}}"
+    width = "{{- $originalImage.Width -}}"
+    w-h = "full"
+    w-object = "cover"
+    w-transition = "duration-250 ease-in-out filter"
+    w-w = "full"/>
+</div>

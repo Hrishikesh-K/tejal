@@ -38,7 +38,7 @@
       name = "viewport"/>
     <script
       defer
-      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true")).RelPermalink -}}">
+      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "false")).RelPermalink -}}">
     </script>
     <script
       type = "application/ld+json">
