@@ -37,11 +37,13 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
   w-flex = "~ wrap"
   w-m = "t-5">
   <video
+    controls
     w-w = "full md:gap2">
     <source
       src = "/projects/skippy/assets/vid1.mp4"/>
   </video>
   <video
+    controls
     w-w = "full md:gap2"
     w-m = "l-5">
     <source
