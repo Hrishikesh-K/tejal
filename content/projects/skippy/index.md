@@ -35,18 +35,22 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
 </div>
 <div
   w-flex = "~ wrap"
+  w-gap = "5"
   w-m = "t-5">
   <video
     controls
+    controlsList = "nodownload"
+    preload = "none"
+    src = "/projects/skippy/assets/vid1.mp4"
+    style = "aspect-ratio:9/16"
     w-w = "full md:gap2">
-    <source
-      src = "/projects/skippy/assets/vid1.mp4"/>
   </video>
   <video
     controls
-    w-w = "full md:gap2"
-    w-m = "l-5">
-    <source
-      src = "/projects/skippy/assets/vid2.mp4"/>
+    controlsList = "nodownload"
+    preload = "none"
+    src = "/projects/skippy/assets/vid2.mp4"
+    style = "aspect-ratio:9/16"
+    w-w = "full md:gap2">
   </video>
 </div>
