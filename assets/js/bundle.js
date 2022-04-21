@@ -255,6 +255,9 @@ function onLoad() {
             swiper: new Swiper(swiperElement.nextElementSibling, {
               breakpoints: {
                 640: {
+                  slidesPerView: 5
+                },
+                960: {
                   slidesPerView: 7
                 }
               },

@@ -17,7 +17,7 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
-      w-w = "full"
+      w-w = "card"
       x-data = "gallery">
       <div
         class = "swiper"
@@ -74,7 +74,7 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
-      w-w = "full"
+      w-w = "card"
       x-data = "gallery">
       <div
         class = "swiper"
@@ -131,7 +131,7 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
-      w-w = "full"
+      w-w = "card"
       x-data = "gallery">
       <div
         class = "swiper"
@@ -188,7 +188,7 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
-      w-w = "full"
+      w-w = "card"
       x-data = "gallery">
       <div
         class = "swiper"
@@ -245,7 +245,7 @@ Zoddlini is a card deck with a focus on typography. It is an iteration of tradit
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
-      w-w = "full"
+      w-w = "card"
       x-data = "gallery">
       <div
         class = "swiper"

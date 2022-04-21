@@ -45,6 +45,7 @@ module.exports = defineConfig({
         paddingTextTransform: 'font-size,line-height,padding,transform'
       },
       width: {
+        card: 'calc(100% - 5rem)',
         gap2: 'calc(50% - 1.25rem)',
         masonryLg: 'calc((100%/3) - (2.5rem/3))',
         masonrySm: 'calc((100%/2) - (1.25rem/2))',
