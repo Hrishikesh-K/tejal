@@ -150,19 +150,32 @@
             w-align = "items-center"
             w-flex = "~"
             w-h = "full"
+            w-max-w = "header2 xs:none"
             w-space = "x-5">
-            <a
-              href = "{{- (.Site.GetPage "/about").RelPermalink -}}">
-              About
-            </a>
-            <a
-              href = "{{- (.Site.GetPage "/work").RelPermalink -}}">
-              Work
-            </a>
-            <a
-              href = "{{- (.Site.GetPage "/contact").RelPermalink -}}">
-              Contact
-            </a>
+            <div
+              w-max-w = "headerText xs:none"
+              w-text = "truncate">
+              <a
+                href = "{{- (.Site.GetPage "/about").RelPermalink -}}">
+                About
+              </a>
+            </div>
+            <div
+              w-max-w = "headerText xs:none"
+              w-text = "truncate">
+              <a
+                href = "{{- (.Site.GetPage "/work").RelPermalink -}}">
+                Work
+              </a>
+            </div>
+            <div
+              w-max-w = "headerText xs:none"
+              w-text = "truncate">
+              <a
+                href = "{{- (.Site.GetPage "/contact").RelPermalink -}}">
+                Contact
+              </a>
+            </div>
             {{- if not .IsHome -}}
               <button
                 w-aspect = "square"

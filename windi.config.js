@@ -2,6 +2,7 @@
 
 const {dark, green, gray, light, red, yellow} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
+const gap3 = 'calc((100%/4) - (3.75rem/4))'
 module.exports = defineConfig({
   attributify: {
     prefix: 'w-'
@@ -35,7 +36,12 @@ module.exports = defineConfig({
         content: 'calc(100% - 7.5rem)'
       },
       maxWidth: {
-        gap2: 'calc(50% - 1.25rem)'
+        gap2: 'calc(50% - 1.25rem)',
+        header2: 'calc(100% - 3.75rem)',
+        headerText: gap3
+      },
+      screens: {
+        xs: '420px'
       },
       transitionProperty: {
         background: 'background',
@@ -49,7 +55,7 @@ module.exports = defineConfig({
         gap2: 'calc(50% - 1.25rem)',
         masonryLg: 'calc((100%/3) - (2.5rem/3))',
         masonrySm: 'calc((100%/2) - (1.25rem/2))',
-        masonryXl: 'calc((100%/4) - (3.75rem/4)'
+        masonryXl: gap3
       }
     },
     fontFamily: {
