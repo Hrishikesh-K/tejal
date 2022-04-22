@@ -2,6 +2,7 @@
 
 const {dark, green, gray, light, red, yellow} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
+const gap2 = 'calc((100%/3) - (2.5rem/3))'
 const gap3 = 'calc((100%/4) - (3.75rem/4))'
 module.exports = defineConfig({
   attributify: {
@@ -38,7 +39,8 @@ module.exports = defineConfig({
       maxWidth: {
         gap2: 'calc(50% - 1.25rem)',
         header2: 'calc(100% - 3.75rem)',
-        headerText: gap3
+        headerText1: gap3,
+        headerText2: gap2
       },
       screens: {
         xs: '420px'
@@ -53,7 +55,7 @@ module.exports = defineConfig({
       width: {
         card: 'calc(100% - 5rem)',
         gap2: 'calc(50% - 1.25rem)',
-        masonryLg: 'calc((100%/3) - (2.5rem/3))',
+        masonryLg: gap2,
         masonrySm: 'calc((100%/2) - (1.25rem/2))',
         masonryXl: gap3
       }

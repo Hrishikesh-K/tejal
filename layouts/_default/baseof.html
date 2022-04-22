@@ -152,8 +152,14 @@
             w-h = "full"
             w-max-w = "header2 xs:none"
             w-space = "x-5">
+            {{- $maxW := "xs:none" -}}
+            {{- if .IsHome -}}
+              {{- $maxW = printf "headerText2 %s" $maxW -}}
+            {{- else -}}
+              {{- $maxW = printf "headerText1 %s" $maxW -}}
+            {{- end -}}
             <div
-              w-max-w = "headerText xs:none"
+              w-max-w = "{{- $maxW -}}"
               w-text = "truncate">
               <a
                 href = "{{- (.Site.GetPage "/about").RelPermalink -}}">
@@ -161,7 +167,7 @@
               </a>
             </div>
             <div
-              w-max-w = "headerText xs:none"
+              w-max-w = "{{- $maxW -}}"
               w-text = "truncate">
               <a
                 href = "{{- (.Site.GetPage "/work").RelPermalink -}}">
@@ -169,7 +175,7 @@
               </a>
             </div>
             <div
-              w-max-w = "headerText xs:none"
+              w-max-w = "{{- $maxW -}}"
               w-text = "truncate">
               <a
                 href = "{{- (.Site.GetPage "/contact").RelPermalink -}}">
