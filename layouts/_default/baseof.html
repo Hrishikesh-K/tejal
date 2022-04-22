@@ -121,9 +121,6 @@
         w-w = "full">
         <header
           w-align = "items-center"
-          {{- if not (or .IsHome (eq .Title "Contact")) -}}
-            w-bg = "light-700 dark:dark-700"
-          {{- end -}}
           w-flex = "~"
           w-font = "orbitron"
           w-h = "20"
@@ -132,7 +129,10 @@
           w-position = "absolute left-0 top-0"
           w-text = "lg"
           w-w = "full"
-          w-z = "10">
+          w-z = "10"
+          {{- if not (or .IsHome (eq .Title "Contact")) -}}
+            w-bg = "light-700 dark:dark-700"
+          {{- end -}}>
           <div
             w-aspect = "square"
             w-h = "full">

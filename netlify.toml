@@ -12,7 +12,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    content-security-policy = "default-src 'self' 'unsafe-eval' 'unsafe-inline' data:"
+    content-security-policy = "default-src 'self' 'unsafe-eval' 'unsafe-inline' blob: data:"
 [[redirects]]
   force = true
   from = "/art/"
