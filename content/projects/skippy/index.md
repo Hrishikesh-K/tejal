@@ -121,7 +121,6 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
       preload = "metadata"
       src = "/projects/skippy/assets/vid2.mp4"
       width = "1080"
-      w-aspect = "9/16"
       w-m = "x-auto"
       w-max-w = "sm"
       w-w = "full"/>
@@ -130,7 +129,6 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
     w-m = "b-5"
     w-w = "full lg:masonryLg sm:masonrySm">
     <div
-      w-aspect = "video"
       w-max-w = "sm"
       w-m = "x-auto"
       w-w = "full">
