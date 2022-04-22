@@ -9,12 +9,11 @@ import {BufferAttribute} from 'three'
 import {BufferGeometry} from'three'
 import {Clock} from 'three'
 import Collapse from '@alpinejs/collapse'
-import {Color} from 'three'
 import {EffectCards} from 'swiper'
 import {EffectFade} from 'swiper'
 import {FBXLoader} from 'three/examples/jsm/loaders/FBXLoader.js'
+import {FileLoader} from 'three/src/loaders/FileLoader.js'
 import ImagesLoaded from 'imagesloaded'
-import {LoadingManager} from 'three'
 import Masonry from 'masonry-layout'
 import {Navigation} from 'swiper'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js'
@@ -24,6 +23,7 @@ import {PointsMaterial} from 'three'
 import {Scene} from 'three'
 import {sRGBEncoding} from 'three'
 import Swiper from 'swiper'
+import {TextureLoader} from 'three/src/loaders/TextureLoader.js'
 import {Thumbs} from 'swiper'
 import {WebGLRenderer} from 'three'
 function onLoad() {
@@ -118,10 +118,26 @@ function onLoad() {
   if (location.pathname === '/' || location.pathname === '/contact/') {
     const progressManager = Alpine.reactive({
       astronaut: null,
-      earth: null
+      earth: null,
+      texture: null
     })
     Alpine.effect(() => {
-      document.querySelector('[x-data="animation"]')._x_dataStack[0].progress = (((progressManager.astronaut + progressManager.earth) / 2) * 100).toFixed(2)
+      const progress = ((progressManager.astronaut + progressManager.earth + progressManager.texture) * 100).toFixed(2)
+      document.querySelector('[x-data="animation"]')._x_dataStack[0].progress = progress
+      if (progress >= 100) {
+        setTimeout(() => {
+          orbitControls()
+          canvas.render(scene, camera)
+          canvas.setSize(width, height)
+          canvas.outputEncoding = sRGBEncoding
+          document.body.querySelector('div').appendChild(canvas.domElement)
+          scene.add(particleMesh, new AmbientLight(0xeeeeee))
+          document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true
+          if (location.pathname === '/contact/') {
+            document.querySelector('form').removeAttribute('w-display')
+          }
+        }, 250)
+      }
     })
     function orbitControls() {
       cameraControl.update()
@@ -130,29 +146,36 @@ function onLoad() {
     }
     let width = window.innerWidth
     let height = window.innerHeight
-    const manager = new LoadingManager()
-    manager.onLoad = () => {
-      orbitControls()
-      camera.translateZ(10)
-      canvas.render(scene, camera)
-      canvas.setSize(width, height)
-      canvas.outputEncoding = sRGBEncoding
-      scene.background = new Color(0x0e0042)
-      document.body.querySelector('div').appendChild(canvas.domElement)
-      scene.add(particleMesh, new AmbientLight(0xffffff, 1))
-      document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true
-    }
-    manager.onError = url => {
-      console.log(`There was an error loading ${url}`)
-    }
     const scene = new Scene()
     const canvas = new WebGLRenderer({
       antialias: true
     })
     const camera = new PerspectiveCamera(50, width / height)
+    camera.translateZ(10)
     const cameraControl = new OrbitControls(camera, canvas.domElement)
     cameraControl.enablePan = cameraControl.enableZoom = false
-    new FBXLoader(manager).load('/3d/earth.fbx', fbx => {
+    const earthSize = 107628
+    const astronautTypeSize = 1083804
+    const astronautWalkSize = 517820
+    const astronautTextureSize = 1808728
+    function calculateProgress(progress, total) {
+      if (location.pathname === '/') {
+        return (progress.loaded / total) * (total / (earthSize + astronautWalkSize + astronautTextureSize))
+      } else {
+        return (progress.loaded / total) * (total / (earthSize + astronautTypeSize + astronautTextureSize))
+      }
+    }
+    new FBXLoader().load('/3d/earth.fbx', fbx => {
+      fbx.children[0].material.color = {
+        b: 1,
+        g: 0.125,
+        r: 0
+      }
+      fbx.children[1].material.color = {
+        b: 0.0625,
+        g: 1,
+        r: 0
+      }
       function rotateEarth() {
         fbx.rotation.z -= 0.005
         requestAnimationFrame(rotateEarth)
@@ -161,7 +184,7 @@ function onLoad() {
       scene.add(fbx)
       fbx.translateZ(-3.75)
     }, progress => {
-      progressManager.earth = progress.loaded / progress.total
+      progressManager.earth = calculateProgress(progress, earthSize)
     })
     let astronaut = '/3d/astronaut'
     if (location.pathname === '/') {
@@ -169,7 +192,32 @@ function onLoad() {
     } else {
       astronaut += 'Type.fbx'
     }
-    new FBXLoader(manager).load(astronaut, fbx => {
+    new FBXLoader().load(astronaut, fbx => {
+      const fileLoader = new FileLoader()
+      fileLoader.setResponseType('blob')
+      const textureUrl = '/3d/astronautBaseColor.png'
+      fileLoader.load(textureUrl, blob => {
+        const blobUrl = URL.createObjectURL(blob)
+        let image = document.createElement('img')
+        image.onload = () => {
+          image.remove()
+          image = null
+          new TextureLoader().load(blobUrl, texture => {
+            URL.revokeObjectURL(blobUrl)
+            texture.encoding = sRGBEncoding
+            if (location.pathname === '/') {
+              fbx.children[0].material.map = texture
+              fbx.children[0].material.needsUpdate = true
+            } else {
+              fbx.children[1].material.map = texture
+              fbx.children[1].material.needsUpdate = true
+            }
+          })
+        }
+        image.src = blobUrl
+      }, progress => {
+        progressManager.texture = calculateProgress(progress, astronautTextureSize)
+      })
       function playAstronaut() {
         mixer.update(time.getDelta())
         requestAnimationFrame(playAstronaut)
@@ -183,7 +231,11 @@ function onLoad() {
       fbx.translateY(-1.5)
       fbx.scale.set(0.0125, 0.0125, 0.0125)
     }, progress => {
-      progressManager.astronaut = progress.loaded / progress.total
+      if (location.pathname === '/') {
+        progressManager.astronaut = calculateProgress(progress, astronautWalkSize)
+      } else {
+        progressManager.astronaut = calculateProgress(progress, astronautTypeSize)
+      }
     })
     const particleCount = 1000
     const particleGeometry = new BufferGeometry()

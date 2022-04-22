@@ -24,7 +24,7 @@
   "layout": "about",
   "title": "About",
   "works": [{
-    "company": "SCADFlash",
+    "company": "SCAD FASH",
     "features": [
       "Fit Model for senior collection critique",
       "Model for campaign shoots"

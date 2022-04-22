@@ -1,0 +1,33 @@
+<!--suppress JSUnresolvedVariable -->
+<div
+  w-bg = "black"
+  w-font = "orbitron"
+  w-h = "full"
+  w-text = "lg"
+  w-w = "full"
+  x-data = "animation"
+  x-show = "!loaded">
+  <template
+    x-if = "!loaded">
+    <div
+      w-align = "items-center"
+      w-flex = "~"
+      w-h = "full"
+      w-justify = "center"
+      w-p = "5"
+      w-w = "full">
+      <div>
+        <template
+          x-if = "progress <= 100">
+          <p
+            w-text = "3xl center light-700"
+            w-w = "full">
+            Loading interactive animation...
+            <span
+              x-text = "`${progress}%`"></span>
+          </p>
+        </template>
+      </div>
+    </div>
+  </template>
+</div>

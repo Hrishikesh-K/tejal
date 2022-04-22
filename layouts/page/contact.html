@@ -1,48 +1,12 @@
 {{- define "main" -}}
   <!--suppress JSUnresolvedVariable, XmlUnboundNsPrefix -->
-  <div
-    w-bg = "dark-500"
-    w-font = "orbitron"
-    w-h = "full"
-    w-text = "lg"
-    w-w = "full"
-    x-data = "animation"
-    x-show = "!loaded">
-    <template
-      x-if = "!loaded">
-      <div
-        w-align = "items-center"
-        w-flex = "~"
-        w-h = "full"
-        w-justify = "center"
-        w-p = "5"
-        w-w = "full">
-        <div>
-          <template
-            x-if = "progress < 100">
-            <p
-              w-text = "3xl center light-700"
-              w-w = "full">
-              Loading interactive animation...
-              <span
-                x-text = "`${progress}%`"></span>
-            </p>
-          </template>
-          <template
-            x-if = "progress >= 100">
-            <p
-              w-text = "3xl light-700">
-              Almost there...
-            </p>
-          </template>
-        </div>
-      </div>
-    </template>
-  </div>
+  {{- partial "animation.html" . -}}
   <!--<safe
     w-cursor = "auto not-allowed"/>-->
   <form
+    w-display = "hidden"
     w-max-w = "96"
+    w-pointer = "auto"
     w-w = "full"
     x-data = "contact"
     x-bind:w-cursor = "progress ? 'not-allowed' : 'auto'"
@@ -58,7 +22,7 @@
         <input
           placeholder = "&nbsp;"
           type = "text"
-          w-bg = "light-700 dark:dark-700"
+          w-bg = "black"
           w-border = "1 rounded-md"
           w-h = "10"
           w-outline = "none"
@@ -66,12 +30,12 @@
           w-w = "full"
           x-model = "name"/>
         <span
-          w-bg = "light-700 dark:dark-700"
-          w-position = "absolute left-1 top-1"
+          w-bg = "black"
+          w-position = "absolute left-2 top-2"
           w-transform = "~"
           w-transition = "duration-250 ease-in-out paddingTextTransform">
-        Name
-      </span>
+          Name
+        </span>
       </label>
       <label
         w-display = "block"
@@ -80,7 +44,7 @@
         <input
           placeholder = "&nbsp;"
           type = "email"
-          w-bg = "light-700 dark:dark-700"
+          w-bg = "black"
           w-border = "1 rounded-md"
           w-h = "full"
           w-outline = "none"
@@ -88,12 +52,12 @@
           w-w = "full"
           x-model = "email"/>
         <span
-          w-bg = "light-700 dark:dark-700"
-          w-position = "absolute left-1 top-1"
+          w-bg = "black"
+          w-position = "absolute left-2 top-2"
           w-transform = "~"
           w-transition = "duration-250 ease-in-out paddingTextTransform">
-        E-mail
-      </span>
+          E-mail
+        </span>
       </label>
       <label
         w-display = "block"
@@ -102,7 +66,7 @@
         <input
           placeholder = "&nbsp;"
           type = "text"
-          w-bg = "light-700 dark:dark-700"
+          w-bg = "black"
           w-border = "1 rounded-md"
           w-h = "full"
           w-outline = "none"
@@ -110,43 +74,42 @@
           w-w = "full"
           x-model = "subject"/>
         <span
-          w-bg = "light-700 dark:dark-700"
-          w-position = "absolute left-1 top-1"
+          w-bg = "black"
+          w-position = "absolute left-2 top-2"
           w-transform = "~"
           w-transition = "duration-250 ease-in-out paddingTextTransform">
-        Subject
-      </span>
+          Subject
+        </span>
       </label>
       <label
         w-display = "block"
         w-h = "48"
         w-position = "relative">
-      <textarea
-        placeholder = "&nbsp;"
-        type = "text"
-        w-bg = "light-700 dark:dark-700"
-        w-border = "1 rounded-md"
-        w-h = "full"
-        w-outline = "none"
-        w-p = "x-1"
-        w-resize = "none"
-        w-w = "full"
-        x-model = "message"
-        x-on:input = "setHeight">
-      </textarea>
+        <textarea
+          placeholder = "&nbsp;"
+          type = "text"
+          w-bg = "black"
+          w-border = "1 rounded-md"
+          w-h = "full"
+          w-outline = "none"
+          w-p = "x-1"
+          w-resize = "none"
+          w-w = "full"
+          x-model = "message"
+          x-on:input = "setHeight">
+        </textarea>
         <span
-          w-bg = "light-700 dark:dark-700"
-          w-position = "absolute left-1 top-1"
+          w-bg = "black"
+          w-position = "absolute left-2 top-2"
           w-transform = "~"
           w-transition = "duration-250 ease-in-out paddingTextTransform">
-        Message
-      </span>
+          Message
+        </span>
       </label>
       <button
-        w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
-        w-border = "rounded-md"
-        w-p = "2"
-        w-text = "light-700 dark:dark-700">
+        w-bg = "black"
+        w-border = "1 rounded-md"
+        w-p = "2">
         Submit
       </button>
       <div

@@ -1,6 +1,6 @@
 // noinspection JSCheckFunctionSignatures
 
-const {dark, green, gray, light, red, yellow} = require('windicss/colors')
+const {black, dark, green, gray, light, red, yellow} = require('windicss/colors')
 const {defineConfig} = require('windicss/helpers')
 const gap2 = 'calc((100%/3) - (2.5rem/3))'
 const gap3 = 'calc((100%/4) - (3.75rem/4))'
@@ -22,6 +22,7 @@ module.exports = defineConfig({
   safelist: 'delay-2500 opacity-0 opacity-100 translate-y-0 translate-y-20',
   theme: {
     colors: {
+      black,
       current: 'currentColor',
       dark,
       gray,

@@ -96,15 +96,16 @@
     </title>
   </head>
   <body
-    w-bg = "light-700 dark:dark-700"
     w-h = "full"
     w-overflow = "hidden"
-    {{- if .IsHome -}}
+    w-w = "full"
+    {{- if or .IsHome (eq .Title "Contact") -}}
+      w-bg = "black"
       w-text = "light-700"
     {{- else -}}
+      w-bg = "light-700 dark:dark-700"
       w-text = "dark-700 dark:light-700"
-    {{- end -}}
-    w-w = "full">
+    {{- end -}}>
     <noscript
       w-align = "items-center"
       w-flex = "~"
@@ -120,7 +121,7 @@
         w-w = "full">
         <header
           w-align = "items-center"
-          {{- if not .IsHome -}}
+          {{- if not (or .IsHome (eq .Title "Contact")) -}}
             w-bg = "light-700 dark:dark-700"
           {{- end -}}
           w-flex = "~"
@@ -156,7 +157,7 @@
             w-max-w = "header2 xs:none"
             w-space = "x-5">
             {{- $maxW := "xs:none" -}}
-            {{- if .IsHome -}}
+            {{- if or .IsHome (eq .Title "Contact") -}}
               {{- $maxW = printf "headerText2 %s" $maxW -}}
             {{- else -}}
               {{- $maxW = printf "headerText1 %s" $maxW -}}
@@ -185,7 +186,7 @@
                 Contact
               </a>
             </div>
-            {{- if not .IsHome -}}
+            {{- if not (or .IsHome (eq .Title "Contact")) -}}
               <button
                 w-aspect = "square"
                 w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
@@ -215,6 +216,9 @@
             w-h = "content"
             w-overflow = "x-hidden y-auto"
             w-p = "5"
+            {{- if (eq .Title "Contact") -}}
+              w-pointer = "none"
+            {{- end -}}
             w-position = "absolute left-0 top-20"
             w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
             w-w = "full">
