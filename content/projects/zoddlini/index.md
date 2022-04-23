@@ -1,6 +1,193 @@
 {
   "description": "A card deck designed from scratch, with typography at its core. And why is it named Zoddlini? Read more to find out.",
   "index": 9,
+  "resources": [{
+    "src": "assets/img1.png",
+    "title": "Ace of Clubs"
+  }, {
+    "src": "assets/img2.png",
+    "title": "Two of Clubs"
+  }, {
+    "src": "assets/img3.png",
+    "title": "Three of Clubs"
+  }, {
+    "src": "assets/img4.png",
+    "title": "Four of Clubs"
+  }, {
+    "src": "assets/img5.png",
+    "title": "Five of Clubs"
+  }, {
+    "src": "assets/img6.png",
+    "title": "Six of Clubs"
+  }, {
+    "src": "assets/img7.png",
+    "title": "Seven of Clubs"
+  }, {
+    "src": "assets/img8.png",
+    "title": "Eight of Clubs"
+  }, {
+    "src": "assets/img9.png",
+    "title": "Nine of Clubs"
+  }, {
+    "src": "assets/img10.png",
+    "title": "Ten of Clubs"
+  }, {
+    "src": "assets/img11.png",
+    "title": "Jack of Clubs"
+  }, {
+    "src": "assets/img12.png",
+    "title": "Queen of Clubs"
+  }, {
+    "src": "assets/img13.png",
+    "title": "King of Clubs"
+  }, {
+    "src": "assets/img14.png",
+    "title": "Ace of Diamonds"
+  }, {
+    "src": "assets/img15.png",
+    "title": "Two of Diamonds"
+  }, {
+    "src": "assets/img16.png",
+    "title": "Three of Diamonds"
+  }, {
+    "src": "assets/img17.png",
+    "title": "Four of Diamonds"
+  }, {
+    "src": "assets/img18.png",
+    "title": "Five of Diamonds"
+  }, {
+    "src": "assets/img19.png",
+    "title": "Six of Diamonds"
+  }, {
+    "src": "assets/img20.png",
+    "title": "Seven of Diamonds"
+  }, {
+    "src": "assets/img21.png",
+    "title": "Eight of Diamonds"
+  }, {
+    "src": "assets/img22.png",
+    "title": "Nine of Diamonds"
+  }, {
+    "src": "assets/img23.png",
+    "title": "Ten of Diamonds"
+  }, {
+    "src": "assets/img24.png",
+    "title": "Jack of Diamonds"
+  }, {
+    "src": "assets/img25.png",
+    "title": "Queen of Diamonds"
+  }, {
+    "src": "assets/img26.png",
+    "title": "King of Diamonds"
+  }, {
+    "src": "assets/img27.png",
+    "title": "Ace of Hearts"
+  }, {
+    "src": "assets/img28.png",
+    "title": "Two of Hearts"
+  }, {
+    "src": "assets/img29.png",
+    "title": "Three of Hearts"
+  }, {
+    "src": "assets/img30.png",
+    "title": "Four of Hearts"
+  }, {
+    "src": "assets/img31.png",
+    "title": "Five of Hearts"
+  }, {
+    "src": "assets/img32.png",
+    "title": "Six of Hearts"
+  }, {
+    "src": "assets/img33.png",
+    "title": "Seven of Hearts"
+  }, {
+    "src": "assets/img34.png",
+    "title": "Eight of Hearts"
+  }, {
+    "src": "assets/img35.png",
+    "title": "Nine of Hearts"
+  }, {
+    "src": "assets/img36.png",
+    "title": "Ten of Hearts"
+  }, {
+    "src": "assets/img37.png",
+    "title": "Jack of Hearts"
+  }, {
+    "src": "assets/img38.png",
+    "title": "Queen of Hearts"
+  }, {
+    "src": "assets/img39.png",
+    "title": "Jack of Hearts"
+  }, {
+    "src": "assets/img40.png",
+    "title": "Ace of Spades"
+  }, {
+    "src": "assets/img41.png",
+    "title": "Two of Spades"
+  }, {
+    "src": "assets/img42.png",
+    "title": "Three of Spades"
+  }, {
+    "src": "assets/img43.png",
+    "title": "Four of Spades"
+  }, {
+    "src": "assets/img44.png",
+    "title": "Five of Spades"
+  }, {
+    "src": "assets/img45.png",
+    "title": "Six of Spades"
+  }, {
+    "src": "assets/img46.png",
+    "title": "Seven of Spades"
+  }, {
+    "src": "assets/img47.png",
+    "title": "Eight of Spades"
+  }, {
+    "src": "assets/img48.png",
+    "title": "Nine of Spades"
+  }, {
+    "src": "assets/img49.png",
+    "title": "Ten of Spades"
+  }, {
+    "src": "assets/img50.png",
+    "title": "Jack of Spades"
+  }, {
+    "src": "assets/img51.png",
+    "title": "Queen of Spades"
+  }, {
+    "src": "assets/img52.png",
+    "title": "King of Spades"
+  }, {
+    "src": "assets/img53.png",
+    "title": "Mash-up 1"
+  }, {
+    "src": "assets/img54.jpg",
+    "title": "Mock-up with box"
+  }, {
+    "src": "assets/img55.png",
+    "title": "Mock-up 2"
+  }, {
+    "src": "assets/img52.png",
+    "title": "King of Spades"
+  }, {
+    "src": "assets/img53.jpg",
+    "title": "Mash-up 1"
+  }, {
+    "src": "assets/img54.jpg",
+    "title": "Mash-up with box"
+  }, {
+    "src": "assets/img55.jpg",
+    "title": "Mash-up 2"
+  }, {
+    "src": "assets/img56.png",
+    "title": "Mock-up with box"
+  }, {
+    "src": "assets/img57.png",
+    "title": "Joker 2"
+  }, {
+    "src": "assets/img58.png",
+    "title": "Joker 1"
+  }],
   "title": "Zoddlini"
 }
 
