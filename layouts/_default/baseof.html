@@ -208,24 +208,19 @@
             {{- end -}}
           </div>
         </header>
-        {{- if .IsHome -}}
+        <main
+          w-h = "content"
+          w-overflow = "x-hidden y-auto"
+          w-p = "5"
+          {{- if (eq .Title "Contact") -}}
+            w-pointer = "none"
+          {{- end -}}
+          w-position = "absolute left-0 top-20"
+          w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
+          w-w = "full">
           {{- block "main" . -}}
           {{- end -}}
-        {{- else -}}
-          <main
-            w-h = "content"
-            w-overflow = "x-hidden y-auto"
-            w-p = "5"
-            {{- if (eq .Title "Contact") -}}
-              w-pointer = "none"
-            {{- end -}}
-            w-position = "absolute left-0 top-20"
-            w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
-            w-w = "full">
-            {{- block "main" . -}}
-            {{- end -}}
-          </main>
-        {{- end -}}
+        </main>
         <footer
           w-align = "items-center"
           w-flex = "~"
