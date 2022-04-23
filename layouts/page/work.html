@@ -45,7 +45,7 @@
             {{- $lowCover := index (.Resources.Match "assets/cover-low*") 0 -}}
             {{- $originalCover := .Resources.GetMatch (replace $lowCover "-low" "") -}}
             <img
-              alt = ""
+              alt = "{{- printf "Cover for %s" .Title -}}"
               data-lazy = "{{- $originalCover.RelPermalink -}}"
               height = "{{- $originalCover.Height -}}"
               src = "{{- $lowCover.RelPermalink -}}"

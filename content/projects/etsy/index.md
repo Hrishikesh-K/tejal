@@ -1,5 +1,42 @@
 {
   "index": 4,
+  "resources": [{
+    "src": "assets/img1.jpg",
+    "title": "Banner at airport"
+  }, {
+    "src": "assets/img2.jpg",
+    "title": "Banner on building"
+  }, {
+    "src": "assets/img3.jpg",
+    "title": "Roadside banner"
+  }, {
+    "src": "assets/img4.jpg",
+    "title": "Banner at bus-stop"
+  }, {
+    "src": "assets/img5.jpg",
+    "title": "Banner in subway"
+  }, {
+    "src": "assets/img6.jpg",
+    "title": "Banner on truck"
+  }, {
+    "src": "assets/img7.jpg",
+    "title": "Advertisement on mini-van"
+  }, {
+    "src": "assets/img8.jpg",
+    "title": "Tweet 1"
+  }, {
+    "src": "assets/img9.jpg",
+    "title": "Tweet 2"
+  }, {
+    "src": "assets/img10.jpg",
+    "title": "Tweet 3"
+  }, {
+    "src": "assets/img11.jpg",
+    "title": "Tweet 4"
+  }, {
+    "src": "assets/img12.jpg",
+    "title": "Tweet 5"
+  }],
   "title": "Etsy"
 }
 

@@ -1,5 +1,66 @@
 {
   "index": 2,
+  "resources": [{
+    "src": "assets/img1.png",
+    "title": "Comic 1 Slide 1"
+  }, {
+    "src": "assets/img2.png",
+    "title": "Comic 1 Slide 2"
+  }, {
+    "src": "assets/img3.png",
+    "title": "Comic 1 Slide 3"
+  }, {
+    "src": "assets/img4.png",
+    "title": "Comic 2 Slide 1"
+  }, {
+    "src": "assets/img5.png",
+    "title": "Comic 2 Slide 2"
+  }, {
+    "src": "assets/img6.png",
+    "title": "Comic 2 Slide 3"
+  }, {
+    "src": "assets/img7.png",
+    "title": "Comic 2 Slide 4"
+  }, {
+    "src": "assets/img8.png",
+    "title": "Comic 3 Slide 1"
+  }, {
+    "src": "assets/img9.png",
+    "title": "Comic 3 Slide 2"
+  }, {
+    "src": "assets/img10.png",
+    "title": "Comic 3 Slide 3"
+  }, {
+    "src": "assets/img11.png",
+    "title": "Comic 3 Slide 4"
+  }, {
+    "src": "assets/img12.png",
+    "title": "Comic 4 Slide 1"
+  }, {
+    "src": "assets/img13.png",
+    "title": "Comic 4 Slide 2"
+  }, {
+    "src": "assets/img14.png",
+    "title": "Comic 4 Slide 3"
+  }, {
+    "src": "assets/img15.png",
+    "title": "Comic 4 Slide 4"
+  }, {
+    "src": "assets/img16.png",
+    "title": "Comic 5 Slide 1"
+  }, {
+    "src": "assets/img17.png",
+    "title": "Comic 5 Slide 2"
+  }, {
+    "src": "assets/img18.png",
+    "title": "Comic 5 Slide 3"
+  }, {
+    "src": "assets/img19.png",
+    "title": "Comic 5 Slide 4"
+  }, {
+    "src": "assets/img20.png",
+    "title": "Comic 6 Slide 1"
+  }],
   "title": "Comics"
 }
 

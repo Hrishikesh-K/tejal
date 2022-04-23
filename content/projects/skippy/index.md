@@ -1,5 +1,42 @@
 {
   "index": 7,
+  "resources": [{
+    "src": "assets/img1.jpg",
+    "title": "Tweet 1"
+  }, {
+    "src": "assets/img2.jpg",
+    "title": "Tweet 2"
+  }, {
+    "src": "assets/img3.jpg",
+    "title": "Tweet 3"
+  }, {
+    "src": "assets/img4.jpg",
+    "title": "Tweet 4"
+  }, {
+    "src": "assets/img5.jpg",
+    "title": "Tweet 5"
+  }, {
+    "src": "assets/img6.jpg",
+    "title": "Tweet 6"
+  }, {
+    "src": "assets/img7.png",
+    "title": "Instagram filter 1"
+  }, {
+    "src": "assets/img8.png",
+    "title": "Instagram filter 2"
+  }, {
+    "src": "assets/img9.png",
+    "title": "Instagram filter 3"
+  }, {
+    "src": "assets/img10.png",
+    "title": "Instagram filter 4"
+  }, {
+    "src": "assets/img11.png",
+    "title": "Instagram filter 5"
+  }, {
+    "src": "assets/img12.png",
+    "title": "Phone mock-up"
+  }],
   "title": "Skippy"
 }
 
@@ -100,7 +137,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
       w-w = "full"
       w-z = "1">
       <img
-        alt = ""
+        alt = "Phone mock-up"
         data-lazy = "/projects/skippy/assets/img12.png"
         height = "2038"
         src = "/projects/skippy/assets/img12-low.png"

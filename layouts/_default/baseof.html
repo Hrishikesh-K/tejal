@@ -38,7 +38,7 @@
       name = "viewport"/>
     <script
       defer
-      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "false")).RelPermalink -}}">
+      src = "{{- (resources.Get "js/bundle.js" | js.Build (dict "minify" "true")).RelPermalink -}}">
     </script>
     <script
       type = "application/ld+json">
@@ -137,6 +137,7 @@
             w-aspect = "square"
             w-h = "full">
             <a
+              aria-label = "Back to home"
               href = "/"
               w-display = "block"
               w-h = "full">
@@ -188,6 +189,7 @@
             </div>
             {{- if not (or .IsHome (eq .Title "Contact")) -}}
               <button
+                aria-label = "Toggle theme"
                 w-aspect = "square"
                 w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
                 w-border = "rounded-md"

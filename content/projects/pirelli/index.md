@@ -1,6 +1,13 @@
 {
   "description": "",
   "index": 8,
+  "resources": [{
+    "src": "assets/img1.jpg",
+    "title": "Ambient ad on broken car"
+  }, {
+    "src": "assets/img2.jpg",
+    "title": "Ambient ad on escalator railing"
+  }],
   "title": "Pirelli"
 }
 
