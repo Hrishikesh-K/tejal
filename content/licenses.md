@@ -1,4 +1,5 @@
 {
+  "description": "A list of all the attributions required to make this website possible.",
   "layout": "licenses",
   "licenses": [{
     "license": "MIT",

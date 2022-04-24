@@ -1,4 +1,5 @@
 {
+  "description": "Short comics on the day-to-day problems in life of a typical middle-class Indian girl.",
   "index": 2,
   "resources": [{
     "src": "assets/img1.png",

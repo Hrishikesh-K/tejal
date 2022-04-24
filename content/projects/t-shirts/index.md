@@ -1,4 +1,5 @@
 {
+  "description": "A wide collection of T-shirts designed in collaboration with various suppliers - each with a unique demand and style preference.",
   "index": 5,
   "resources": [{
     "src": "assets/img1.jpg",

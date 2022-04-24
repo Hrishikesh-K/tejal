@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "A super short project to design a shampoo and a conditioner bottle.",
   "index": 6,
   "resources": [{
     "src": "assets/img1.jpg",

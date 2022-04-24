@@ -1,4 +1,5 @@
 {
+  "description": "A marketing campaign for Etsy with a focus on story-telling in a compressed, OOH-style.",
   "index": 4,
   "resources": [{
     "src": "assets/img1.jpg",

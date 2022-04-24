@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "A collection of ambient ads with focus on Pirelli's strong selling points.",
   "index": 8,
   "resources": [{
     "src": "assets/img1.jpg",

@@ -1,4 +1,5 @@
 {
+  "description": "A brand new marketing campaign for Skippy that includes various tweets, filters and games.",
   "index": 7,
   "resources": [{
     "src": "assets/img1.jpg",
