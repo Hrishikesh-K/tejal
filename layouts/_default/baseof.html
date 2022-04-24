@@ -225,17 +225,23 @@
         </main>
         <footer
           w-align = "items-center"
+          w-divide = "x"
           w-flex = "~"
           w-h = "10"
           w-justify = "center"
           w-position = "absolute left-0 bottom-0"
+          w-space = "x-2.5"
           w-w = "full"
           w-z = "10">
           <p
             w-font = "orbitron"
-            w-text = "center lg"
-            w-w = "full"
+            w-text = "lg"
             x-text = "`&copy; ${new Date().getFullYear()} Tejal Shinde`"></p>
+          <a
+            href = "{{- (.Site.GetPage "/licenses").RelPermalink -}}"
+            w-p = "l-2.5">
+            Licenses
+          </a>
         </footer>
       </div>
     </template>

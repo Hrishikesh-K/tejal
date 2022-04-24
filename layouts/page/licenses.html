@@ -1,0 +1,17 @@
+{{- define "main" -}}
+  {{- range .Params.licenses -}}
+    <div
+      w-flex = "~">
+      <p>
+        {{- .name -}}
+      </p>
+      <p>
+        {{- .license -}}
+      </p>
+      <a
+        href = "{{- .link -}}">
+        Homepage
+      </a>
+    </div>
+  {{- end -}}
+{{- end -}}
