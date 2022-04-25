@@ -117,12 +117,13 @@ function onLoad() {
   Alpine.start()
   if (location.pathname === '/' || location.pathname === '/contact/') {
     const progressManager = Alpine.reactive({
-      astronaut: null,
-      earth: null,
-      texture: null
+      astronaut: 0,
+      earth: 0,
+      keyboard: 0,
+      texture: 0
     })
     Alpine.effect(() => {
-      const progress = ((progressManager.astronaut + progressManager.earth + progressManager.texture) * 100).toFixed(2)
+      const progress = ((progressManager.astronaut + progressManager.earth + progressManager.keyboard + progressManager.texture) * 100).toFixed(2)
       document.querySelector('[x-data="animation"]')._x_dataStack[0].progress = progress
       if (progress >= 100) {
         setTimeout(() => {
@@ -158,12 +159,23 @@ function onLoad() {
     const astronautTypeSize = 1083804
     const astronautWalkSize = 517820
     const astronautTextureSize = 1808728
+    const keyboardSize = 79980
     function calculateProgress(progress, total) {
       if (location.pathname === '/') {
         return (progress.loaded / total) * (total / (earthSize + astronautWalkSize + astronautTextureSize))
       } else {
-        return (progress.loaded / total) * (total / (earthSize + astronautTypeSize + astronautTextureSize))
+        return (progress.loaded / total) * (total / (earthSize + astronautTypeSize + astronautTextureSize + keyboardSize))
       }
+    }
+    if (location.pathname === '/contact/') {
+      new FBXLoader().load('/3d/keyboard.fbx', fbx => {
+        fbx.rotation.x = (-Math.PI / 2).toFixed(2)
+        fbx.position.set(0.125, -0.25, 1)
+        fbx.scale.set(1.25, 1.25, 1.25)
+        scene.add(fbx)
+      }, progress => {
+        progressManager.keyboard = calculateProgress(progress, keyboardSize)
+      })
     }
     new FBXLoader().load('/3d/earth.fbx', fbx => {
       fbx.children[0].material.color = {
@@ -225,11 +237,11 @@ function onLoad() {
       let time = new Clock()
       let mixer = new AnimationMixer(fbx)
       let playAnimation = mixer.clipAction(fbx.animations[0])
-      scene.add(fbx)
       playAstronaut()
       playAnimation.play()
       fbx.translateY(-1.5)
       fbx.scale.set(0.0125, 0.0125, 0.0125)
+      scene.add(fbx)
     }, progress => {
       if (location.pathname === '/') {
         progressManager.astronaut = calculateProgress(progress, astronautWalkSize)

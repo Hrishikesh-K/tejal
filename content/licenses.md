@@ -22,6 +22,10 @@
     "link": "https://imagesloaded.desandro.com/",
     "name": "imagesLoaded"
   }, {
+    "license": "CC",
+    "link": "https://www.skfb.ly/6Ypzv/",
+    "name": "Keyboard"
+  }, {
     "license": "MIT",
     "link": "https://masonry.desandro.com/",
     "name": "Masonry"
