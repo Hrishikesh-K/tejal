@@ -2,24 +2,13 @@
   "description": "Learn more about Tejal Shinde",
   "education": [{
     "college": "Savannah College of Art and Design, Atlanta",
-    "degree": "Master of Arts in Advertising Design",
-    "features": [
-      "Seeking knowledge in Typography, Creative Strategies, Digital Production Strategies, Art Direction, Creative Copywriting and Contemporary Art History",
-      "A good experience of teamwork through collaboration with peers and projects"
-    ]
+    "degree": "Master of Arts in Advertising Design"
   }, {
     "college": "MAAC, Thane",
-    "degree": "Graphic Designing",
-    "features": [
-      "Took a 1-year course in Graphic Designing",
-      "Learned applications like Photoshop, Illustrator, InDesign and After Effects"
-    ]
+    "degree": "Graphic Designing"
   }, {
     "college": "Wilson College, Mumbai",
-    "degree": "Bachelor of Mass Media",
-    "features": [
-      "Took-up advertising majors in the final year"
-    ]
+    "degree": "Bachelor of Mass Media"
   }],
   "layout": "about",
   "title": "About",
