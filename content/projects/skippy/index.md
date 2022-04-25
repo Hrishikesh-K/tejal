@@ -37,6 +37,9 @@
   }, {
     "src": "assets/img12.png",
     "title": "Phone mock-up"
+  }, {
+    "src": "assets/img13.png",
+    "title": "Screen mock-up"
   }],
   "title": "Skippy"
 }
@@ -102,7 +105,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
       x-data = "gallery">
       <div
         class = "swiper"
-        w-text = "dark-500"
+        w-text = "light-500"
         w-w = "full">
         {{< gallery/buttons >}}
         <div
@@ -135,13 +138,30 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
       w-max-w = "sm"
       w-position = "absolute left-1/2 top-0"
       w-transform = "~ -translate-x-1/2"
-      w-w = "full"
-      w-z = "1">
+      w-w = "full">
       <img
         alt = "Phone mock-up"
         data-lazy = "/projects/skippy/assets/img12.png"
         height = "2038"
         src = "/projects/skippy/assets/img12-low.png"
+        width = "1022"
+        w-h = "full"
+        w-object = "cover"
+        w-transition = "duration-250 ease-in-out filter"
+        w-w = "full"/>
+    </div>
+    <div
+      w-max-w = "sm"
+      w-pointer = "none"
+      w-position = "absolute left-1/2 top-0"
+      w-transform = "~ -translate-x-1/2"
+      w-w = "full"
+      w-z = "1">
+      <img
+        alt = "Screen mock-up"
+        data-lazy = "/projects/skippy/assets/img13.png"
+        height = "2038"
+        src = "/projects/skippy/assets/img13-low.png"
         width = "1022"
         w-h = "full"
         w-object = "cover"
