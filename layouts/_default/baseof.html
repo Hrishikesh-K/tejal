@@ -15,7 +15,7 @@
     <meta
       charset = "utf-8"/>
     {{- $description := "Online portfolio of Tejal Shinde - Assistant Art Director" -}}
-    {{- $ogImage := "%simages/og.jpg" .Site.BaseURL -}}
+    {{- $ogImage := printf "%simages/og.jpg" .Site.BaseURL -}}
     {{- $title := .Site.Title -}}
     {{- if not .IsHome -}}
       {{- if eq (len .Section) 0 -}}
