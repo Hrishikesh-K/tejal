@@ -37,7 +37,7 @@
       </url>
     {{- end -}}
   {{- end -}}
-  {{- range (slice (.Site.GetPage "/about") (.Site.GetPage "/contact")) -}}
+  {{- range (slice (.Site.GetPage "/about") (.Site.GetPage "/contact") (.Site.GetPage "/licenses")) -}}
     <url>
       <loc>
         {{- .Permalink -}}
