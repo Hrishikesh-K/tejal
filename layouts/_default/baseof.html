@@ -243,7 +243,7 @@
           w-h = "content"
           w-overflow = "x-hidden y-auto"
           w-p = "5"
-          {{- if (eq .Title "Contact") -}}
+          {{- if or .IsHome (eq .Title "Contact") -}}
             w-pointer = "none"
           {{- end -}}
           w-position = "absolute left-0 top-20"

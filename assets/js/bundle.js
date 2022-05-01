@@ -179,16 +179,6 @@ function onLoad() {
       })
     }
     new FBXLoader().load('/3d/earth.fbx', fbx => {
-      fbx.children[0].material.color = {
-        b: 1,
-        g: 0.125,
-        r: 0
-      }
-      fbx.children[1].material.color = {
-        b: 0.0625,
-        g: 1,
-        r: 0
-      }
       function rotateEarth() {
         fbx.rotation.z -= 0.005
         requestAnimationFrame(rotateEarth)
