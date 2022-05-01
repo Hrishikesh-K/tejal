@@ -1,7 +1,7 @@
 // noinspection JSCheckFunctionSignatures, JSUnresolvedFunction, JSUnusedGlobalSymbols
 
 import Alpine from 'alpinejs'
-import {AmbientLight} from 'three'
+import {AmbientLight, Color} from 'three'
 import {AnimationMixer} from 'three'
 import {Autoplay} from 'swiper'
 import Axios from 'axios'
@@ -132,6 +132,7 @@ function onLoad() {
           canvas.setSize(width, height)
           canvas.outputEncoding = sRGBEncoding
           document.body.querySelector('div').appendChild(canvas.domElement)
+          scene.background = new Color(0x0e0042)
           scene.add(particleMesh, new AmbientLight(0xeeeeee))
           document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true
           if (location.pathname === '/contact/') {

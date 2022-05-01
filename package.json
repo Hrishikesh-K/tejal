@@ -4,14 +4,14 @@
     "@windicss/plugin-scrollbar": "^1.2.3",
     "akismet-api": "^5.3.0",
     "alpinejs": "^3.10.2",
-    "axios": "^0.26.1",
+    "axios": "^0.27.1",
     "emailjs": "^4.0.0",
     "faunadb": "^5.0.0-preview.1",
     "imagesloaded": "^5.0.0",
     "masonry-layout": "^4.2.2",
     "npm-run-all": "^4.1.5",
     "swiper": "^8.1.4",
-    "three": "^0.139.2",
+    "three": "^0.140.0",
     "windicss": "^3.5.1"
   },
   "scripts": {

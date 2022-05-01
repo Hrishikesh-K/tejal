@@ -3,7 +3,7 @@
   command = "npm run build"
   publish = "public"
   [build.environment]
-    HUGO_VERSION = "0.97.3"
+    HUGO_VERSION = "0.98.0"
     NODE_VERSION = "node"
 [functions]
   directory = "functions"

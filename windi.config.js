@@ -30,6 +30,7 @@ module.exports = defineConfig({
       inherit: 'inherit',
       light,
       red,
+      space: '#0e0042',
       transparent: 'transparent',
       yellow
     },
