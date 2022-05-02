@@ -245,10 +245,10 @@
           w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
           w-w = "full"
           {{- if or .IsHome (eq .Title "Contact") -}}
-            {{- $position = printf "%s 0" $position -}}
+            {{- $position = printf "%s0" $position -}}
             w-h = "full"
           {{- else -}}
-            {{- $position = printf "%s 20" $position -}}
+            {{- $position = printf "%s20" $position -}}
             w-h = "content"
             w-p = "5"
           {{- end -}}
