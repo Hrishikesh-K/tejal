@@ -239,16 +239,20 @@
             {{- end -}}
           </div>
         </header>
+        {{- $position := "absolute left-0 top-" -}}
         <main
-          w-h = "content"
           w-overflow = "x-hidden y-auto"
-          w-p = "5"
-          {{- if or .IsHome (eq .Title "Contact") -}}
-            w-pointer = "none"
-          {{- end -}}
-          w-position = "absolute left-0 top-20"
           w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
-          w-w = "full">
+          w-w = "full"
+          {{- if or .IsHome (eq .Title "Contact") -}}
+            {{- $position = printf "%s 0" $position -}}
+            w-h = "full"
+          {{- else -}}
+            {{- $position = printf "%s 20" $position -}}
+            w-h = "content"
+            w-p = "5"
+          {{- end -}}
+          w-position = "{{- $position -}}">
           {{- block "main" . -}}
           {{- end -}}
         </main>

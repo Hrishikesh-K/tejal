@@ -131,7 +131,7 @@ function onLoad() {
           canvas.render(scene, camera)
           canvas.setSize(width, height)
           canvas.outputEncoding = sRGBEncoding
-          document.body.querySelector('div').appendChild(canvas.domElement)
+          document.body.querySelector('main').appendChild(canvas.domElement)
           scene.background = new Color(0x0e0042)
           scene.add(particleMesh, new AmbientLight(0xeeeeee))
           document.querySelector('[x-data="animation"]')._x_dataStack[0].loaded = true

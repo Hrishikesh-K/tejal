@@ -56,6 +56,7 @@ module.exports = defineConfig({
       },
       width: {
         card: 'calc(100% - 5rem)',
+        form: 'calc(100% - 2.5rem)',
         gap2: 'calc(50% - 1.25rem)',
         masonryLg: gap2,
         masonrySm: 'calc((100%/2) - (1.25rem/2))',
