@@ -176,6 +176,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
       controls
       controlsList = "nodownload"
       height = "1920"
+      poster = "/projects/skippy/assets/vid2-poster.jpg"
       preload = "metadata"
       src = "/projects/skippy/assets/vid2.mp4"
       width = "1080"
@@ -194,6 +195,7 @@ Skippy is an industry-leader in peanut butter, however it has not been performin
         controls
         controlsList = "nodownload"
         height = "1920"
+        poster = "/projects/skippy/assets/vid1-poster.jpg"
         preload = "metadata"
         src = "/projects/skippy/assets/vid1.mp4"
         width = "1080"/>

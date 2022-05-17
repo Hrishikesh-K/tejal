@@ -26,8 +26,7 @@ import Swiper from 'swiper'
 import {TextureLoader} from 'three/src/loaders/TextureLoader.js'
 import {Thumbs} from 'swiper'
 import {WebGLRenderer} from 'three'
-function onLoad() {
-  window.removeEventListener('load', onLoad)
+window.addEventListener('load', () => {
   Alpine.data('animation', () => ({
     loaded: false,
     progress: null
@@ -256,7 +255,7 @@ function onLoad() {
       canvas.setSize(width, height)
       camera.aspect = width / height
       camera.updateProjectionMatrix()
-    }, false)
+    })
   } else {
     const remToPixel = parseFloat(getComputedStyle(document.documentElement).fontSize)
     const lazyImages = document.querySelectorAll('[data-lazy]')
@@ -342,18 +341,12 @@ function onLoad() {
         new ImagesLoaded(element, () => {
           const videos = element.querySelectorAll('video')
           if (videos.length > 0) {
-            const promises = []
-            videos.forEach(video => {
-              promises.push(new Promise(resolve => {
-                video.onloadedmetadata = () => {
-                  resolve()
-                  video.onloadedmetadata = null
-                }
-              }))
-            })
-            Promise.all(promises).then(() => {
+            const videoLoadInterval = setInterval(() => {
               loadMasonry()
-            })
+            }, 250)
+            setTimeout(() => {
+              clearInterval(videoLoadInterval)
+            }, 2500)
           } else {
             loadMasonry()
           }
@@ -361,5 +354,6 @@ function onLoad() {
       })
     }
   }
-}
-window.addEventListener('load', onLoad)
+}, {
+  once: true
+})
