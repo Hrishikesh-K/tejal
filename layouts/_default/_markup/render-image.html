@@ -1,7 +1,7 @@
 <!--suppress HtmlUnknownAttribute -->
 {{- $image := .Page.Resources.GetMatch .Destination -}}
 <img
-  alt = "{{- .PlainText -}}"
+  alt = "{{- $image.Title -}}"
   data-lazy = "{{- $image.RelPermalink -}}"
   height = "{{- $image.Height -}}"
   src = "{{- (.Page.Resources.GetMatch (printf "assets/img%v-low.%s" (index (findRE `\d+` .Destination 1) 0) (substr .Destination -3))).RelPermalink -}}"
