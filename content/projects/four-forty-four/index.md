@@ -40,7 +40,7 @@ For this project, the goal was to develop and steer the art in a direction that 
     w-m = "b-5"
     w-w = "full lg:masonryLg sm:masonrySm">
     <img
-      alt = "Allstar OOH"
+      alt = "Allstar OOH ad"
       data-lazy = "/projects/four-forty-four/assets/img1.jpg"
       height = "768"
       src = "/projects/four-forty-four/assets/img1-low.jpg"
