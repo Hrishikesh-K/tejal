@@ -5,10 +5,10 @@
     "src": "assets/img1.jpg",
     "title": "Allstar OOH ad"
   }, {
-    "src": "assets/img2.png",
+    "src": "assets/img2.jg",
     "title": "Allstar Instagram ad 1"
   }, {
-    "src": "assets/img3.png",
+    "src": "assets/img3.jpg",
     "title": "Allstar Instagram ad 2"
   }, {
     "src": "assets/img4.jpg",
@@ -23,8 +23,11 @@
     "src": "assets/img7.jpg",
     "title": "Hamilton Beach OOH ad"
   }, {
-    "src": "assets/img8.png",
-    "title": "Hershey's Instagram ad"
+    "src": "assets/img8.jpg",
+    "title": "Hershey's Instagram ad 1"
+  }, {
+    "src": "assets/img9.jpg",
+    "title": "Hershey's Instagram ad 2"
   }],
   "title": "Four Forty-Four"
 }
@@ -42,7 +45,7 @@ For this project, the goal was to develop and steer the art in a direction that 
     <img
       alt = "Allstar OOH ad"
       data-lazy = "/projects/four-forty-four/assets/img1.jpg"
-      height = "768"
+      height = "1409"
       src = "/projects/four-forty-four/assets/img1-low.jpg"
       width = "1024"
       w-m = "b-5"
@@ -54,7 +57,7 @@ For this project, the goal was to develop and steer the art in a direction that 
     w-m = "b-5"
     w-w = "full lg:masonryLg sm:masonrySm">
     <div
-      data-gallery = '{"effect": "cards"}'
+      data-gallery = '{}'
       w-m = "x-auto"
       w-max-w = "xs lg:sm"
       w-position = "relative"
@@ -97,4 +100,38 @@ For this project, the goal was to develop and steer the art in a direction that 
 
 ## Hershey's
 
-![Hershey's Instagram ad](assets/img8.png)
+<div
+  w-m = "b-5"
+  w-w = "full lg:masonryLg sm:masonrySm">
+  <div
+    data-gallery = '{}'
+    w-m = "x-auto"
+    w-max-w = "xs lg:sm"
+    w-position = "relative"
+    w-w = "card"
+    x-data = "gallery">
+    <div
+      class = "swiper"
+      w-text = "dark-500"
+      w-w = "full">
+      {{< gallery/buttons >}}
+      <div
+        class = "swiper-wrapper"
+        w-w = "full">
+        {{< gallery/slide "8" >}}
+        {{< gallery/slide "9" >}}
+      </div>
+    </div>
+    <div
+      class = "swiper thumb"
+      w-m = "t-5"
+      w-w = "full">
+      <div
+        class = "swiper-wrapper"
+        w-w = "full">
+        {{< gallery/slide "8" >}}
+        {{< gallery/slide "9" >}}
+      </div>
+    </div>
+  </div>
+</div>

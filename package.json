@@ -10,9 +10,9 @@
     "imagesloaded": "^5.0.0",
     "masonry-layout": "^4.2.2",
     "npm-run-all": "^4.1.5",
-    "swiper": "^8.1.6",
+    "swiper": "^8.2.5",
     "three": "^0.141.0",
-    "windicss": "^3.5.4"
+    "windicss": "^3.5.5"
   },
   "scripts": {
     "build": "run-s windicss:build hugo:build",
