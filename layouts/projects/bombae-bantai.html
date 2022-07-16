@@ -1,0 +1,248 @@
+{{- define "main" -}}
+  <div
+    w-font = "space"
+    w-m = "t-20"
+    w-p = "5"
+    w-w = "full">
+    <h2
+      w-font = "semibold"
+      w-text = "5xl">
+      {{- .Title -}}
+    </h2>
+    <p
+      w-m = "t-5"
+      w-text = "gray-500 justify lg dark:gray-400">
+      Bombae Bantai is a new Indian brewery producing craft beer and aims to reflect the vibrancy and liveliness of the city of Mumbai. Indian trucks are usually colourfully painted with images and quotes, as such the typeface has characteristics of the glyphs that are showcased on the trucks. The three flavours are assigned the main colour distinctive of quintessential Indian drinks. Combining vibrant colours with vector illustrations of motifs representing elements of Bombay (Mumbai), they form the personality of the Bombae Bantai brand.
+    </p>
+
+    <!-- region Moodboards -->
+      <h3
+        w-font = "semibold"
+        w-text = "3xl">
+        Moodboards
+      </h3>
+      <div
+        w-flex = "~"
+        w-gap = "2.5">
+        {{- $moodboardContainerAttributes := (slice (dict "name" "w-flex" "value" "1")) -}}
+        {{- $moodboardImageAttributes := (slice (dict "name" "w-w" "value" "full")) -}}
+        {{- $moodboardOptions := (dict "containerAttributes" $moodboardContainerAttributes "imageAttributes" $moodboardImageAttributes "parent" .) -}}
+        {{- partial "image.html" (merge $moodboardOptions (dict "imageName" "moodboard-1")) -}}
+        {{- partial "image.html" (merge $moodboardOptions (dict "imageName" "moodboard-2")) -}}
+      </div>
+    <!-- endregion -->
+
+    <!-- region Colours -->
+      <h3
+        w-font = "semibold"
+        w-text = "3xl">
+        Colours
+      </h3>
+      <div
+        style = "background:#ffffcc;"
+        w-align = "items-center"
+        w-flex = "~"
+        w-h = "20"
+        w-justify = "center"
+        w-w = "65">
+        <p
+          w-text = "center dark-700">
+          Primary colour: #FFFFCC
+        </p>
+      </div>
+      <div
+        style = "background:#f50057;"
+        w-align = "items-center"
+        w-flex = "~"
+        w-h = "20"
+        w-justify = "center"
+        w-m = "t-2.5"
+        w-w = "65">
+        <p
+          w-text = "center dark-700">
+          Secondary colour: #F50057
+        </p>
+      </div>
+      <section
+        data-name = "flavour-colours">
+        <p>
+          Flavour colours:
+        </p>
+        <div
+          w-flex = "~"
+          w-gap = "2.5"
+          w-w = "65">
+          <div
+            style = "background:#fdd835;"
+            w-align = "items-center"
+            w-flex = "~"
+            w-h = "20"
+            w-justify = "center"
+            w-w = "20">
+            <p
+              w-text = "center dark-700">
+              #FDD385
+            </p>
+          </div>
+          <div
+            style = "background:#7cb342;"
+            w-align = "items-center"
+            w-flex = "~"
+            w-h = "20"
+            w-justify = "center"
+            w-w = "20">
+            <p
+              w-text = "center dark-700">
+              #7CB342
+            </p>
+          </div>
+          <div
+            style = "background:#99cccc;"
+            w-align = "items-center"
+            w-flex = "~"
+            w-h = "20"
+            w-justify = "center"
+            w-w = "20">
+            <p
+              w-text = "center dark-700">
+              #99CCCC
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        data-name = "logo-colours">
+        <p>
+          Logo colours:
+        </p>
+        <div
+          w-flex = "~ wrap"
+          w-gap = "2.5"
+          w-m = "t-2.5"
+          w-w = "65">
+          <div
+            w-flex = "~"
+            w-gap = "2.5"
+            w-w = "full">
+            <div
+              style = "background:#fdd835;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #FDD385
+              </p>
+            </div>
+            <div
+              style = "background:#ff9800;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #FF9800
+              </p>
+            </div>
+            <div
+              style = "background:#c41c00;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #C41C00
+              </p>
+            </div>
+          </div>
+          <div
+            w-flex = "~"
+            w-gap = "2.5"
+            w-w = "full">
+            <div
+              style = "background:#7cb342;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #7CB342
+              </p>
+            </div>
+            <div
+              style = "background:#2e7d32;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #2E7D32
+              </p>
+            </div>
+            <div
+              style = "background:#00bcd4;"
+              w-align = "items-center"
+              w-flex = "~"
+              w-h = "20"
+              w-justify = "center"
+              w-w = "20">
+              <p
+                w-text = "center dark-700">
+                #00BCD4
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- endregion -->
+
+    <!-- region Flat Labels -->
+      {{- $flatLabelContainerAttributes := (slice (dict "name" "w-flex" "value" "1")) -}}
+      {{- $flatLabelImageAttributes := (slice (dict "name" "w-w" "value" "full")) -}}
+      {{- $flatLabelOptions := (dict "containerAttributes" $flatLabelContainerAttributes "imageAttributes" $flatLabelImageAttributes "parent" .) -}}
+      <h3
+        w-font = "semibold"
+        w-text = "3xl">
+        Flat labels
+      </h3>
+      <div
+        w-flex = "~"
+        w-gap = "2.5">
+        {{- partial "image.html" (merge $flatLabelOptions (dict "imageName" "flat-label-1")) -}}
+        {{- partial "image.html" (merge $flatLabelOptions (dict "imageName" "flat-label-2")) -}}
+        {{- partial "image.html" (merge $flatLabelOptions (dict "imageName" "flat-label-3")) -}}
+      </div>
+      <!-- endregion -->
+
+    <!-- region Graphic Explanation -->
+      <h3
+        w-font = "semibold"
+        w-text = "3xl">
+        Graphic Explanation
+      </h3>
+      <p>
+        I have chosen "The Gateway of India", "Bandra Worli Sea Link" and "Mumbai Local Train" as the main graphical elements of my label designs. It's so popular that, a typical Mumbaikar (resident of Mumbai) and possibly others too would be able to guess those at his/her first glance. These 3 elements could be considered the most iconic stuff in Mumbai, something that uniquely identifies the Financial Capital of India.
+        <br/>
+        The Gateway of India is a symbol of the history of this city as it's a historical monument.
+        <br/>
+        The Mumbai Local Train is the symbol of present Mumbai as it's the "lifeline" of Mumbai.
+        <br/>
+        The Bandra Worli Sea Link is the symbol of the future of Mumbai because of this state-of-the-art construction and great display of modern engineering.
+      </p>
+    <!-- endregion -->
+    {{- partial "masonry.html" (dict "from" 1 "parent" . "to" 15) -}}
+  </div>
+  <script
+    src = "{{- (resources.Get "js/pages/bombae-bantai.ts" | babel (dict "config" "babel.config.json") | js.Build (dict "minify" "true")).RelPermalink -}}">
+  </script>
+{{- end -}}

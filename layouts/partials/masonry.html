@@ -1,0 +1,19 @@
+<!--suppress HtmlUnknownAttribute -->
+<div
+  data-masonry
+  w-m = "t-5"
+  w-w = "full">
+  {{- range (seq .from .to) -}}
+    {{- $lowImage := index ($.parent.Resources.Match (printf "assets/img%v-low*" .)) 0 -}}
+    {{- $originalImage := $.parent.Resources.GetMatch (replace $lowImage "-low" "") -}}
+    <img
+      alt = "{{- $originalImage.Title -}}"
+      data-lazy = "{{- $originalImage.RelPermalink -}}"
+      height = "{{- $originalImage.Height -}}"
+      src = "{{- $lowImage.RelPermalink -}}"
+      width = "{{- $originalImage.Width -}}"
+      w-m = "b-5"
+      w-object = "cover"
+      w-w = "full"/>
+  {{- end -}}
+</div>

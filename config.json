@@ -1,0 +1,22 @@
+{
+  "baseURL": "https://www.tejalshinde.com/",
+  "disableHugoGeneratorInject": true,
+  "disableKinds": ["RSS", "taxonomy", "term"],
+  "minify": {
+    "minifyOutput": true,
+    "tdewolff": {
+      "html": {
+        "keepConditionalComments": false,
+        "keepDefaultAttrVals": false,
+        "keepEndTags": false,
+        "keepWhitespace": false
+      }
+    }
+  },
+  "security": {
+    "exec": {
+      "allow": ["^babel$", "^npx$"]
+    }
+  },
+  "title": "Tejal Shinde"
+}

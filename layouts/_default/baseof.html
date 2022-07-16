@@ -1,0 +1,144 @@
+<!doctype html>
+<!--suppress JSUnresolvedVariable, XmlUnboundNsPrefix -->
+<html
+  lang = "en"
+  w-w = "full"
+  x-bind:class = "theme"
+  x-data = "global">
+  <head>
+    {{- $description := "Online portfolio of Tejal Shinde - Art Director" -}}
+    {{- $ogImage := printf "%simages/og.jpg" .Site.BaseURL -}}
+    {{- $title := .Site.Title -}}
+    {{- if not .IsHome -}}
+      {{- if eq (len .Section) 0 -}}
+        {{- $description = .Description -}}
+      {{- else -}}
+        {{- $description = printf "%s | Check out this and more such projects on the website." .Description -}}
+        {{- $ogImage = (.Page.Resources.GetMatch "assets/og.jpg").Permalink -}}
+      {{- end -}}
+      {{- $title = printf "%s | %s" .Title $title -}}
+    {{- end -}}
+    <link
+      href = "{{- (resources.Get "css/styles.css").RelPermalink -}}"
+      rel = "stylesheet"/>
+    <meta
+      charset = "utf-8"/>
+    <meta
+      content = "Tejal Shinde"
+      name = "author"/>
+    <meta
+      content = "{{- $description -}}"
+      name = "description"/>
+    <meta
+      content = "Hugo v{{- hugo.Version -}}"
+      name="generator"/>
+    <meta
+      content = "width=device-width,initial-scale=1.0"
+      name = "viewport"/>
+    <meta
+      content = "{{- $ogImage -}}"
+      property = "og:image"/>
+    <meta
+      content = "{{- printf "Open Graph cover for %s" .Title -}}"
+      property = "og:image:alt"/>
+    <meta
+      content = "630"
+      property = "og:image:height"/>
+    <meta
+      content = "image/jpeg"
+      property = "og:image:type"/>
+    <meta
+      content = "1200"
+      property = "og:image:width"/>
+    <meta
+      content = "{{- $title -}}"
+      property = "og:title"/>
+    <meta
+      content = "website"
+      property = "og:type"/>
+    <meta
+      content = "{{- .Permalink -}}"
+      property = "og:url"/>
+    <script
+      type = "application/ld+json">
+      {{- $homeSchema := dict "@type" "WebSite" "name" "Tejal Shinde" "url" .Site.BaseURL -}}
+      {{- $breadcrumbSchema := "" -}}
+      {{- $listHomeSchema := dict "@type" "ListItem" "item" .Site.BaseURL "name" "Tejal Shinde" "position" 1 -}}
+      {{- $listSectionSchema := "" -}}
+      {{- $finalSchema := "" -}}
+      {{- if .IsHome -}}
+        {{- $finalSchema = slice $homeSchema -}}
+      {{- else if or .IsSection (and .IsPage (eq .Section "")) -}}
+        {{- $listSectionSchema = dict "@type" "ListItem" "item" .Permalink "name" $title "position" 2 -}}
+        {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema) -}}
+        {{- $finalSchema = slice $homeSchema $breadcrumbSchema -}}
+      {{- else -}}
+        {{- $workPage := .Site.GetPage "/work" -}}
+        {{- $listSectionSchema = dict "@type" "ListItem" "item" $workPage.Permalink "name" (printf "%s | %s" $workPage.Title .Site.Title) "position" 2 -}}
+        {{- $listPostSchema := dict "@type" "ListItem" "item" .Permalink "name" $title "position" 3 -}}
+        {{- $breadcrumbSchema = dict "@type" "BreadcrumbList" "itemListElement" (slice $listHomeSchema $listSectionSchema $listPostSchema) -}}
+        {{- $postSchema := dict "@type" "BlogPosting" "author" (dict "@type" "Person" "name" "Tejal Shinde" "url" .Site.BaseURL) "description" $description "headline" $title "image" (.Resources.GetMatch (replace (index (.Resources.Match "assets/cover-low*") 0) "-low" "")).Permalink "mainEntityOfPage" (dict "@id" .Permalink "@type" "WebPage") "url" .Site.BaseURL -}}
+        {{- $finalSchema = slice $homeSchema $breadcrumbSchema $postSchema -}}
+      {{- end -}}
+      {{- dict "@context" "https://schema.org/" "@graph" $finalSchema -}}
+    </script>
+    <!--<style
+      lang = "windi">
+      @font-face {
+        font-display: swap;
+        font-family: 'Orbitron';
+        font-style: normal;
+        font-weight: 400 900;
+        src: url('/fonts/orbitron.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-display: swap;
+        font-family: 'Space Mono';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/spacemono-italic-400.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-display: swap;
+        font-family: 'Space Mono';
+        font-style: italic;
+        font-weight: 700;
+        src: url('/fonts/spacemono-italic-700.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-display: swap;
+        font-family: 'Space Mono';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/spacemono-regular-400.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-display: swap;
+        font-family: 'Space Mono';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/spacemono-regular-700.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>-->
+    <title>
+      {{- $title -}}
+    </title>
+  </head>
+  <body
+    w-bg = "light-700 dark:dark-700"
+    w-scrollbar = "thin thumb-light-900 track-dark-900 dark:thumb-dark-100 dark:track-light-900"
+    w-text = "dark-700 dark:light-700"
+    w-w = "full">
+    {{- partial "header.html" (dict "bg" (not .IsHome)) -}}
+    {{- block "main" . -}}
+    {{- end -}}
+    <script
+      src = "{{- (resources.Get "js/global.ts" | babel (dict "config" "babel.config.json") | js.Build (dict "minify" "true")).RelPermalink -}}">
+    </script>
+  </body>
+</html>

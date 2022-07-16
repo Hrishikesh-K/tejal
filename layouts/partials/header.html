@@ -1,0 +1,52 @@
+<!--suppress JSUnresolvedVariable, RequiredAttributes, XmlUnboundNsPrefix -->
+<header
+  w-align = "items-center"
+  w-flex = "~"
+  w-font = "orbitron"
+  w-h = "20"
+  w-justify = "between"
+  w-p = "5"
+  w-pos = "fixed left-0 top-0"
+  w-text = "lg"
+  w-w = "full"
+  w-z = "10"
+  {{- if .bg -}}
+    w-bg = "light-700 dark:dark-700"
+  {{- end -}}>
+  <div
+    w-aspect = "square"
+    w-h = "full">
+    <a
+      aria-label = "Back to home"
+      href = "/"
+      w-display = "block"
+      w-h = "full">
+      <svg
+        viewBox = "0 0 1000 1000"
+        w-h = "full"
+        w-svg = "fill-current stroke-none">
+        <path
+          d = "M537.5,957.8H243.7V420.3h50v487.5h193.8V420.3h293.8l0.4,537.5l-50,0l-0.4-487.5H537.5V957.8z M50,262.2H0v-220h1000v50H50 V262.2z"/>
+      </svg>
+    </a>
+  </div>
+  <button
+    aria-label = "Toggle theme"
+    w-aspect = "square"
+    w-bg = "dark-500 dark:light-500 hover:dark-100 hover:dark:light-900"
+    w-border = "rounded-md"
+    w-h = "full"
+    w-text = "light-700 dark:dark-700"
+    w-w = "10"
+    x-on:click = "toggleTheme">
+    <svg
+      viewBox = "0 0 24 24"
+      w-h = "5"
+      w-m = "x-auto"
+      w-svg = "fill-none stroke-2 stroke-current stroke-cap-round stroke-join-round"
+      w-w = "5">
+      <path
+        x-bind:d = "theme === 'dark' ? 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z' : 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z'"/>
+    </svg>
+  </button>
+</header>

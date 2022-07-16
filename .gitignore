@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.idea
+.hugo_build.lock
+jsconfig.json
+node_modules
+package-lock.json
+public
+resources
+styles.css

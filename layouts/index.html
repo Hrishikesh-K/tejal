@@ -1,0 +1,5 @@
+{{- define "main" -}}
+  <script
+    src = "{{- (resources.Get "js/pages/home.ts" | babel (dict "config" "babel.config.json") | js.Build (dict "minify" "true")).RelPermalink -}}">
+  </script>
+{{- end -}}

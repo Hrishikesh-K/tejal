@@ -1,0 +1,17 @@
+<div
+  {{ range .containerAttributes }}
+    {{ (printf "%s=%s" .name .value) | safeHTMLAttr }}
+  {{ end }}>
+  {{- $lowImage := index (.parent.Resources.Match (printf "assets/%s*" .imageName)) 0 -}}
+  {{- $originalImage := $.parent.Resources.GetMatch (replace $lowImage "-low" "") -}}
+  <img
+    alt = "{{- $originalImage.Title -}}"
+    data-lazy = "{{- $originalImage.RelPermalink -}}"
+    height = "{{- $originalImage.Height -}}"
+    src = "{{- $lowImage.RelPermalink -}}"
+    width = "{{- $originalImage.Width -}}"
+    w-object = "cover"
+    {{ range .imageAttributes }}
+      {{ (printf "%s=%s" .name .value) | safeHTMLAttr }}
+    {{ end }}/>
+</div>

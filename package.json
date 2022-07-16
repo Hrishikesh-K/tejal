@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/alpinejs": "^3.7.0",
+    "@types/masonry-layout": "^4.2.5",
+    "@types/node": "^18.0.5",
+    "@windicss/plugin-scrollbar": "^1.2.3",
+    "alpinejs": "^3.10.2",
+    "masonry-layout": "^4.2.2",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.7.4",
+    "windicss": "^3.5.6"
+  },
+  "scripts": {
+    "build": "run-s typecheck windicss:build hugo:build",
+    "dev": "run-p windicss:dev hugo:dev",
+    "hugo:build": "hugo",
+    "hugo:dev": "hugo server",
+    "typecheck": "tsc",
+    "windicss:build": "windicss --attributify --config ./windi.config.ts --output ./assets/css/styles.css --preflight --style",
+    "windicss:dev": "windicss --attributify --config ./windi.config.ts --dev --output ./assets/css/styles.css --preflight --style"
+  }
+}
